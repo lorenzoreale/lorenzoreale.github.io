@@ -3,6 +3,7 @@
 <head>
   <title>Lorenzo Reale</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -11,7 +12,20 @@
   </header>
 
   <div class="container">
-    
+    <pre>
+    <code class="language-sql">
+      -- SQL query 
+      SELECT (*)
+      FROM table
+      WHERE column=abc
+    </code>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-sql.min.js"></script>
+  <script>
+    // Initialize Prism.js
+    Prism.highlightAll();
+  </script>
+  </pre>
   </div>
 </body>
 </html>
