@@ -10,7 +10,8 @@
     <h1>Lorenzo Reale</h1>
     <p>Data Analysis Portfolio</p>
   </header>
-
+    <pre> 
+     <code class="language-sql">
   <div class="container">
    # Import data for each quarter
 q1_data <- read.csv("q1_bikeshare_data.csv")
@@ -102,7 +103,14 @@ combined_data %>%
   geom_bar() +
   labs(x = "Station ID", y = "Trip Count", title = "Trip Counts by Station") +
   theme_minimal()
-
+    </code> 
+ <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-sql.min.js"></script> 
+   <script> 
+     // Initialize Prism.js 
+     Prism.highlightAll(); 
+   </script> 
+   </pre>
 
   </div>
 </body>
