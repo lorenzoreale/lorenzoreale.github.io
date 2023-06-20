@@ -12,7 +12,98 @@
   </header>
 
   <div class="container">
-   R code here
+   # Import data for each quarter
+q1_data <- read.csv("q1_bikeshare_data.csv")
+q2_data <- read.csv("q2_bikeshare_data.csv")
+q3_data <- read.csv("q3_bikeshare_data.csv")
+q4_data <- read.csv("q4_bikeshare_data.csv")
+
+# Combine data from all quarters
+combined_data <- rbind(q1_data, q2_data, q3_data, q4_data)
+
+# Calculate average trip duration for each quarter
+avg_trip_duration <- aggregate(trip_duration_in_seconds ~ quarter_start, data = combined_data, FUN = mean)
+
+# Analyze trip count by station for each quarter
+station_trip_counts <- table(combined_data$from_station_id, combined_data$quarter_start)
+
+# Visualize trends in trip duration over each quarter
+library(ggplot2)
+ggplot(combined_data, aes(x = quarter_start, y = trip_duration_in_seconds)) +
+  geom_line() +
+  labs(x = "Quarter", y = "Trip Duration (Seconds)", title = "Trends in Trip Duration")
+
+# Visualize trip counts by station
+library(plotly)
+plot_ly(data = combined_data, x = ~from_station_id, color = ~quarter_start) %>%
+  add_histogram() %>%
+  layout(xaxis = list(title = "Station ID"), yaxis = list(title = "Trip Count"), 
+         title = "Trip Counts by Station")
+
+# Build a linear regression model to predict trip duration
+model <- lm(trip_duration_in_seconds ~ timestamp_trip_start + timestamp_trip_end + membership_customer, data = combined_data)
+
+# Get model summary
+summary(model)
+
+# Load required libraries for data viz
+library(ggplot2)
+
+# Import data for each quarter
+q1_data <- read.csv("q1_bikeshare_data.csv")
+q2_data <- read.csv("q2_bikeshare_data.csv")
+q3_data <- read.csv("q3_bikeshare_data.csv")
+q4_data <- read.csv("q4_bikeshare_data.csv")
+
+# Combine data from all quarters
+combined_data <- rbind(q1_data, q2_data, q3_data, q4_data)
+
+# Convert timestamp_trip_start column to Date format
+combined_data$timestamp_trip_start <- as.Date(combined_data$timestamp_trip_start)
+
+# Plot trends in trip duration over each quarter
+ggplot(combined_data, aes(x = timestamp_trip_start, y = trip_duration_in_seconds, color = quarter_start)) +
+  geom_line() +
+  labs(x = "Date", y = "Trip Duration (Seconds)", title = "Trends in Trip Duration") +
+  theme_minimal()
+
+# Plot trip counts by station
+ggplot(combined_data, aes(x = from_station_id, fill = quarter_start)) +
+  geom_bar() +
+  labs(x = "Station ID", y = "Trip Count", title = "Trip Counts by Station") +
+  theme_minimal()
+
+# Load required libraries
+library(tidyverse)
+
+# Import data for each quarter
+q1_data <- read.csv("q1_bikeshare_data.csv")
+q2_data <- read.csv("q2_bikeshare_data.csv")
+q3_data <- read.csv("q3_bikeshare_data.csv")
+q4_data <- read.csv("q4_bikeshare_data.csv")
+
+# Combine data from all quarters
+combined_data <- bind_rows(q1_data, q2_data, q3_data, q4_data)
+
+# Convert timestamp_trip_start column to Date format
+combined_data <- combined_data %>%
+  mutate(timestamp_trip_start = as.Date(timestamp_trip_start))
+
+# Plot trends in trip duration over each quarter
+combined_data %>%
+  ggplot(aes(x = timestamp_trip_start, y = trip_duration_in_seconds, color = quarter_start)) +
+  geom_line() +
+  labs(x = "Date", y = "Trip Duration (Seconds)", title = "Trends in Trip Duration") +
+  theme_minimal()
+
+# Plot trip counts by station
+combined_data %>%
+  ggplot(aes(x = from_station_id, fill = quarter_start)) +
+  geom_bar() +
+  labs(x = "Station ID", y = "Trip Count", title = "Trip Counts by Station") +
+  theme_minimal()
+
+
   </div>
 </body>
 </html>
