@@ -14,95 +14,86 @@
   <div class="container">
     <pre>
     <code class="language-sql">
-      -- SELECT statement with aliases and DISTINCT
-SELECT DISTINCT c.customer_id, c.first_name, c.last_name, o.order_date
-FROM customers c
-JOIN orders o ON c.customer_id = o.customer_id
-WHERE o.total_amount > 1000
-ORDER BY o.order_date DESC
-LIMIT 10;
-
--- Aggregate functions and GROUP BY
-SELECT p.product_category, COUNT(*) AS total_products, AVG(p.price) AS avg_price, MAX(p.price) AS max_price
-FROM products p
-GROUP BY p.product_category
-HAVING COUNT(*) > 10
-ORDER BY avg_price DESC;
-
--- Subquery and EXISTS
-SELECT c.customer_id, c.first_name, c.last_name
-FROM customers c
-WHERE EXISTS (
-    SELECT *
-    FROM orders o
-    WHERE o.customer_id = c.customer_id
-    AND o.order_date >= '2022-01-01'
-);
-
--- JOIN with multiple tables and table aliases
-SELECT c.first_name, c.last_name, o.order_date, p.product_name
-FROM customers c
-JOIN orders o ON c.customer_id = o.customer_id
-JOIN order_items oi ON o.order_id = oi.order_id
-JOIN products p ON oi.product_id = p.product_id
-WHERE c.city = 'New York'
-AND o.order_date BETWEEN '2022-01-01' AND '2022-12-31';
-
--- CASE statement for conditional logic
-SELECT order_id, order_date,
-    CASE
-        WHEN total_amount > 1000 THEN 'High'
-        WHEN total_amount > 500 THEN 'Medium'
-        ELSE 'Low'
-    END AS order_priority
-FROM orders;
-
--- Subquery with IN operator
-SELECT product_name, price
-FROM products
-WHERE product_id IN (
-    SELECT product_id
-    FROM order_items
-    WHERE order_id IN (
-        SELECT order_id
-        FROM orders
-        WHERE order_date >= '2023-01-01'
-    )
-);
-
--- Self JOIN and recursive queries
-WITH RECURSIVE employee_hierarchy AS (
-    SELECT employee_id, first_name, last_name, manager_id, 0 AS level
-    FROM employees
-    WHERE manager_id IS NULL
+-- Calculate the average trip duration for each quarter
+SELECT 
+    DATE_TRUNC('quarter', timestamp_trip_start) AS quarter_start,
+    AVG(trip_duration_in_seconds) AS average_trip_duration
+FROM 
+    (
+    SELECT * FROM q1_bikeshare_data
     UNION ALL
-    SELECT e.employee_id, e.first_name, e.last_name, e.manager_id, eh.level + 1
-    FROM employees e
-    JOIN employee_hierarchy eh ON e.manager_id = eh.employee_id
-)
-SELECT *
-FROM employee_hierarchy
-ORDER BY level, employee_id;
+    SELECT * FROM q2_bikeshare_data
+    UNION ALL
+    SELECT * FROM q3_bikeshare_data
+    UNION ALL
+    SELECT * FROM q4_bikeshare_data
+    ) AS combined_data
+GROUP BY 
+    quarter_start
+ORDER BY 
+    quarter_start;
 
--- Window functions and analytical queries
-SELECT product_id, product_name, price,
-    ROW_NUMBER() OVER (PARTITION BY product_category ORDER BY price) AS row_num,
-    RANK() OVER (PARTITION BY product_category ORDER BY price) AS rank_num,
-    DENSE_RANK() OVER (PARTITION BY product_category ORDER BY price) AS dense_rank_num,
-    MAX(price) OVER (PARTITION BY product_category) AS max_price
-FROM products;
-
--- Common table expression (CTE)
-WITH customer_orders AS (
-    SELECT c.customer_id, c.first_name, c.last_name, COUNT(o.order_id) AS total_orders
-    FROM customers c
-    JOIN orders o ON c.customer_id = o.customer_id
-    GROUP BY c.customer_id, c.first_name, c.last_name
-    HAVING COUNT(o.order_id) > 5
+-- Find the top 5 most popular stations for each quarter
+WITH station_counts AS (
+    SELECT 
+        from_station_id,
+        COUNT(*) AS trip_count,
+        DATE_TRUNC('quarter', timestamp_trip_start) AS quarter_start
+    FROM 
+        (
+        SELECT * FROM q1_bikeshare_data
+        UNION ALL
+        SELECT * FROM q2_bikeshare_data
+        UNION ALL
+        SELECT * FROM q3_bikeshare_data
+        UNION ALL
+        SELECT * FROM q4_bikeshare_data
+        ) AS combined_data
+    GROUP BY 
+        from_station_id, quarter_start
+),
+ranked_stations AS (
+    SELECT 
+        from_station_id,
+        trip_count,
+        quarter_start,
+        ROW_NUMBER() OVER (PARTITION BY quarter_start ORDER BY trip_count DESC) AS station_rank
+    FROM 
+        station_counts
 )
-SELECT customer_id, first_name, last_name, total_orders
-FROM customer_orders
-ORDER BY total_orders DESC;
+SELECT 
+    quarter_start,
+    from_station_id,
+    trip_count
+FROM 
+    ranked_stations
+WHERE 
+    station_rank <= 5
+ORDER BY 
+    quarter_start, station_rank;
+
+-- Calculate the percentage of trips made by members vs. non-members for each quarter
+SELECT 
+    DATE_TRUNC('quarter', timestamp_trip_start) AS quarter_start,
+    SUM(CASE WHEN membership_customer = 'Member' THEN 1 ELSE 0 END) AS member_trips,
+    SUM(CASE WHEN membership_customer = 'Non-Member' THEN 1 ELSE 0 END) AS non_member_trips,
+    COUNT(*) AS total_trips,
+    (SUM(CASE WHEN membership_customer = 'Member' THEN 1 ELSE 0 END) * 100.0) / COUNT(*) AS member_trip_percentage
+FROM 
+    (
+    SELECT * FROM q1_bikeshare_data
+    UNION ALL
+    SELECT * FROM q2_bikeshare_data
+    UNION ALL
+    SELECT * FROM q3_bikeshare_data
+    UNION ALL
+    SELECT * FROM q4_bikeshare_data
+    ) AS combined_data
+GROUP BY 
+    quarter_start
+ORDER BY 
+    quarter_start;
+
 
     </code>
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
