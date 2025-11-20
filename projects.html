@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | Lorenzo Reale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Lorenzo<span>.NET</span></a>
+      <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html" class="active">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="section-header">
+        <h1 class="page-title">Selected Work</h1>
+        <p class="page-intro">A mix of production systems for the Gas/Energy sector and technical labs.</p>
+      </div>
+
+      <!-- Production Work -->
+      <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;">Production & Enterprise</h3>
+      <div class="grid-3" style="margin-bottom: 4rem;">
+        <div class="card">
+          <h4>Control Room Data Feeds</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0;">
+            Designed 70+ optimized Azure SQL views to expose internal CMS data to an external control room platform.
+          </p>
+          <span class="tag">Azure SQL</span><span class="tag">Integration</span>
+        </div>
+        <div class="card">
+          <h4>Compliance Dashboard</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0;">
+            End-to-end Power BI solution tracking mandatory qualifications for field engineers.
+          </p>
+          <span class="tag">Power BI</span><span class="tag">DAX</span>
+        </div>
+      </div>
+
+      <!-- Lab / GitHub Work -->
+      <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;">Technical Labs & Open Source</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>.NET 8 REST API Starter</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0;">
+             A template for clean architecture APIs. Includes EF Core, JWT Auth, and Swagger.
+          </p>
+          <div style="margin-top: 1rem;">
+            <a href="#" style="text-decoration: underline; font-size: 0.9rem;">View on GitHub &rarr;</a>
+          </div>
+          <span class="tag">ASP.NET Core</span><span class="tag">C#</span>
+        </div>
+        <div class="card">
+          <h4>Azure CI/CD Pipeline Demo</h4>
+          <p style="font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0;">
+            Demonstrating automated deployment to Azure App Service using GitHub Actions.
+          </p>
+          <div style="margin-top: 1rem;">
+            <a href="#" style="text-decoration: underline; font-size: 0.9rem;">View on GitHub &rarr;</a>
+          </div>
+          <span class="tag">DevOps</span><span class="tag">YAML</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer><div class="container">&copy; <span id="year"></span> Lorenzo Reale.</div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

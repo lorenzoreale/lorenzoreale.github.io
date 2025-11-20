@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Lorenzo Reale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Lorenzo<span>.NET</span></a>
+      <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="section-header">
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="page-intro">Interested in working together? Drop me a line.</p>
+      </div>
+
+      <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center; padding: 4rem 2rem;">
+        <h3 style="margin-bottom: 1rem;">Email</h3>
+        <p style="color: var(--muted); margin-bottom: 2rem;">
+          The best way to reach me for contract inquiries or general questions.
+        </p>
+        <a href="mailto:your-email@example.com" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">
+          your-email@example.com
+        </a>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+          <h3 style="font-size: 1rem; margin-bottom: 1rem;">Socials</h3>
+          <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="#" class="btn btn-ghost">LinkedIn</a>
+            <a href="#" class="btn btn-ghost">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer><div class="container">&copy; <span id="year"></span> Lorenzo Reale.</div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
