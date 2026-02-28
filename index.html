@@ -1,71 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lorenzo Reale | Azure & .NET Consultant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorenzo Reale | Azure, .NET & Data Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="page">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav-left">
+            <a href="index.html" class="logo" aria-label="Home">LR</a>
+            <div>
+              <span class="nav-title">Lorenzo Reale</span>
+              <span class="nav-subtitle">Azure · .NET · Data</span>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <span style="opacity: 0.3;">|</span>
+            <a href="mypath.html" class="nav-special">My Path 🚀</a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="logo">Lorenzo<span>.NET</span></a>
-      <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <main>
+      <div class="container">
+        
+        <!-- HERO -->
+        <section id="top">
+          <div class="hero reveal">
+            <div>
+              <div class="hero-badge">
+                <div class="status-dot"></div>
+                Building robust systems on Azure
+              </div>
+              <h1>
+                Azure & <span class="gradient-text">.NET Developer</span><br />
+                with a data backbone.
+              </h1>
+              <p class="hero-subtitle">
+                I'm Lorenzo. I bridge the gap between messy <strong>field operations data</strong> 
+                and clean, scalable <strong>enterprise cloud software</strong>.
+              </p>
+              <div class="hero-actions">
+                <a href="#about" class="btn btn-primary">Get in touch</a>
+                <a href="mypath.html" class="btn btn-ghost" style="color: var(--accent); border-color: rgba(56, 189, 248, 0.4);">View My Roadmap &rarr;</a>
+              </div>
+              <div class="hero-stack">
+                <span class="stack-tag">C#</span>
+                <span class="stack-tag">ASP.NET Core</span>
+                <span class="stack-tag">Azure SQL</span>
+                <span class="stack-tag">Power BI</span>
+              </div>
+            </div>
 
-  <main>
-    <div class="container">
-      <!-- Hero -->
-      <section style="padding: 4rem 0; text-align: left;">
-        <span class="tag" style="margin-bottom: 1rem;">Available for Freelance & Contracts</span>
-        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem;">
-          Azure & <span class="gradient-text">.NET Engineer</span><br>
-          with a Data Backbone.
-        </h1>
-        <p style="font-size: 1.2rem; color: var(--muted); max-width: 600px; margin-bottom: 2rem;">
-          I help operationally-heavy businesses build robust internal tools and clean data pipelines.
-          Moving your data from "messy spreadsheets" to "governed systems."
-        </p>
-        <div style="display: flex; gap: 1rem;">
-          <a href="services.html" class="btn btn-primary">See How I Help</a>
-          <a href="projects.html" class="btn btn-ghost">View Projects</a>
-        </div>
-      </section>
+            <aside class="focus-card">
+              <div class="focus-header">
+                <div>
+                  <div class="focus-label">Current Focus</div>
+                  <div style="color:#fff; margin-top:0.25rem; font-weight:500;">Enterprise Cloud Track</div>
+                </div>
+                <span class="focus-year">2025</span>
+              </div>
+              <div class="focus-content">
+                <p style="font-size:0.9rem; color:#94a3b8; margin-bottom:1rem;">
+                  Using my role in the UK infrastructure sector as a deliberate launchpad to build production systems.
+                </p>
+                <ul>
+                  <li>APIs on top of Azure-hosted data</li>
+                  <li>Operational dashboards for large projects</li>
+                  <li>Secure data views for field operations</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </section>
 
-      <!-- Quick Stack -->
-      <section style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
-        <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem;">CORE TECH STACK</p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <span style="color: #fff; font-weight: 500;">C# / .NET 8</span>
-          <span style="color: var(--muted);">•</span>
-          <span style="color: #fff; font-weight: 500;">Azure App Service</span>
-          <span style="color: var(--muted);">•</span>
-          <span style="color: #fff; font-weight: 500;">SQL & EF Core</span>
-          <span style="color: var(--muted);">•</span>
-          <span style="color: #fff; font-weight: 500;">Power BI</span>
-        </div>
-      </section>
-    </div>
-  </main>
+        <!-- ABOUT & CONTACT -->
+        <section id="about" class="reveal">
+          <div class="section-header">
+            <h2 class="section-title">About & Contact</h2>
+            <p class="section-intro">From data analytics to Azure-powered enterprise engineering.</p>
+          </div>
+          <div class="about-grid">
+            <div class="text-block">
+              <p>
+                My background lies in data analytics and business intelligence within the large-scale infrastructure sector. By working closely with operational teams and field data capture systems, I developed a deep understanding of how raw data translates into business value.
+              </p>
+              <p>
+                Today, my focus is entirely on backend engineering. I build the REST APIs, SQL databases, and cloud infrastructure that power internal reporting and operational tools, effectively bridging the gap between raw data collection and executive dashboards.
+              </p>
+            </div>
+            <div class="focus-card" style="text-align: center; padding: 2rem;">
+              <h3 style="color: #fff; margin-bottom: 1rem;">Let's Connect</h3>
+              <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                Open to discussing cloud architecture, data models, or .NET APIs.
+              </p>
+              <a class="btn btn-primary" href="mailto:hello@lorenzoreale.dev" style="width: 100%; margin-bottom: 1rem;">hello@lorenzoreale.dev</a>
+              <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                <a class="btn btn-ghost" href="#" style="flex: 1;">LinkedIn</a>
+                <a class="btn btn-ghost" href="#" style="flex: 1;">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-  <footer>
-    <div class="container">
-      &copy; <span id="year"></span> Lorenzo Reale.
-    </div>
-  </footer>
+        <!-- SERVICES -->
+        <section id="services" class="reveal">
+          <div class="section-header">
+            <h2 class="section-title">Core Focus Areas</h2>
+            <p class="section-intro">Where data analytics meets rigorous software engineering.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Cloud Data Modeling</h3>
+              <p>Transforming raw operational inputs into structured, trustworthy databases ready for enterprise reporting.</p>
+              <div class="card-tags"><span class="tag">Azure SQL</span><span class="tag">Data Governance</span></div>
+            </article>
+            <article class="card">
+              <h3>Backend Engineering</h3>
+              <p>Building robust APIs and services that sit on top of existing data platforms to power modern applications.</p>
+              <div class="card-tags"><span class="tag">.NET 8</span><span class="tag">C#</span></div>
+            </article>
+            <article class="card">
+              <h3>Business Intelligence</h3>
+              <p>Designing clear, actionable dashboards that translate complex datasets into insights for stakeholders.</p>
+              <div class="card-tags"><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+            </article>
+          </div>
+        </section>
 
+        <!-- PROJECTS -->
+        <section id="projects" class="reveal">
+          <div class="section-header">
+            <h2 class="section-title">Selected Work</h2>
+            <p class="section-intro">Showcase of enterprise systems and architectural implementations.</p>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                <h3 style="color: #38bdf8; margin: 0;">Enterprise Data API</h3>
+                <span style="font-size: 0.7rem; color: #9ca3af; border: 1px solid #374151; padding: 0.1rem 0.5rem; border-radius: 99px;">Internal</span>
+              </div>
+              <p>A secure RESTful API built to bridge the gap between field data collection systems and internal management dashboards.</p>
+              <div class="card-tags"><span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">EF Core</span></div>
+            </article>
+            <article class="card">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                <h3 style="color: #a855f7; margin: 0;">Operational Data Views</h3>
+                <span style="font-size: 0.7rem; color: #9ca3af; border: 1px solid #374151; padding: 0.1rem 0.5rem; border-radius: 99px;">Cloud</span>
+              </div>
+              <p>A suite of optimized database views and Power BI integrations designed to provide real-time metrics for control room monitoring.</p>
+              <div class="card-tags"><span class="tag">Azure SQL</span><span class="tag">T-SQL</span><span class="tag">Power BI</span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="reveal">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-intro">The core technologies and practices I work with daily.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3 style="color: #38bdf8; margin-bottom: 0.8rem;">Backend & APIs</h3>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Building robust and secure connectivity layers.</p>
+              <div class="card-tags"><span class="tag">C#</span><span class="tag">.NET 8</span><span class="tag">ASP.NET Core</span></div>
+            </article>
+            <article class="card">
+              <h3 style="color: #a855f7; margin-bottom: 0.8rem;">Data & Cloud</h3>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Hosting, modelling and visualizing operational data.</p>
+              <div class="card-tags"><span class="tag">Azure SQL</span><span class="tag">T-SQL</span><span class="tag">Power BI</span></div>
+            </article>
+            <article class="card">
+              <h3 style="color: #22c55e; margin-bottom: 0.8rem;">Tools & Workflow</h3>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Practices for maintaining high-quality codebases.</p>
+              <div class="card-tags"><span class="tag">Git / GitHub</span><span class="tag">Azure DevOps</span><span class="tag">CI/CD</span></div>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        &copy; <span id="year"></span> Lorenzo Reale. Engineering robust cloud systems.
+      </div>
+    </footer>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
