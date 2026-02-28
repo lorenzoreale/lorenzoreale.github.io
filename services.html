@@ -1,89 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | Lorenzo Reale</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="logo">Lorenzo<span>.NET</span></a>
-      <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="projects.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-      <div class="section-header">
-        <h1 class="page-title">Services</h1>
-        <p class="page-intro">
-          I bridge the gap between data analytics and software engineering. 
-          I build the engines (APIs) and the dashboards (BI) that keep operations running.
-        </p>
+  <div class="page">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav-left">
+            <a href="index.html" class="logo" aria-label="Home">LR</a>
+            <div>
+              <span class="nav-title">Lorenzo Reale</span>
+              <span class="nav-subtitle">Azure · .NET · Data</span>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About & Contact</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="projects.html">Projects</a>
+            <span style="opacity: 0.3;">|</span>
+            <a href="mypath.html" class="nav-special">My Path 🚀</a>
+          </div>
+        </nav>
       </div>
+    </header>
 
-      <div class="grid-3">
-        <!-- Service 1 -->
-        <div class="card">
-          <h3>Internal Tools & API Development</h3>
-          <p style="margin: 1rem 0; color: var(--muted);">
-            Replacing legacy spreadsheets and manual processes with secure .NET APIs and web interfaces.
-          </p>
-          <ul style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">
-            <li>✓ REST API Design (ASP.NET Core)</li>
-            <li>✓ CMS Integration</li>
-            <li>✓ Secure Data Entry Forms</li>
-            <li>✓ Azure App Service Deployment</li>
-          </ul>
-        </div>
+    <main>
+      <div class="container">
+        <section class="reveal">
+          <div class="section-header">
+            <h1 class="section-title">Core Focus Areas</h1>
+            <p class="section-intro">Where data analytics meets rigorous software engineering.</p>
+          </div>
+          
+          <div class="grid-3">
+            <article class="card">
+              <h3>Cloud Data Modeling</h3>
+              <p>Transforming raw operational inputs into structured, trustworthy databases ready for enterprise reporting.</p>
+              <div class="card-tags"><span class="tag">Azure SQL</span><span class="tag">Data Governance</span></div>
+            </article>
 
-        <!-- Service 2 -->
-        <div class="card">
-          <h3>Data Engineering & BI</h3>
-          <p style="margin: 1rem 0; color: var(--muted);">
-            Ensuring your data is clean, structured, and visualised correctly for decision makers.
-          </p>
-          <ul style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">
-            <li>✓ Azure SQL Modeling</li>
-            <li>✓ Power BI Dashboards</li>
-            <li>✓ Data Quality Audits</li>
-            <li>✓ Control Room Views</li>
-          </ul>
-        </div>
+            <article class="card">
+              <h3>Backend Engineering</h3>
+              <p>Building robust APIs and services that sit on top of existing data platforms to power modern applications.</p>
+              <div class="card-tags"><span class="tag">.NET 8</span><span class="tag">C#</span></div>
+            </article>
 
-        <!-- Service 3 -->
-        <div class="card">
-          <h3>Cloud Migration & DevOps</h3>
-          <p style="margin: 1rem 0; color: var(--muted);">
-            Setting up the infrastructure so your tools don't break when you scale.
-          </p>
-          <ul style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">
-            <li>✓ CI/CD Pipelines (GitHub/Azure DevOps)</li>
-            <li>✓ Database Migrations (EF Core)</li>
-            <li>✓ Monitoring & Alerts</li>
-          </ul>
-        </div>
+            <article class="card">
+              <h3>Business Intelligence</h3>
+              <p>Designing clear, actionable dashboards that translate complex datasets into insights for stakeholders.</p>
+              <div class="card-tags"><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+            </article>
+          </div>
+        </section>
       </div>
+    </main>
 
-      <div style="margin-top: 4rem; padding: 3rem; background: rgba(56, 189, 248, 0.1); border-radius: var(--radius-lg); text-align: center;">
-        <h2 style="margin-bottom: 1rem;">Have a project in mind?</h2>
-        <p style="color: #ccc; margin-bottom: 2rem;">I'm currently open to discussing contract opportunities for Q3/Q4.</p>
-        <a href="contact.html" class="btn btn-primary">Let's Talk</a>
+    <footer>
+      <div class="container">
+        &copy; <span id="year"></span> Lorenzo Reale. Engineering robust cloud systems.
       </div>
-    </div>
-  </main>
-
-  <footer><div class="container">&copy; <span id="year"></span> Lorenzo Reale.</div></footer>
+    </footer>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
