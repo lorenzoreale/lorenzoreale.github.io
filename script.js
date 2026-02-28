@@ -1,19 +1,24 @@
-// 1. Update Year
-document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("year");
+  if(yearEl) {
+    yearEl.textContent = new Date().getFullYear().toString();
+  }
 
-// 2. Mobile Menu Toggle
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('open');
-}
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -40px 0px"
+  };
 
-// 3. (Optional) Highlights active link if you visit directly
-// This adds the 'active' class based on the current URL if it's missing in HTML
-const currentPath = window.location.pathname.split('/').pop();
-const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
 
-navLinks.forEach(link => {
-    if(link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
-    }
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
 });
