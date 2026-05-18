@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Roadmap | Lorenzo Reale</title>
+  <title>From Data to Full-Stack | Lorenzo Reale</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="The engineering foundation behind Lorenzo Reale's .NET and Power BI consulting practice — from regulated data environments to full-stack Azure delivery.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,12 +15,19 @@
       <div class="container">
         <nav class="nav">
           <div class="nav-left">
-            <a href="index.html" class="logo" aria-label="Home">LR</a>
+            <a href="index.html" class="logo" aria-label="Home"><img src="favicon.png" alt="Lorenzo Reale" /></a>
             <div>
               <span class="nav-title">Lorenzo Reale</span>
               <span class="nav-subtitle">Azure · .NET · Data</span>
             </div>
           </div>
+          <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
           <div class="nav-links">
             <a href="index.html#about">About</a>
             <a href="index.html#services">Services</a>
@@ -33,79 +42,83 @@
 
     <main>
       <div class="container">
-        
         <section class="reveal">
           <div class="section-header">
-            <div class="hero-badge" style="margin-bottom: 1rem;"><div class="status-dot"></div>Curriculum</div>
-            <h1 class="section-title" style="font-size: 2.5rem; color: #fff; text-transform: none; letter-spacing: normal;">The Engineering Roadmap</h1>
-            <p class="section-intro">A structured architectural blueprint tracking my transition from data consumer to Azure software architect.</p>
+            <div class="hero-badge" style="margin-bottom: 1.25rem;">
+              <div class="status-dot"></div>
+              Background &amp; Approach
+            </div>
+            <h1 style="font-size: clamp(1.9rem, 4.5vw, 2.6rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15;">
+              From Data to Full-Stack.
+            </h1>
+            <p class="section-intro" style="font-size: 1.05rem; line-height: 1.7; max-width: 640px;">
+              I didn't come to .NET from a bootcamp. I came from years of fighting bad data in regulated infrastructure environments &mdash; which is why the applications I build don't ship on top of fragile pipelines.
+            </p>
           </div>
 
-          <div class="timeline reveal" style="max-width: 800px;">
-            
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="timeline-role" style="color: #38bdf8;">Phase 1</span>
-              </div>
-              <div class="timeline-desc">
-                <h3 style="font-size: 1.2rem; color: #e5e7eb; margin-bottom: 0.5rem;">The Logic Engine</h3>
-                <p>Translating BI logic into raw C# software engineering concepts.</p>
-                <ul class="task-bullets">
-                  <li><strong>C# Fundamentals:</strong> Types, control flow, memory management, and asynchronous programming (async/await).</li>
-                  <li><strong>Object-Oriented Design:</strong> Inheritance, interfaces, and Dependency Injection for testable code.</li>
-                  <li><strong>Advanced LINQ:</strong> Complex projections and dataset manipulation.</li>
-                </ul>
-              </div>
-            </article>
+          <div class="roadmap reveal">
 
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="timeline-role" style="color: #38bdf8;">Phase 2</span>
+            <div class="phase-card">
+              <div class="phase-dot done"></div>
+              <div>
+                <div class="phase-kicker">01 &middot; Foundation</div>
+                <div class="phase-title">Data Engineering</div>
+                <div class="phase-desc">
+                  Years inside regulated infrastructure delivery &mdash; Power BI, T-SQL and Azure data architecture for leadership reporting. Bad data is an engineering failure upstream, not a reporting problem downstream.
+                </div>
               </div>
-              <div class="timeline-desc">
-                <h3 style="font-size: 1.2rem; color: #e5e7eb; margin-bottom: 0.5rem;">Architecture & Data</h3>
-                <p>Building the core databases and scalable APIs.</p>
-                <ul class="task-bullets">
-                  <li><strong>Relational DBs:</strong> T-SQL, normalization, and performance profiling on Azure SQL.</li>
-                  <li><strong>EF Core:</strong> Code-First data access, migrations, and repository patterns.</li>
-                  <li><strong>Web APIs:</strong> Designing secure RESTful endpoints and middleware pipelines.</li>
-                </ul>
-              </div>
-            </article>
+              <span class="phase-badge badge-step">Foundation</span>
+            </div>
 
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="timeline-role" style="color: #38bdf8;">Phase 3</span>
+            <div class="phase-card">
+              <div class="phase-dot done"></div>
+              <div>
+                <div class="phase-kicker">02 &middot; Discipline</div>
+                <div class="phase-title">Software Engineering</div>
+                <div class="phase-desc">
+                  ASP.NET Core, Blazor and Entity Framework Core. Clean Architecture and SOLID as defaults, not aspirations &mdash; APIs designed to be testable, debuggable, and quietly handed over.
+                </div>
               </div>
-              <div class="timeline-desc">
-                <h3 style="font-size: 1.2rem; color: #e5e7eb; margin-bottom: 0.5rem;">The Web Interface</h3>
-                <p>Building interactive web modules for operational teams.</p>
-                <ul class="task-bullets">
-                  <li><strong>Modern Web:</strong> Responsive UI components using semantic HTML and CSS Grid/Flexbox.</li>
-                  <li><strong>Blazor Architecture:</strong> Building SPAs with C# and managing component lifecycle.</li>
-                  <li><strong>API Integration:</strong> Handling asynchronous data streams within the client app.</li>
-                </ul>
-              </div>
-            </article>
+              <span class="phase-badge badge-step">Discipline</span>
+            </div>
 
-            <article class="timeline-item">
-              <div class="timeline-meta">
-                <span class="timeline-role" style="color: #a855f7;">Phase 4</span>
+            <div class="phase-card">
+              <div class="phase-dot done"></div>
+              <div>
+                <div class="phase-kicker">03 &middot; Delivery</div>
+                <div class="phase-title">Cloud on Azure</div>
+                <div class="phase-desc">
+                  End-to-end Azure deployment with CI/CD pipelines, security patterns and structured monitoring. Applications that ship into production and stay there &mdash; without weekend pages.
+                </div>
               </div>
-              <div class="timeline-desc">
-                <h3 style="font-size: 1.2rem; color: #e5e7eb; margin-bottom: 0.5rem;">Enterprise & Cloud</h3>
-                <p>Securing applications and handling automated deployments on Microsoft Azure.</p>
-                <ul class="task-bullets">
-                  <li><strong>Security:</strong> Implementing Managed Identities, Azure Key Vault, and RBAC for zero-trust access.</li>
-                  <li><strong>Cloud Infra:</strong> Scalable environments using Azure App Services and Azure SQL.</li>
-                  <li><strong>CI/CD:</strong> Automating build/release with GitHub Actions and Azure DevOps.</li>
-                </ul>
+              <span class="phase-badge badge-step">Delivery</span>
+            </div>
+
+            <div class="phase-card now">
+              <div class="phase-dot now"></div>
+              <div>
+                <div class="phase-kicker">04 &middot; Practice</div>
+                <div class="phase-title">Independent B2B Consulting</div>
+                <div class="phase-desc">
+                  Remote-first engagements across EU and UK markets. Direct contracts, end-to-end ownership, no agency overhead &mdash; Power BI analytics and .NET applications delivered by the same engineer.
+                </div>
               </div>
-            </article>
+              <span class="phase-badge badge-now">Now &middot; 2026</span>
+            </div>
 
           </div>
+
+          <div class="thesis reveal">
+            <div class="thesis-kicker">Why this matters for you</div>
+            <p>
+              Most .NET developers can't read a fact table. Most Power BI specialists can't ship a Clean Architecture API. <strong>I sit at that intersection on purpose.</strong>
+            </p>
+            <p>
+              You get one engineer accountable for the whole vertical &mdash; the SQL layer, the .NET application sitting on top, the Azure environment it runs in, and the Power BI surface leadership actually reads. No handoffs, no integration gaps, no finger-pointing between specialists.
+            </p>
+          </div>
+
         </section>
-
       </div>
     </main>
 
@@ -115,7 +128,6 @@
       </div>
     </footer>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
