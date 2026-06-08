@@ -1,296 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+  HERO HEADLINE - three options in register (technical, domain-aware, never aspirational).
+  Currently using option 1. Swap the <h1> text to compare.
+    1. Power BI for operations where the numbers have to hold.
+    2. Decision-grade analytics, built from the data layer up.
+    3. Operational reporting for regulated utilities and infrastructure.
+-->
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lorenzo Reale | .NET & Power BI Developer</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="description" content="Lorenzo Reale: .NET and Power BI Developer delivering Azure-integrated applications and enterprise analytics across EU and UK markets.">
-  <meta property="og:title" content="Lorenzo Reale | .NET & Azure Engineering">
-  <meta property="og:description" content="Bridging the gap between operational data and scalable cloud applications.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+
+  <title>Lorenzo Reale - Power BI consultant for regulated utilities</title>
+  <meta name="description" content="Independent Power BI consultant for regulated utilities, infrastructure and operational data. Semantic modelling, DAX and a dependable data layer, delivered remote-first across the EU and UK." />
+  <link rel="canonical" href="https://lorenzoreale.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lorenzo Reale" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:url" content="https://lorenzoreale.com/" />
+  <meta property="og:title" content="Lorenzo Reale - Power BI consultant for regulated utilities" />
+  <meta property="og:description" content="Power BI for operational data that has to be right. Regulated utilities, infrastructure and compliance reporting. Remote-first across the EU and UK." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/home.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Lorenzo Reale - Power BI consultant for regulated utilities" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/home.png" />
+  <meta name="twitter:title" content="Lorenzo Reale - Power BI consultant for regulated utilities" />
+  <meta name="twitter:description" content="Power BI for operational data that has to be right. Regulated utilities, infrastructure and compliance reporting. Remote-first across the EU and UK." />
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts: Inter (body) + Space Grotesk (display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="page">
-    <header>
+    <header class="site-header">
       <div class="container">
-        <nav class="nav">
-          <div class="nav-left">
-            <a href="index.html" class="logo" aria-label="Home"><img src="favicon.png" alt="Lorenzo Reale" /></a>
-            <div>
-              <span class="nav-title">Lorenzo Reale</span>
-              <span class="nav-subtitle">Power BI · Azure · .NET · Data</span>
-            </div>
-          </div>
-          <button class="mobile-menu-btn" aria-label="Toggle menu">
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
+        <nav class="nav" aria-label="Primary">
+          <a href="/" class="brand" aria-label="Lorenzo Reale - home">
+            <!-- Logo mark (gold "L") is toggled in style.css via the .brand::before rule -
+                 currently LIVE (option B). Delete that rule to revert to wordmark-only (option A). -->
+            <span class="brand-text">
+              <span class="brand-name">Lorenzo Reale</span>
+              <span class="brand-tag">Power BI · Regulated industries</span>
+            </span>
+          </a>
+
+          <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
-          <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <span style="opacity: 0.3;">|</span>
-            <a href="mypath.html" class="nav-special">My Path 🚀</a>
+
+          <div class="nav-links" id="nav-links">
+            <a href="/services/">Services</a>
+            <!-- CASE-STUDIES-HIDDEN: re-enable by uncommenting this link. See CLAUDE.md.
+            <a href="/case-studies/">Case Studies</a>
+            -->
+            <a href="/contact/">Contact</a>
           </div>
         </nav>
       </div>
     </header>
 
-    <main>
-      <div class="container">
-
-        <!-- HERO -->
-        <section id="top">
-          <div class="hero reveal">
-            <div>
-              <div class="hero-badge">
-                <div class="status-dot"></div>
-                Available for EU & UK B2B Contracts
-              </div>
-              <h1>
-                Enterprise Azure &<br /><span class="gradient-text">Data Engineering.</span>
-              </h1>
-              <p class="hero-subtitle">
-                I bridge the gap between complex <strong>operational data</strong>
-                and scalable <strong>cloud-integrated applications</strong>. From T-SQL architecture and Power BI analytics to full-stack .NET development on Azure.
-              </p>
-              <div class="hero-actions">
-                <a href="mailto:hello@lorenzoreale.dev" class="btn btn-primary">Discuss a Project</a>
-                <a href="#services" class="btn btn-ghost">View Services</a>
-              </div>
-              <div class="hero-stack">
-                <span class="stack-tag">C# / .NET</span>
-                <span class="stack-tag">Azure Cloud</span>
-                <span class="stack-tag">Power BI</span>
-                <span class="stack-tag">T-SQL</span>
-              </div>
-            </div>
-
-            <aside class="focus-card">
-              <div class="focus-header">
-                <div>
-                  <div class="focus-label">Operating Model</div>
-                  <div style="color:#fff; margin-top:0.25rem; font-weight:500;">EU & UK B2B Coverage</div>
-                </div>
-                <span class="focus-year">B2B</span>
-              </div>
-              <div class="focus-content">
-                <p style="font-size:0.9rem; color:#94a3b8; margin-bottom:1rem;">
-                  Independent B2B consultant delivering technical solutions remotely to enterprise clients across EU and UK markets.
-                </p>
-                <ul>
-                  <li>End-to-End Project Ownership</li>
-                  <li>Remote-First Delivery</li>
-                  <li>EU & UK Contract Structures</li>
-                </ul>
-              </div>
-            </aside>
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <h1 class="hero-title">Power BI for operations where the numbers have to hold.</h1>
+          <p class="hero-lede">
+            Independent Power BI consultant for regulated utilities, infrastructure and
+            operational data. Remote-first delivery across the EU and UK.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:lorenzo@lorenzoreale.com">Discuss a project</a>
+            <!-- CASE-STUDIES-HIDDEN: secondary CTA repointed to Services while Case Studies is hidden.
+                 Original link: href="/case-studies/" with label "View case studies". See CLAUDE.md. -->
+            <a class="btn btn-ghost" href="/services/">View services</a>
           </div>
-        </section>
+          <ul class="hero-stack" aria-label="Core stack">
+            <li>Power BI</li>
+            <li>DAX</li>
+            <li>Power Query</li>
+            <li>T-SQL</li>
+            <li>Azure SQL</li>
+          </ul>
+        </div>
+      </section>
 
-        <!-- ABOUT & CONTACT -->
-        <section id="about" class="reveal">
-          <div class="section-header">
-            <h2 class="section-title">About & Contact</h2>
-            <p class="section-intro">Engineering robust cloud solutions for complex operational data.</p>
+      <!-- APPROACH -->
+      <section class="section" aria-labelledby="approach-title">
+        <div class="container measure reveal">
+          <p class="kicker">Approach</p>
+          <h2 class="section-title" id="approach-title">Good reporting starts long before the dashboard.</h2>
+          <div class="prose">
+            <p>
+              Most reporting problems aren't reporting problems. When operational numbers
+              don't reconcile, the cause is usually upstream, in how the data was captured,
+              modelled and moved, long before it ever reached Power BI.
+            </p>
+            <p>
+              So I start at the data layer. I work in regulated utilities, gas distribution
+              and infrastructure delivery, where operational KPIs and compliance figures have
+              to be <strong>defensible, not just presentable</strong>.
+            </p>
+            <p>
+              That means semantic models that hold their logic, DAX you can audit, and a SQL
+              foundation that won't quietly drift. Building the dashboard is the easy part,
+              and the last.
+            </p>
           </div>
-          <div class="about-grid">
-            <div class="text-block">
-              <p>
-                Years of delivering analytics for large-scale infrastructure projects taught me a vital lesson: <strong>bad data is an engineering failure, not a reporting problem.</strong>
-              </p>
-              <p>
-                You cannot build accurate leadership dashboards on top of fragile data collection. That is why I take ownership of the entire pipeline. I build the custom .NET applications that capture data accurately, the Azure infrastructure that secures and structures it, and the Power BI ecosystems that translate it into business strategy.
-              </p>
-              <p>
-                I partner directly with enterprise clients across the EU and UK, providing top-tier technical execution without the overhead of traditional agency models.
-              </p>
-            </div>
+        </div>
+      </section>
 
-            <div class="focus-card" style="text-align: center; padding: 2rem;">
-              <h3 style="color: #fff; margin-bottom: 1rem;">Let's Connect</h3>
-              <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                Open to discussing .NET development, Power BI or Azure data architecture.
-              </p>
-              <a class="btn btn-primary" href="mailto:hello@lorenzoreale.dev" style="width: 100%; margin-bottom: 1rem;">hello@lorenzoreale.dev</a>
-              <div style="display: flex; gap: 0.5rem; justify-content: center;">
-                <a class="btn btn-ghost" href="https://linkedin.com/in/lorenzoreale" target="_blank" style="flex: 1;">LinkedIn</a>
-                <a class="btn btn-ghost" href="https://github.com/lorenzoreale" target="_blank" style="flex: 1;">GitHub</a>
-              </div>
-            </div>
+      <!-- SERVICES PREVIEW -->
+      <section class="section" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="kicker">Services</p>
+            <h2 id="services-title">Three layers, one dependable reporting stack.</h2>
+            <p class="section-intro">
+              From the SQL foundation to the dashboard and the automation around it. Taken on
+              as one coherent piece of work, or wherever you need a gap closed.
+            </p>
           </div>
-        </section>
 
-        <!-- SERVICES -->
-        <section id="services" class="reveal">
-          <div class="section-header">
-            <h2 class="section-title">Services</h2>
-            <p class="section-intro">Where operational data meets scalable software engineering.</p>
-          </div>
-          <div class="grid-3">
-
-            <article class="card">
-              <h3 style="color: #38bdf8;">Power BI & Analytics</h3>
-              <p>End-to-end Power BI solutions — from data modelling and DAX to deployment and governance. Turning complex operational datasets into executive-grade dashboards.</p>
+          <div class="cards reveal">
+            <article class="card card--link">
+              <h3 class="card-title"><a class="stretched" href="/services/#power-bi">Power BI, end to end</a></h3>
+              <p class="card-desc">
+                Semantic models, DAX and Power Query built to hold up in production, then
+                deployed and governed so they stay that way.
+              </p>
               <div class="card-tags">
                 <span class="tag">Power BI</span>
                 <span class="tag">DAX</span>
                 <span class="tag">Power Query</span>
-                <span class="tag">Azure SQL</span>
+                <span class="tag">Governance</span>
               </div>
+              <span class="card-more" aria-hidden="true">Learn more <span class="arrow">→</span></span>
             </article>
 
-            <article class="card">
-              <h3 style="color: #a855f7;">.NET & Azure Development</h3>
-              <p>Full-stack web applications built with ASP.NET Core and Blazor, following Clean Architecture principles. API design, authentication and Azure deployment.</p>
-              <div class="card-tags">
-                <span class="tag">C# / .NET</span>
-                <span class="tag">Blazor</span>
-                <span class="tag">REST APIs</span>
-                <span class="tag">Azure</span>
-              </div>
-            </article>
-
-            <article class="card">
-              <h3 style="color: #34d399;">Data Infrastructure & SQL</h3>
-              <p>Designing and optimising production-grade SQL data layers on Azure. From T-SQL query engineering to standardised data warehouse integration and ETL pipelines.</p>
+            <article class="card card--link">
+              <h3 class="card-title"><a class="stretched" href="/services/#data-layer">Data layer engineering</a></h3>
+              <p class="card-desc">
+                The foundation under the report. T-SQL, query optimisation and clean warehouse
+                integration, so the numbers are right before they reach the model.
+              </p>
               <div class="card-tags">
                 <span class="tag">T-SQL</span>
-                <span class="tag">Azure SQL</span>
-                <span class="tag">Data Modelling</span>
-                <span class="tag">ETL</span>
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="reveal">
-          <div class="section-header">
-            <h2 class="section-title">Selected Work</h2>
-            <p class="section-intro">Systems designed for high integrity and operational scale.</p>
-          </div>
-          <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-
-            <article class="card">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem;">
-                <h3 style="color: #38bdf8; margin: 0;">Field Operations Scheduler</h3>
-                <span style="font-size: 0.7rem; color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); padding: 0.1rem 0.5rem; border-radius: 99px; white-space: nowrap; margin-left: 0.5rem;">In Development</span>
-              </div>
-              <p>Full-stack web application managing field team schedules and subcontractor assignments. Structured following Clean Architecture with JWT authentication and Azure deployment.</p>
-              <div class="card-tags">
-                <span class="tag">ASP.NET Core</span>
-                <span class="tag">Blazor</span>
                 <span class="tag">SQL Server</span>
-                <span class="tag">Azure</span>
-              </div>
-            </article>
-
-            <article class="card">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem;">
-                <h3 style="color: #a855f7; margin: 0;">Compliance & Training Tracker</h3>
-                <span style="font-size: 0.7rem; color: #9ca3af; border: 1px solid #374151; padding: 0.1rem 0.5rem; border-radius: 99px; white-space: nowrap; margin-left: 0.5rem;">Planned</span>
-              </div>
-              <p>Personnel certification and compliance management system. Integrates workforce records with training qualifications to automate regulatory compliance monitoring.</p>
-              <div class="card-tags">
-                <span class="tag">C# / .NET</span>
-                <span class="tag">Entity Framework</span>
                 <span class="tag">Azure SQL</span>
-                <span class="tag">Blazor</span>
+                <span class="tag">Modelling</span>
               </div>
+              <span class="card-more" aria-hidden="true">Learn more <span class="arrow">→</span></span>
             </article>
 
-            <article class="card">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem;">
-                <h3 style="color: #34d399; margin: 0;">Operations Analytics API</h3>
-                <span style="font-size: 0.7rem; color: #9ca3af; border: 1px solid #374151; padding: 0.1rem 0.5rem; border-radius: 99px; white-space: nowrap; margin-left: 0.5rem;">Planned</span>
-              </div>
-              <p>RESTful API designed to serve structured operational data to BI tools and frontend clients. Covers authentication, clean API design and integration with Azure SQL data layers.</p>
+            <article class="card card--link">
+              <h3 class="card-title"><a class="stretched" href="/services/#automation">Power Platform automation</a></h3>
+              <p class="card-desc">
+                Removing the manual steps around reporting. Power Automate, SharePoint and
+                Office Scripts that turn fragile spreadsheet routines into dependable workflows.
+              </p>
               <div class="card-tags">
-                <span class="tag">ASP.NET Core</span>
-                <span class="tag">REST API</span>
-                <span class="tag">JWT Auth</span>
-                <span class="tag">Swagger</span>
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="reveal">
-          <div class="section-header">
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-intro">The stack behind every project.</p>
-          </div>
-          <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-
-            <div class="card">
-              <h4 style="color: #38bdf8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">BI & Visualisation</h4>
-              <div class="card-tags">
-                <span class="tag">Power BI</span>
-                <span class="tag">DAX</span>
-                <span class="tag">Power Query</span>
-                <span class="tag">Data Modelling</span>
-                <span class="tag">Microsoft Fabric</span>
                 <span class="tag">Power Automate</span>
+                <span class="tag">SharePoint</span>
+                <span class="tag">Office Scripts</span>
               </div>
-            </div>
-
-            <div class="card">
-              <h4 style="color: #a855f7; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Languages</h4>
-              <div class="card-tags">
-                <span class="tag">C#</span>
-                <span class="tag">T-SQL</span>
-                <span class="tag">HTML / CSS</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">TypeScript</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <h4 style="color: #34d399; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Frameworks & Tools</h4>
-              <div class="card-tags">
-                <span class="tag">ASP.NET Core</span>
-                <span class="tag">Blazor</span>
-                <span class="tag">Entity Framework Core</span>
-                <span class="tag">REST APIs</span>
-                <span class="tag">Clean Architecture</span>
-                <span class="tag">SOLID</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <h4 style="color: #f59e0b; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Cloud & Data</h4>
-              <div class="card-tags">
-                <span class="tag">Azure</span>
-                <span class="tag">Azure SQL</span>
-                <span class="tag">Azure App Services</span>
-                <span class="tag">SQL Server</span>
-                <span class="tag">AppCan</span>
-                <span class="tag">Git</span>
-              </div>
-            </div>
-
+              <span class="card-more" aria-hidden="true">Learn more <span class="arrow">→</span></span>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      <!-- CASE-STUDIES-HIDDEN: homepage preview hidden for launch. Re-enable by uncommenting
+           this whole section (down to the matching close marker below). See CLAUDE.md.
+      <section class="section" aria-labelledby="cases-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="kicker">Case studies</p>
+            <h2 id="cases-title">Selected work, kept anonymous.</h2>
+            <p class="section-intro">
+              Detail is deliberately general: sector, scale and constraints, never client names.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <article class="card case-card card--link case-single">
+              <div class="case-thumb" aria-hidden="true"><span>Dashboard preview</span></div>
+              <div class="case-body">
+                <h3 class="card-title"><a class="stretched" href="/case-studies/regulated-utilities-reporting/">Regulated utilities operational reporting</a></h3>
+                <p class="card-desc">
+                  Rebuilding a fragmented operational reporting cycle on a dependable data
+                  layer, from raw capture through to board-ready dashboards.
+                </p>
+                <span class="card-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
+              </div>
+            </article>
+            <p class="case-more">More case studies in preparation.</p>
+          </div>
+        </div>
+      </section>
+      --><!-- end CASE-STUDIES-HIDDEN -->
+
+      <!-- FINAL CTA -->
+      <section class="section" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="cta-band reveal">
+            <p class="kicker">Get in touch</p>
+            <h2 id="cta-title">Have a reporting problem worth getting right?</h2>
+            <p class="cta-text">
+              If you're delivering Power BI in a regulated or operational environment, and the
+              numbers have to stand up to scrutiny, I'd like to hear about it.
+            </p>
+            <a class="btn btn-primary" href="mailto:lorenzo@lorenzoreale.com">Discuss a project</a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <div class="container">
-        &copy; <span id="year"></span> Lorenzo Reale. Built with .NET & Azure principles.
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="footer-name">Lorenzo Reale</span>
+          <span>Power BI consultant · Regulated industries</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/lorenzoreale" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:lorenzo@lorenzoreale.com">Email</a>
+        </nav>
+        <p class="footer-legal">
+          © <span id="year">2026</span> Lorenzo Reale. Operating from Italy · Remote-first across EU &amp; UK.
+        </p>
       </div>
     </footer>
   </div>
-  <script src="script.js"></script>
+
+  <script src="/script.js"></script>
 </body>
 </html>
