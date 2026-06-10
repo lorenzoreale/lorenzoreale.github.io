@@ -93,8 +93,8 @@
           <p class="kicker">Contact</p>
           <h1>Let's talk.</h1>
           <p class="page-lede">
-            The best way to reach me is email. If you're working on Power BI in a regulated or
-            operational setting, I'd like to hear about it.
+            Tell me about the project using the form below, or email me directly. If you're
+            working on Power BI in a regulated or operational setting, I'd like to hear about it.
           </p>
         </div>
       </section>
@@ -104,9 +104,37 @@
         <div class="container">
           <div class="contact-grid reveal">
             <div class="contact-methods">
-              <p class="contact-label">Email</p>
+              <!-- The action URL is a no-JS fallback. It only works with redirect-capable
+                   form services (Web3Forms, Formspree), not a custom serverless endpoint. -->
+              <form class="contact-form" id="contact-form" action="REPLACE_WITH_ENDPOINT" method="POST">
+                <div class="form-field">
+                  <label for="cf-name">Name</label>
+                  <input type="text" id="cf-name" name="name" required autocomplete="name" />
+                </div>
+                <div class="form-field">
+                  <label for="cf-email">Email</label>
+                  <input type="email" id="cf-email" name="email" required autocomplete="email" aria-describedby="cf-privacy" />
+                </div>
+                <div class="form-field">
+                  <label for="cf-company">Company / Organisation <span class="label-optional">(optional)</span></label>
+                  <input type="text" id="cf-company" name="company" autocomplete="organization" />
+                </div>
+                <div class="form-field">
+                  <label for="cf-message">Message</label>
+                  <textarea id="cf-message" name="message" rows="5" required aria-describedby="cf-privacy"></textarea>
+                </div>
+
+                <!-- Honeypot: hidden from people, ticked by bots -->
+                <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" aria-hidden="true" />
+
+                <p class="form-privacy" id="cf-privacy">I'll only use your details to reply to your enquiry.</p>
+                <button class="btn btn-primary" type="submit">Send message</button>
+                <div class="form-status" role="status" aria-live="polite"></div>
+              </form>
+
+              <p class="contact-label">Or email directly</p>
               <a class="contact-email" href="mailto:lorenzo@lorenzoreale.com">lorenzo@lorenzoreale.com</a>
-              <p class="contact-note">The fastest way to reach me. I read everything that lands here.</p>
+              <p class="contact-note">I read everything that lands here.</p>
 
               <div class="contact-socials">
                 <a class="btn btn-ghost" href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener">LinkedIn</a>

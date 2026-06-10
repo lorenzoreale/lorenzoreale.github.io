@@ -23,6 +23,7 @@
   --cyan:           #5EBEC0;                     /* secondary accent - petrol   */
   --cyan-soft:      rgba(94, 190, 192, 0.12);    /* cyan tint fill              */
   --cyan-glow:      rgba(94, 190, 192, 0.28);    /* cyan shadow / glow          */
+  --error:          #F87171;                     /* form errors - warm red      */
 
   /* ---- Colour: text ---- */
   --text:           #F1F5F9;                     /* primary - warm off-white    */
@@ -960,4 +961,65 @@ a.cert-logo {
 a.cert-logo:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 0 2px var(--cyan), 0 0 24px var(--cyan-glow);
+}
+
+/* -------------------------------------------------------------
+   23. CONTACT FORM
+   ------------------------------------------------------------- */
+.contact-form {
+  max-width: 36rem;
+  margin-bottom: var(--space-12);
+}
+
+.form-field { margin-bottom: var(--space-5); }
+
+.contact-form label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+.label-optional {
+  color: var(--text-faint);
+  font-weight: 400;
+  font-size: var(--fs-tiny);
+}
+
+.contact-form input:not([type="checkbox"]),
+.contact-form textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+}
+.contact-form textarea { resize: vertical; }
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  border-color: var(--cyan);
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.form-privacy {
+  margin-bottom: var(--space-5);
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+}
+
+/* Populated by JS; role="status" announces changes politely */
+.form-status {
+  margin-top: var(--space-4);
+  font-size: var(--fs-small);
+}
+.form-status.is-success { color: var(--cyan); }
+.form-status.is-error   { color: var(--error); }
+
+@media (max-width: 640px) {
+  .contact-form .btn { width: 100%; }
 }

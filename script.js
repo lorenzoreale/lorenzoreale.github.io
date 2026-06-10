@@ -52,4 +52,70 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape") closeMenu();
     });
   }
+
+  /* 4. CONTACT FORM (contact page only) - front-end ready, back-end deferred.
+     To activate, set the two constants below and the form's action attribute
+     in contact/index.html. Full instructions live in CONTACT-FORM.md.
+       FORM_ENDPOINT   - the POST endpoint, e.g. "https://api.web3forms.com/submit"
+       FORM_ACCESS_KEY - only needed when using Web3Forms */
+  const FORM_ENDPOINT = "REPLACE_WITH_ENDPOINT";
+  const FORM_ACCESS_KEY = "REPLACE_IF_USING_WEB3FORMS";
+
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    const statusEl = contactForm.querySelector(".form-status");
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    const showStatus = (message, isError) => {
+      statusEl.textContent = message;
+      statusEl.classList.toggle("is-error", isError);
+      statusEl.classList.toggle("is-success", !isError);
+    };
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (FORM_ENDPOINT === "REPLACE_WITH_ENDPOINT") {
+        console.log("Contact form not yet connected: set FORM_ENDPOINT and FORM_ACCESS_KEY in script.js.");
+        return;
+      }
+
+      /* Honeypot: a person never sees this box, so a tick means a bot */
+      if (contactForm.elements.botcheck.checked) return;
+
+      const payload = {
+        name: contactForm.elements.name.value.trim(),
+        email: contactForm.elements.email.value.trim(),
+        company: contactForm.elements.company.value.trim(),
+        message: contactForm.elements.message.value.trim(),
+      };
+      if (FORM_ACCESS_KEY !== "REPLACE_IF_USING_WEB3FORMS") {
+        payload.access_key = FORM_ACCESS_KEY;
+      }
+
+      const restLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json();
+        if (response.ok && result.success) {
+          showStatus("Thanks, your message has been sent. I'll reply as soon as I can.", false);
+          contactForm.reset();
+        } else {
+          showStatus("Something went wrong and the message was not sent. Please try again, or email me directly.", true);
+        }
+      } catch {
+        showStatus("Something went wrong and the message was not sent. Please try again, or email me directly.", true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = restLabel;
+      }
+    });
+  }
 });
