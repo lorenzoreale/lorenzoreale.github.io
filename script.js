@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
      in contact/index.html. Full instructions live in CONTACT-FORM.md.
        FORM_ENDPOINT   - the POST endpoint, e.g. "https://api.web3forms.com/submit"
        FORM_ACCESS_KEY - only needed when using Web3Forms */
-  const FORM_ENDPOINT = "REPLACE_WITH_ENDPOINT";
-  const FORM_ACCESS_KEY = "REPLACE_IF_USING_WEB3FORMS";
+  const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+  const FORM_ACCESS_KEY = "33ad46dc-fab6-476f-ad4e-f398094ff58b";
 
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {

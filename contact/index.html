@@ -106,7 +106,8 @@
             <div class="contact-methods">
               <!-- The action URL is a no-JS fallback. It only works with redirect-capable
                    form services (Web3Forms, Formspree), not a custom serverless endpoint. -->
-              <form class="contact-form" id="contact-form" action="REPLACE_WITH_ENDPOINT" method="POST">
+              <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="33ad46dc-fab6-476f-ad4e-f398094ff58b">
                 <div class="form-field">
                   <label for="cf-name">Name</label>
                   <input type="text" id="cf-name" name="name" required autocomplete="name" />
