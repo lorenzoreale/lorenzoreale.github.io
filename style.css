@@ -449,7 +449,8 @@ main { flex: 1; }
     grid-template-columns: 1fr;
     gap: var(--space-10);
   }
-  .hero-portrait { width: min(60vw, 13rem); }
+  .hero-portrait { width: min(60vw, 13rem);
+                    order: -1;}
 }
 
 /* -------------------------------------------------------------
