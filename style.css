@@ -420,12 +420,12 @@ main { flex: 1; }
    covers 2x displays with headroom. */
 .hero-portrait {
   width: min(100%, 24rem);
+  aspect-ratio: 1;
   justify-self: center;
 }
 .hero-portrait img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
   /* Source and frame are both square, so cover does not crop today; this
      keeps the face safe if the frame ratio is ever tuned. */
