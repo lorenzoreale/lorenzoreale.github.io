@@ -371,10 +371,10 @@ main { flex: 1; }
    ------------------------------------------------------------- */
 .hero { padding-block: clamp(3rem, 2rem + 6vw, 6.5rem) var(--section-y); }
 
-/* Two columns on desktop: copy left (~58%), portrait right (~42%) */
+/* Two columns on desktop: copy left (~65%), portrait right (~35%) */
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.85fr) minmax(16rem, 1fr);
   gap: clamp(2.5rem, 2rem + 4vw, 5rem);
   align-items: center;
 }
