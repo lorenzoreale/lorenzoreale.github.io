@@ -370,7 +370,14 @@ main { flex: 1; }
    8. HERO
    ------------------------------------------------------------- */
 .hero { padding-block: clamp(3rem, 2rem + 6vw, 6.5rem) var(--section-y); }
-.hero-inner { max-width: 50rem; }
+
+/* Two columns on desktop: copy left (~58%), portrait right (~42%) */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 2rem + 4vw, 5rem);
+  align-items: center;
+}
 
 .hero-title {
   font-size: var(--fs-display);
@@ -406,6 +413,43 @@ main { flex: 1; }
   padding: 0.3rem 0.7rem;
   background: rgba(148, 163, 184, 0.10);   /* soft fill, no border - static label */
   border-radius: var(--radius-sm);
+}
+
+/* ---- Hero portrait ---- */
+/* Frame caps at 24rem (384px at default root size), so the 1000px source
+   covers 2x displays with headroom. */
+.hero-portrait {
+  width: min(100%, 24rem);
+  justify-self: center;
+}
+.hero-portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  /* Source and frame are both square, so cover does not crop today; this
+     keeps the face safe if the frame ratio is ever tuned. */
+  object-position: center 20%;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  /* Page colour behind the transparent PNG, so the circle reads seamless */
+  background: var(--bg);
+  box-shadow: 0 0 48px var(--gold-glow);
+}
+
+/* Below 768px the hero stacks to one column. Two placements considered:
+     (A) portrait centred ABOVE the text at reduced size - leads with a
+         face, but on a 375px screen it pushes the headline and CTAs below
+         the fold. To switch, add `order: -1;` to .hero-portrait here.
+     (B) portrait below the CTAs and stack list - LIVE. The headline and
+         "Discuss a project" stay above the fold; the portrait closes the
+         hero instead of delaying it. */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .hero-portrait { width: min(60vw, 13rem); }
 }
 
 /* -------------------------------------------------------------

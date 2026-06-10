@@ -78,30 +78,45 @@
       <!-- HERO -->
       <section class="hero">
         <div class="container hero-inner">
-          <!--
-            HERO HEADLINE - live option plus two alternatives. Swap the <h1> text to compare.
-              LIVE: Power BI consultant for operational data that has to be right.
-              alt:  Operational reporting that holds, from the data layer up.
-              alt:  Decision-grade Power BI for EU and UK enterprises.
-          -->
-          <h1 class="hero-title">Power BI consultant for operational data that has to be right.</h1>
-          <p class="hero-lede">
-            Independent Power BI consultant for operational and enterprise data.
-            Remote-first delivery across the EU and UK.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:lorenzo@lorenzoreale.com">Discuss a project</a>
-            <!-- CASE-STUDIES-HIDDEN: secondary CTA repointed to Services while Case Studies is hidden.
-                 Original link: href="/case-studies/" with label "View case studies". See CLAUDE.md. -->
-            <a class="btn btn-ghost" href="/services/">View services</a>
+          <div class="hero-copy">
+            <!--
+              HERO HEADLINE - live option plus two alternatives. Swap the <h1> text to compare.
+                LIVE: Power BI consultant for operational data that has to be right.
+                alt:  Operational reporting that holds, from the data layer up.
+                alt:  Decision-grade Power BI for EU and UK enterprises.
+            -->
+            <h1 class="hero-title">Power BI consultant for operational data that has to be right.</h1>
+            <p class="hero-lede">
+              Independent Power BI consultant for operational and enterprise data.
+              Remote-first delivery across the EU and UK.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:lorenzo@lorenzoreale.com">Discuss a project</a>
+              <!-- CASE-STUDIES-HIDDEN: secondary CTA repointed to Services while Case Studies is hidden.
+                   Original link: href="/case-studies/" with label "View case studies". See CLAUDE.md. -->
+              <a class="btn btn-ghost" href="/services/">View services</a>
+            </div>
+            <ul class="hero-stack" aria-label="Core stack">
+              <li>Power BI</li>
+              <li>DAX</li>
+              <li>Power Query</li>
+              <li>T-SQL</li>
+              <li>Azure SQL</li>
+            </ul>
           </div>
-          <ul class="hero-stack" aria-label="Core stack">
-            <li>Power BI</li>
-            <li>DAX</li>
-            <li>Power Query</li>
-            <li>T-SQL</li>
-            <li>Azure SQL</li>
-          </ul>
+
+          <!-- Above the fold, so loaded eagerly with high priority; explicit
+               dimensions prevent layout shift while the image arrives. -->
+          <div class="hero-portrait">
+            <img
+              src="/media/profile.png"
+              alt="Lorenzo Reale, Power BI consultant"
+              width="1000"
+              height="1000"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
         </div>
       </section>
 
