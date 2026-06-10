@@ -880,3 +880,60 @@ main { flex: 1; }
   .service-grid { grid-template-columns: 1fr; gap: var(--space-5); }
   .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); }
 }
+
+/* -------------------------------------------------------------
+   22. CERTIFICATIONS
+   ------------------------------------------------------------- */
+.cert-grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* White tile so colour logos read clearly on the dark page */
+.cert-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.45rem;
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+}
+.cert-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cert-name {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+}
+
+.cert-issuer {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.cert-verify {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  align-self: flex-start;
+  color: var(--cyan);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+.cert-verify:hover { text-decoration: underline; }
