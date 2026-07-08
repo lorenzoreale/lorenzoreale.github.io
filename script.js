@@ -54,12 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* 4. Portfolio source links (case-study pages).
-     The github.com/lorenzoreale/powerbi-portfolio repo is PRIVATE for now, so
-     every [data-repo-link] ships as an "available on request" mailto link.
-     WHEN THE REPO GOES PUBLIC: flip PORTFOLIO_REPO_PUBLIC to true - that one
-     change turns them all into direct GitHub links (data-repo-link holds the
-     optional path within the repo, data-repo-label the public link text). */
-  const PORTFOLIO_REPO_PUBLIC = false;
+     The github.com/lorenzoreale/powerbi-portfolio repo is public, so every
+     [data-repo-link] resolves to a direct GitHub link (data-repo-link holds
+     the optional path within the repo, data-repo-label the public link text).
+     Set this back to false to revert to "available on request" mailto links. */
+  const PORTFOLIO_REPO_PUBLIC = true;
   const PORTFOLIO_REPO_URL = "https://github.com/lorenzoreale/powerbi-portfolio";
 
   if (PORTFOLIO_REPO_PUBLIC) {
