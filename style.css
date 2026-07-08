@@ -844,6 +844,25 @@ main { flex: 1; }
 .placeholder p { font-size: var(--fs-small); }
 .placeholder p + p { margin-top: var(--space-3); }
 
+/* Report screenshot frame: keeps the image's natural aspect ratio (report
+   canvases are not exactly 16:9), hairline border so light dashboards read
+   cleanly on the dark page. Caption goes in a .media-caption after it. */
+.media-shot {
+  margin-top: var(--space-6);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.media-shot img { width: 100%; height: auto; }
+
+/* One-line synthetic-data disclosure under a case-study hero */
+.cs-disclosure {
+  margin-top: var(--space-4);
+  font-size: var(--fs-small);
+  color: var(--text-faint);
+}
+
 /* Image-ready media slot. Drop an <img loading="lazy"> inside and it fills. */
 .media-slot {
   margin-top: var(--space-6);

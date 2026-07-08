@@ -53,7 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* 4. CONTACT FORM (contact page only) - front-end ready, back-end deferred.
+  /* 4. Portfolio source links (case-study pages).
+     The github.com/lorenzoreale/powerbi-portfolio repo is PRIVATE for now, so
+     every [data-repo-link] ships as an "available on request" mailto link.
+     WHEN THE REPO GOES PUBLIC: flip PORTFOLIO_REPO_PUBLIC to true - that one
+     change turns them all into direct GitHub links (data-repo-link holds the
+     optional path within the repo, data-repo-label the public link text). */
+  const PORTFOLIO_REPO_PUBLIC = false;
+  const PORTFOLIO_REPO_URL = "https://github.com/lorenzoreale/powerbi-portfolio";
+
+  if (PORTFOLIO_REPO_PUBLIC) {
+    document.querySelectorAll("[data-repo-link]").forEach((el) => {
+      const path = el.getAttribute("data-repo-link");
+      el.href = path ? PORTFOLIO_REPO_URL + "/tree/main/" + path : PORTFOLIO_REPO_URL;
+      el.textContent = el.getAttribute("data-repo-label") || "View the full project on GitHub";
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
+  }
+
+  /* 5. CONTACT FORM (contact page only) - front-end ready, back-end deferred.
      To activate, set the two constants below and the form's action attribute
      in contact/index.html. Full instructions live in CONTACT-FORM.md.
        FORM_ENDPOINT   - the POST endpoint, e.g. "https://api.web3forms.com/submit"

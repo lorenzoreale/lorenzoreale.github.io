@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CASE-STUDIES-HIDDEN: delete this robots tag to index when the Case Studies section goes live. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>Site Inspection Performance - Power BI case study | Lorenzo Reale</title>
+  <meta name="description" content="A five-page Power BI report tracking a 42-site safety-and-compliance inspection programme: coverage, findings, corrective actions. Synthetic data, fictional client, full model on GitHub." />
+  <link rel="canonical" href="https://lorenzoreale.com/case-studies/site-inspection-performance/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lorenzo Reale" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:url" content="https://lorenzoreale.com/case-studies/site-inspection-performance/" />
+  <meta property="og:title" content="Site Inspection Performance - Power BI case study" />
+  <meta property="og:description" content="A five-page Power BI report tracking a 42-site safety-and-compliance inspection programme: coverage, findings, corrective actions. Synthetic data, fictional client." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/site-inspection-performance.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Executive overview page of the Site Inspection Performance Power BI report" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/site-inspection-performance.png" />
+  <meta name="twitter:title" content="Site Inspection Performance - Power BI case study" />
+  <meta name="twitter:description" content="A five-page Power BI report tracking a 42-site safety-and-compliance inspection programme. Synthetic data, fictional client, full model on GitHub." />
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/media/favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/media/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/media/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page">
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary">
+          <a href="/" class="brand" aria-label="Lorenzo Reale - home">
+            <span class="brand-text">
+              <span class="brand-name">Lorenzo Reale</span>
+              <span class="brand-tag">Power BI Consultant</span>
+            </span>
+          </a>
+
+          <div class="brand-social">
+            <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener" aria-label="Lorenzo Reale on LinkedIn">
+              <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <circle cx="3.6" cy="3.6" r="1.8"/>
+                <rect x="1.9" y="7" width="3.4" height="11"/>
+                <path d="M8.5 7h3.2v1.5h.05c.45-.85 1.55-1.75 3.2-1.75 3.4 0 4.05 2.25 4.05 5.15V18h-3.4v-5.3c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V18H8.5V7z"/>
+              </svg>
+            </a>
+            <a href="mailto:lorenzo@lorenzoreale.com" aria-label="Email Lorenzo Reale">
+              <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1.5" y="3.5" width="17" height="13" rx="2"/>
+                <path d="M2.5 5.5 10 11l7.5-5.5"/>
+              </svg>
+            </a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <div class="nav-links" id="nav-links">
+            <a href="/services/">Services</a>
+            <!-- CASE-STUDIES-HIDDEN: uncomment to re-enable when case studies are ready to publish.
+            <a href="/case-studies/">Case Studies</a>
+            -->
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <article class="cs-body">
+          <!-- PAGE HERO -->
+          <header class="page-hero">
+            <a class="back-link" href="/case-studies/"><span aria-hidden="true">←</span> Case studies</a>
+            <p class="kicker">Demonstration project</p>
+            <h1>Site Inspection Performance</h1>
+            <p class="page-lede">
+              A five-page Power BI report for Meridian Facilities Group, a fictional national
+              facilities operator with 42 sites across six UK regions. It answers the three
+              questions operations leadership asks every month: are we inspecting enough,
+              is compliance where it should be, and are corrective actions getting closed?
+            </p>
+            <ul class="cs-meta">
+              <li><span class="cs-meta-label">Client</span> Meridian Facilities Group (fictional)</li>
+              <li><span class="cs-meta-label">Audience</span> Operations leadership</li>
+              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · a deterministic data generator</li>
+            </ul>
+          </header>
+
+          <!-- HERO SHOT -->
+          <figure class="media-shot" style="margin-top: 0;">
+            <img
+              src="/media/case-studies/site-inspection-performance/exec-overview@2x.png"
+              alt="Executive overview of a site inspection report: KPI band, inspections versus plan, compliance trend against a 90% target, and an overdue actions list"
+              width="2590"
+              height="1508"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </figure>
+          <p class="media-caption">
+            The executive overview: inspections against plan, compliance against the 90% target,
+            and the overdue-action chase list. Data to 26 June 2026.
+          </p>
+          <p class="cs-disclosure">
+            Synthetic data · fictional client · the full model, DAX and data generator are on
+            GitHub (<a data-repo-link="site-inspection-performance" data-repo-label="view the project on GitHub" href="mailto:lorenzo@lorenzoreale.com?subject=Portfolio%20source%20request%20-%20Site%20Inspection%20Performance">available on request</a>).
+          </p>
+
+          <!-- THE PROBLEM -->
+          <section class="cs-block" aria-labelledby="problem">
+            <h2 id="problem">The problem</h2>
+            <div class="prose">
+              <p>
+                Meridian Facilities Group runs scheduled health, safety and compliance inspections
+                across a 42-site estate. Leadership needs three answers every month: are we
+                inspecting enough, is compliance where it should be, and are the corrective
+                actions we raise actually getting closed? The data exists, hundreds of inspections
+                a year against a 24-question checklist, but without a disciplined report it
+                stays anecdote.
+              </p>
+            </div>
+          </section>
+
+          <!-- WHAT THE REPORT DOES -->
+          <section class="cs-block" aria-labelledby="what">
+            <h2 id="what">What the report does</h2>
+            <div class="prose">
+              <p>Five pages, each answering one operational question:</p>
+            </div>
+            <ul class="ticks" style="margin-top: var(--space-5);">
+              <li><strong>Executive Overview</strong> - the ten-second read: inspection volume against plan, compliance against the 90% target, findings, and the overdue-action chase list. Red appears on exactly one thing at a time.</li>
+              <li><strong>Compliance Deep-Dive</strong> - what we are finding and where it repeats: a section-by-month compliance heatmap where uninspected cells stay blank (never a fake 0%), the worst-scoring questions and repeat-offender sites.</li>
+              <li><strong>Action Tracker</strong> - the corrective-action lifecycle: closure rate against target, ageing, and an owned register of open and overdue actions. The operational to-do list, not just a chart.</li>
+              <li><strong>Coverage</strong> - are we inspecting the right places often enough? Days since last visit per site, against a stated staleness threshold: a rule, not a vibe.</li>
+              <li><strong>Inspection Detail</strong> - one inspection end to end, reached by right-click drillthrough. The header score and the question detail can never disagree, because they are the same measure.</li>
+            </ul>
+
+            <figure class="media-shot">
+              <img
+                src="/media/case-studies/site-inspection-performance/compliance-deep-dive@2x.png"
+                alt="Compliance heatmap by checklist section and month, with worst questions and repeat-offender sites"
+                width="2590"
+                height="1508"
+                loading="lazy"
+              />
+            </figure>
+            <p class="media-caption">
+              The deep-dive: compliance by checklist section and month, darker blue meaning higher
+              compliance and white text marking cells at or above the 90% target. Blank cells mean
+              not inspected, never a fake score.
+            </p>
+
+            <figure class="media-shot">
+              <img
+                src="/media/case-studies/site-inspection-performance/action-tracker@2x.png"
+                alt="Corrective action tracker: closure KPIs and an owned register of open and overdue actions"
+                width="2590"
+                height="1508"
+                loading="lazy"
+              />
+            </figure>
+            <p class="media-caption">
+              The action tracker: raised, open and overdue counts, closure rate against the 90%
+              target, and a register where every open action has an owner and a due date. Red is
+              reserved for genuinely overdue.
+            </p>
+          </section>
+
+          <!-- UNDER THE HOOD -->
+          <section class="cs-block" aria-labelledby="hood">
+            <h2 id="hood">Under the hood</h2>
+            <div class="prose">
+              <p>
+                No inspection score is stored anywhere. The compliance percentage is a single
+                measure evaluated at whatever grain the visual asks for: trend, region, heatmap
+                cell, or one inspection's header. Every level of the report reconciles by
+                construction. All time logic is anchored to a fixed as-at date (26 June 2026,
+                the latest inspection in the data), never the system clock, so the published
+                figures are stable and reproducible.
+              </p>
+              <p>
+                The raw data is generated by a committed, deterministic script and contains six
+                deliberate, documented defects the model handles in the open: uninspected
+                site-months, duplicate export rows, N/A answers, an orphan action, unassigned
+                owners and dirty site names. Handling messy data honestly is part of the job,
+                so the portfolio shows it.
+              </p>
+            </div>
+          </section>
+
+          <!-- SOURCE -->
+          <section class="cs-block" aria-labelledby="source">
+            <h2 id="source">The source</h2>
+            <div class="prose">
+              <p>
+                The whole project is readable as text: the semantic model in TMDL, the report in
+                PBIR, the DAX measure by measure, and the data generator that produced every
+                figure on this page. The repository is private while the portfolio is finalised;
+                the source is <a data-repo-link="site-inspection-performance" data-repo-label="on GitHub" href="mailto:lorenzo@lorenzoreale.com?subject=Portfolio%20source%20request%20-%20Site%20Inspection%20Performance">available on request</a>.
+              </p>
+            </div>
+          </section>
+
+          <!-- DISCLAIMER -->
+          <section class="cs-block" aria-label="Disclaimer">
+            <p class="cs-disclosure">
+              All data in this case study is synthetic, generated by a committed, deterministic
+              script; Meridian Facilities Group is a fictional client created to demonstrate the
+              work. No real client data appears anywhere in this project.
+            </p>
+          </section>
+        </article>
+
+        <!-- CTA -->
+        <section class="section">
+          <div class="cta-band reveal">
+            <p class="kicker">Get in touch</p>
+            <h2>Reporting your operation could rely on?</h2>
+            <p class="cta-text">
+              If your teams collect operational data that never quite becomes a dependable
+              monthly answer, this is exactly the kind of report I build.
+            </p>
+            <a class="btn btn-primary" href="mailto:lorenzo@lorenzoreale.com">Discuss a project</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="footer-name">Lorenzo Reale</span>
+          <span>Power BI consultant · UK</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/lorenzoreale" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:lorenzo@lorenzoreale.com">Email</a>
+        </nav>
+        <p class="footer-legal">
+          © <span id="year">2026</span> Lorenzo Reale · Remote-first across EU &amp; UK.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
