@@ -863,6 +863,12 @@ main { flex: 1; }
   color: var(--text-faint);
 }
 
+/* "Next case study" cross-link at the foot of a case-study page */
+.cs-next {
+  margin-top: var(--space-8);
+  font-weight: 600;
+}
+
 /* Image-ready media slot. Drop an <img loading="lazy"> inside and it fills. */
 .media-slot {
   margin-top: var(--space-6);
