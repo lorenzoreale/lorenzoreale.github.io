@@ -6,7 +6,8 @@
   <meta name="robots" content="noindex" />
 
   <title>Page not found - Lorenzo Reale</title>
-  <meta name="description" content="That page doesn't exist. Head back to the homepage for Power BI consulting for operational and enterprise data, remote-first across the EU and UK." />
+  <meta name="description" content="That page doesn't exist. Head back to the homepage for Power BI development for operational and enterprise data, remote-first across the EU and UK." />
+  <meta name="theme-color" content="#14294B" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -17,7 +18,7 @@
   <meta property="og:image" content="https://lorenzoreale.com/og/home.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Lorenzo Reale - Power BI consultant for operational and enterprise data" />
+  <meta property="og:image:alt" content="Lorenzo Reale - Power BI developer for operational and enterprise data" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -32,7 +33,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -40,48 +41,27 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="page">
-    <header class="site-header">
-      <div class="container">
-        <nav class="nav" aria-label="Primary">
-          <a href="/" class="brand" aria-label="Lorenzo Reale - home">
-            <span class="brand-text">
-              <span class="brand-name">Lorenzo Reale</span>
-              <span class="brand-tag">Power BI Consultant</span>
-            </span>
-          </a>
-
-          <div class="brand-social">
-            <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener" aria-label="Lorenzo Reale on LinkedIn">
-              <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
-                <circle cx="3.6" cy="3.6" r="1.8"/>
-                <rect x="1.9" y="7" width="3.4" height="11"/>
-                <path d="M8.5 7h3.2v1.5h.05c.45-.85 1.55-1.75 3.2-1.75 3.4 0 4.05 2.25 4.05 5.15V18h-3.4v-5.3c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V18H8.5V7z"/>
-              </svg>
-            </a>
-            <a href="mailto:lorenzo@lorenzoreale.com" aria-label="Email Lorenzo Reale">
-              <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="1.5" y="3.5" width="17" height="13" rx="2"/>
-                <path d="M2.5 5.5 10 11l7.5-5.5"/>
-              </svg>
-            </a>
-          </div>
-
-          <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-
-          <div class="nav-links" id="nav-links">
-            <a href="/services/">Services</a>
-            <a href="/case-studies/">Case Studies</a>
-            <a href="/contact/">Contact</a>
-          </div>
-        </nav>
+    <!-- LETTERHEAD -->
+    <header class="letterhead">
+      <div class="container lh-top">
+        <a class="lh-brand" href="/" aria-label="Lorenzo Reale - home">
+          <span class="lh-mono" aria-hidden="true">LR</span>
+          <span class="lh-name">Lorenzo Reale</span>
+        </a>
+        <p class="lh-role">Power BI Developer · Remote-first · EU&nbsp;and&nbsp;UK</p>
       </div>
     </header>
+
+    <!-- Sibling of the letterhead, so the sticky rule spans the whole page -->
+    <nav class="lh-nav" aria-label="Primary">
+      <div class="container lh-nav-in">
+        <a href="/">Home</a>
+        <a href="/services/">Services</a>
+        <a href="/case-studies/">Case studies</a>
+        <a href="/#certifications">Certifications</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </nav>
 
     <main id="main">
       <section class="page-hero">
@@ -104,7 +84,7 @@
       <div class="container footer-inner">
         <div class="footer-brand">
           <span class="footer-name">Lorenzo Reale</span>
-          <span>Power BI consultant · EU and UK</span>
+          <span>Power BI developer · EU and UK</span>
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener">LinkedIn</a>
@@ -117,6 +97,30 @@
       </div>
     </footer>
   </div>
+
+  <!-- MOBILE TAB BAR: replaces the navigation row below 780px -->
+  <nav class="tabbar" aria-label="Primary">
+    <a href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>
+      Home
+    </a>
+    <a href="/services/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+      Services
+    </a>
+    <a href="/case-studies/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 5V3h8v2"/></svg>
+      Work
+    </a>
+    <a href="/#certifications">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1 7 4.5-2.5 4.5 2.5-1-7"/></svg>
+      Certs
+    </a>
+    <a href="/contact/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+      Contact
+    </a>
+  </nav>
 
   <script src="/script.js"></script>
 </body>

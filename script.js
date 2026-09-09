@@ -26,32 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => observer.observe(el));
   }
 
-  /* 3. Mobile menu toggle (with aria-expanded + auto-close on navigation) */
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
-
-  if (navToggle && navLinks) {
-    const closeMenu = () => {
-      navLinks.classList.remove("active");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.setAttribute("aria-label", "Open menu");
-    };
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("active");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    /* Close the menu on Escape for keyboard users */
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  }
+  /* 3. NAVIGATION - no script required.
+     The letterhead nav row carries the links on desktop and the bottom tab
+     bar takes over below 780px. Both are plain markup with the current page
+     marked by aria-current, so there is no menu to open, close or trap focus
+     in, and navigation keeps working with JavaScript disabled. */
 
   /* 4. Portfolio source links (case-study pages).
      The github.com/lorenzoreale/powerbi-portfolio repo is public, so every
@@ -71,11 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* 5. CONTACT FORM (contact page only) - front-end ready, back-end deferred.
-     To activate, set the two constants below and the form's action attribute
-     in contact/index.html. Full instructions live in CONTACT-FORM.md.
-       FORM_ENDPOINT   - the POST endpoint, e.g. "https://api.web3forms.com/submit"
-       FORM_ACCESS_KEY - only needed when using Web3Forms */
+  /* 5. CONTACT FORM (contact page only) - live.
+     Posts JSON to Web3Forms, which emails the message on. The access key is
+     public by design: it identifies the destination inbox, not the account.
+     The <form action> in contact/index.html is the no-JS fallback and must
+     stay in step with FORM_ENDPOINT. */
   const FORM_ENDPOINT = "https://api.web3forms.com/submit";
   const FORM_ACCESS_KEY = "33ad46dc-fab6-476f-ad4e-f398094ff58b";
 
@@ -90,47 +69,49 @@ document.addEventListener("DOMContentLoaded", () => {
       statusEl.classList.toggle("is-success", !isError);
     };
 
+    const FAILED = "Something went wrong and the message was not sent. Please try again, or email me directly.";
+
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      if (FORM_ENDPOINT === "REPLACE_WITH_ENDPOINT") {
-        console.log("Contact form not yet connected: set FORM_ENDPOINT and FORM_ACCESS_KEY in script.js.");
-        return;
-      }
-
-      /* Honeypot: a person never sees this box, so a tick means a bot */
+      /* Honeypot: a person never sees this box, so a tick means a bot.
+         Returning before the button is touched leaves the form untouched. */
       if (contactForm.elements.botcheck.checked) return;
 
       const payload = {
+        access_key: FORM_ACCESS_KEY,
         name: contactForm.elements.name.value.trim(),
         email: contactForm.elements.email.value.trim(),
         company: contactForm.elements.company.value.trim(),
         message: contactForm.elements.message.value.trim(),
       };
-      if (FORM_ACCESS_KEY !== "REPLACE_IF_USING_WEB3FORMS") {
-        payload.access_key = FORM_ACCESS_KEY;
-      }
 
       const restLabel = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending...";
+
+      /* A hung request must not leave the button reading "Sending..." forever */
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
 
       try {
         const response = await fetch(FORM_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify(payload),
+          signal: controller.signal,
         });
         const result = await response.json();
         if (response.ok && result.success) {
           showStatus("Thanks, your message has been sent. I'll reply as soon as I can.", false);
           contactForm.reset();
         } else {
-          showStatus("Something went wrong and the message was not sent. Please try again, or email me directly.", true);
+          showStatus(FAILED, true);
         }
       } catch {
-        showStatus("Something went wrong and the message was not sent. Please try again, or email me directly.", true);
+        showStatus(FAILED, true);
       } finally {
+        clearTimeout(timeout);
         submitBtn.disabled = false;
         submitBtn.textContent = restLabel;
       }

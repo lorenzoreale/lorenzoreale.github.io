@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Data Reconciliation Monitor - Power BI case study | Lorenzo Reale</title>
-  <meta name="description" content="A five-page Power BI monitor for a nightly data platform: source-versus-warehouse reconciliation, a 48-rule quality rulebook and an owned break register. Synthetic data, fictional client, full model on GitHub." />
+  <title>Data Reconciliation Monitor - Power BI case study</title>
+  <meta name="description" content="A five-page Power BI monitor for a nightly data platform: reconciliation, a 48-rule quality rulebook and an owned break register. Synthetic data." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/data-reconciliation-monitor/" />
+  <meta name="theme-color" content="#14294B" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
@@ -33,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -41,48 +42,27 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="page">
-    <header class="site-header">
-      <div class="container">
-        <nav class="nav" aria-label="Primary">
-          <a href="/" class="brand" aria-label="Lorenzo Reale - home">
-            <span class="brand-text">
-              <span class="brand-name">Lorenzo Reale</span>
-              <span class="brand-tag">Power BI Consultant</span>
-            </span>
-          </a>
-
-          <div class="brand-social">
-            <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener" aria-label="Lorenzo Reale on LinkedIn">
-              <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
-                <circle cx="3.6" cy="3.6" r="1.8"/>
-                <rect x="1.9" y="7" width="3.4" height="11"/>
-                <path d="M8.5 7h3.2v1.5h.05c.45-.85 1.55-1.75 3.2-1.75 3.4 0 4.05 2.25 4.05 5.15V18h-3.4v-5.3c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V18H8.5V7z"/>
-              </svg>
-            </a>
-            <a href="mailto:lorenzo@lorenzoreale.com" aria-label="Email Lorenzo Reale">
-              <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="1.5" y="3.5" width="17" height="13" rx="2"/>
-                <path d="M2.5 5.5 10 11l7.5-5.5"/>
-              </svg>
-            </a>
-          </div>
-
-          <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-
-          <div class="nav-links" id="nav-links">
-            <a href="/services/">Services</a>
-            <a href="/case-studies/">Case Studies</a>
-            <a href="/contact/">Contact</a>
-          </div>
-        </nav>
+    <!-- LETTERHEAD -->
+    <header class="letterhead">
+      <div class="container lh-top">
+        <a class="lh-brand" href="/" aria-label="Lorenzo Reale - home">
+          <span class="lh-mono" aria-hidden="true">LR</span>
+          <span class="lh-name">Lorenzo Reale</span>
+        </a>
+        <p class="lh-role">Power BI Developer · Remote-first · EU&nbsp;and&nbsp;UK</p>
       </div>
     </header>
+
+    <!-- Sibling of the letterhead, so the sticky rule spans the whole page -->
+    <nav class="lh-nav" aria-label="Primary">
+      <div class="container lh-nav-in">
+        <a href="/">Home</a>
+        <a href="/services/">Services</a>
+        <a href="/case-studies/" aria-current="page">Case studies</a>
+        <a href="/#certifications">Certifications</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </nav>
 
     <main id="main">
       <div class="container">
@@ -114,12 +94,12 @@
               loading="eager"
               fetchpriority="high"
             />
+            <figcaption class="media-caption">
+              The morning check for Monday 29 June 2026: 4.65m rows compared, a 99.97% match rate
+              against a stated 99.90% threshold, six of eight feeds passing, and what failed last
+              night, worst first.
+            </figcaption>
           </figure>
-          <p class="media-caption">
-            The morning check for Monday 29 June 2026: 4.65m rows compared, a 99.97% match rate
-            against a stated 99.90% threshold, six of eight feeds passing, and what failed last
-            night, worst first.
-          </p>
           <p class="cs-disclosure">
             Synthetic data · fictional client · the full model, DAX and data generator are on
             GitHub (<a data-repo-link="data-reconciliation-monitor" data-repo-label="view the project on GitHub" href="mailto:lorenzo@lorenzoreale.com?subject=Portfolio%20source%20request%20-%20Data%20Reconciliation%20Monitor">available on request</a>).
@@ -127,6 +107,7 @@
 
           <!-- THE PROBLEM -->
           <section class="cs-block" aria-labelledby="problem">
+            <span class="cs-num">01</span>
             <h2 id="problem">The problem</h2>
             <div class="prose">
               <p>
@@ -141,16 +122,17 @@
 
           <!-- WHAT THE REPORT DOES -->
           <section class="cs-block" aria-labelledby="what">
+            <span class="cs-num">02</span>
             <h2 id="what">What the report does</h2>
             <div class="prose">
               <p>Five pages, from the ten-second read to the single feed:</p>
             </div>
-            <ul class="ticks" style="margin-top: var(--space-5);">
-              <li><strong>Morning Check</strong> - the ten-second read: 4.65m source rows compared, the match rate against a stated 99.90% threshold, a status board with one tile per feed, the 30-night trend, and what failed last night, worst first.</li>
-              <li><strong>Reconciliation</strong> - the pairwise proof: source rows next to warehouse rows, source amounts next to warehouse amounts, feed by feed, with tolerances stated on the page. Below it, the check grid: one square per feed per night, a fortnight deep.</li>
-              <li><strong>Quality Rules</strong> - once data is in, is it fit to use? A 48-rule rulebook across the five classic quality dimensions, each rule with its stated tolerance, worst first.</li>
-              <li><strong>Break Register</strong> - every unresolved discrepancy, owned and aged: median age, mean time to resolve against a target, and a register with an owner and a status in plain words. The queue, judged as a process.</li>
-              <li><strong>Feed Detail</strong> - one feed end to end, reached by right-click drillthrough: paired source-versus-warehouse bars a fortnight deep, the feed's checks, and its open breaks.</li>
+            <ul class="spec-list">
+              <li><strong>Morning Check</strong>The ten-second read: 4.65m source rows compared, the match rate against a stated 99.90% threshold, a status board with one tile per feed, the 30-night trend, and what failed last night, worst first.</li>
+              <li><strong>Reconciliation</strong>The pairwise proof: source rows next to warehouse rows, source amounts next to warehouse amounts, feed by feed, with tolerances stated on the page. Below it, the check grid: one square per feed per night, a fortnight deep.</li>
+              <li><strong>Quality Rules</strong>Once data is in, is it fit to use? A 48-rule rulebook across the five classic quality dimensions, each rule with its stated tolerance, worst first.</li>
+              <li><strong>Break Register</strong>Every unresolved discrepancy, owned and aged: median age, mean time to resolve against a target, and a register with an owner and a status in plain words. The queue, judged as a process.</li>
+              <li><strong>Feed Detail</strong>One feed end to end, reached by right-click drillthrough: paired source-versus-warehouse bars a fortnight deep, the feed's checks, and its open breaks.</li>
             </ul>
 
             <figure class="media-shot">
@@ -161,12 +143,12 @@
                 height="1508"
                 loading="lazy"
               />
-            </figure>
-            <p class="media-caption">
+              <figcaption class="media-caption">
               The pairwise proof and the check grid: green means a check passed, amber a warning
               inside tolerance, red a failure, and no-run nights say "no run", never "failure".
               A recurring problem reads as a pattern, not an incident.
-            </p>
+            </figcaption>
+          </figure>
 
             <figure class="media-shot">
               <img
@@ -176,16 +158,17 @@
                 height="1508"
                 loading="lazy"
               />
-            </figure>
-            <p class="media-caption">
+              <figcaption class="media-caption">
               The break register: 14 open discrepancies owned and aged, median age three days,
               mean time to resolve 2.7 days against a 3.0-day target. Statuses in plain words,
               because a queue is a process, not a chart.
-            </p>
+            </figcaption>
+          </figure>
           </section>
 
           <!-- UNDER THE HOOD -->
           <section class="cs-block" aria-labelledby="hood">
+            <span class="cs-num">03</span>
             <h2 id="hood">Under the hood</h2>
             <div class="prose">
               <p>
@@ -211,6 +194,7 @@
 
           <!-- SOURCE -->
           <section class="cs-block" aria-labelledby="source">
+            <span class="cs-num">04</span>
             <h2 id="source">The source</h2>
             <div class="prose">
               <p>
@@ -223,15 +207,20 @@
           </section>
 
           <!-- DISCLAIMER -->
-          <section class="cs-block" aria-label="Disclaimer">
+          <section class="cs-block cs-block--note" aria-label="Disclaimer">
             <p class="cs-disclosure">
               All data in this case study is synthetic, generated by a committed, deterministic
               script; Thornfield Retail Group is a fictional client created to demonstrate the
               work. No real client data appears anywhere in this project.
             </p>
-            <p class="cs-next">
-              <a href="/case-studies/site-inspection-performance/">Next case study: Site Inspection Performance <span aria-hidden="true">→</span></a>
-            </p>
+            <a class="next-case" href="/case-studies/site-inspection-performance/">
+              <img src="/media/case-studies/site-inspection-performance/exec-overview-thumb.png" alt="" width="800" height="466" loading="lazy" />
+              <span>
+                <span class="next-case-label">Next case study</span>
+                <span class="next-case-title">Site Inspection Performance</span>
+              </span>
+              <span class="next-case-arrow" aria-hidden="true">&rarr;</span>
+            </a>
           </section>
         </article>
 
@@ -254,7 +243,7 @@
       <div class="container footer-inner">
         <div class="footer-brand">
           <span class="footer-name">Lorenzo Reale</span>
-          <span>Power BI consultant · UK</span>
+          <span>Power BI developer · EU and UK</span>
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener">LinkedIn</a>
@@ -267,6 +256,30 @@
       </div>
     </footer>
   </div>
+
+  <!-- MOBILE TAB BAR: replaces the navigation row below 780px -->
+  <nav class="tabbar" aria-label="Primary">
+    <a href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>
+      Home
+    </a>
+    <a href="/services/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+      Services
+    </a>
+    <a href="/case-studies/" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 5V3h8v2"/></svg>
+      Work
+    </a>
+    <a href="/#certifications">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1 7 4.5-2.5 4.5 2.5-1-7"/></svg>
+      Certs
+    </a>
+    <a href="/contact/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+      Contact
+    </a>
+  </nav>
 
   <script src="/script.js"></script>
 </body>

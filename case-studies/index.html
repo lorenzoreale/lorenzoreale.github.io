@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Case studies - Lorenzo Reale, Power BI consultant</title>
-  <meta name="description" content="Demonstration Power BI projects built end to end on synthetic data: operational, finance and data-quality reporting. Full semantic models, DAX and data generators on GitHub." />
+  <title>Case studies - Lorenzo Reale, Power BI developer</title>
+  <meta name="description" content="Demonstration Power BI projects built end to end on synthetic data: operational, finance and data-quality reporting, with the models and DAX on GitHub." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/" />
+  <meta name="theme-color" content="#14294B" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Lorenzo Reale" />
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/" />
-  <meta property="og:title" content="Case studies - Lorenzo Reale, Power BI consultant" />
+  <meta property="og:title" content="Case studies - Lorenzo Reale, Power BI developer" />
   <meta property="og:description" content="Demonstration Power BI projects built end to end on synthetic data: operational, finance and data-quality reporting." />
   <meta property="og:image" content="https://lorenzoreale.com/og/case-studies.png" />
   <meta property="og:image:width" content="1200" />
@@ -23,7 +24,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://lorenzoreale.com/og/case-studies.png" />
-  <meta name="twitter:title" content="Case studies - Lorenzo Reale, Power BI consultant" />
+  <meta name="twitter:title" content="Case studies - Lorenzo Reale, Power BI developer" />
   <meta name="twitter:description" content="Demonstration Power BI projects built end to end on synthetic data: operational, finance and data-quality reporting." />
 
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -33,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -41,48 +42,27 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="page">
-    <header class="site-header">
-      <div class="container">
-        <nav class="nav" aria-label="Primary">
-          <a href="/" class="brand" aria-label="Lorenzo Reale - home">
-            <span class="brand-text">
-              <span class="brand-name">Lorenzo Reale</span>
-              <span class="brand-tag">Power BI Consultant</span>
-            </span>
-          </a>
-
-          <div class="brand-social">
-            <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener" aria-label="Lorenzo Reale on LinkedIn">
-              <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
-                <circle cx="3.6" cy="3.6" r="1.8"/>
-                <rect x="1.9" y="7" width="3.4" height="11"/>
-                <path d="M8.5 7h3.2v1.5h.05c.45-.85 1.55-1.75 3.2-1.75 3.4 0 4.05 2.25 4.05 5.15V18h-3.4v-5.3c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V18H8.5V7z"/>
-              </svg>
-            </a>
-            <a href="mailto:lorenzo@lorenzoreale.com" aria-label="Email Lorenzo Reale">
-              <svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="1.5" y="3.5" width="17" height="13" rx="2"/>
-                <path d="M2.5 5.5 10 11l7.5-5.5"/>
-              </svg>
-            </a>
-          </div>
-
-          <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-
-          <div class="nav-links" id="nav-links">
-            <a href="/services/">Services</a>
-            <a href="/case-studies/" aria-current="page">Case Studies</a>
-            <a href="/contact/">Contact</a>
-          </div>
-        </nav>
+    <!-- LETTERHEAD -->
+    <header class="letterhead">
+      <div class="container lh-top">
+        <a class="lh-brand" href="/" aria-label="Lorenzo Reale - home">
+          <span class="lh-mono" aria-hidden="true">LR</span>
+          <span class="lh-name">Lorenzo Reale</span>
+        </a>
+        <p class="lh-role">Power BI Developer · Remote-first · EU&nbsp;and&nbsp;UK</p>
       </div>
     </header>
+
+    <!-- Sibling of the letterhead, so the sticky rule spans the whole page -->
+    <nav class="lh-nav" aria-label="Primary">
+      <div class="container lh-nav-in">
+        <a href="/">Home</a>
+        <a href="/services/">Services</a>
+        <a href="/case-studies/" aria-current="page">Case studies</a>
+        <a href="/#certifications">Certifications</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </nav>
 
     <main id="main">
       <!-- PAGE HERO -->
@@ -99,11 +79,11 @@
       </section>
 
       <!-- CASE STUDY LIST -->
-      <section class="section" aria-label="Case studies">
+      <section class="section section--tint" aria-label="Case studies">
         <div class="container">
-          <div class="cards reveal">
-            <article class="card case-card card--link">
-              <div class="case-thumb">
+          <div class="case-rows reveal">
+            <article class="case-row">
+              <div class="case-shot">
                 <img
                   src="/media/case-studies/site-inspection-performance/exec-overview-thumb.png"
                   alt="Executive overview page of the Site Inspection Performance report"
@@ -112,21 +92,33 @@
                   loading="lazy"
                 />
               </div>
-              <div class="case-body">
-                <h2 class="card-title"><a class="stretched" href="/case-studies/site-inspection-performance/">Site Inspection Performance</a></h2>
-                <p class="card-desc">
-                  Compliance across a 42-site estate: are we inspecting enough, and is
-                  compliance where it should be? Built for operations leadership.
+              <div class="case-copy">
+                <p class="kicker">Operations leadership</p>
+                <h2><a class="stretched" href="/case-studies/site-inspection-performance/">Site Inspection Performance</a></h2>
+                <p>
+                  Compliance across a 42-site estate: are we inspecting enough, is compliance
+                  where it should be, and are corrective actions getting closed?
                 </p>
-                <div class="card-tags">
-                  <span class="tag">Synthetic data · fictional client</span>
-                </div>
-                <span class="card-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
+                <dl class="mini-meta">
+                  <div>
+                    <dt>Client</dt>
+                    <dd>Meridian Facilities Group (fictional)</dd>
+                  </div>
+                  <div>
+                    <dt>Report</dt>
+                    <dd>Five pages</dd>
+                  </div>
+                  <div>
+                    <dt>Data</dt>
+                    <dd>Synthetic, deterministic</dd>
+                  </div>
+                </dl>
+                <span class="link-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
               </div>
             </article>
 
-            <article class="card case-card card--link">
-              <div class="case-thumb">
+            <article class="case-row">
+              <div class="case-shot">
                 <img
                   src="/media/case-studies/month-end-management-pack/scorecard-thumb.png"
                   alt="Month-end scorecard page of the Month-End Management Pack report"
@@ -135,21 +127,33 @@
                   loading="lazy"
                 />
               </div>
-              <div class="case-body">
-                <h2 class="card-title"><a class="stretched" href="/case-studies/month-end-management-pack/">Month-End Management Pack</a></h2>
-                <p class="card-desc">
-                  A finance close that explains itself: budget to actual, the variance
-                  bridge, and a drillable P&amp;L. Built for finance and leadership.
+              <div class="case-copy">
+                <p class="kicker">Finance and leadership</p>
+                <h2><a class="stretched" href="/case-studies/month-end-management-pack/">Month-End Management Pack</a></h2>
+                <p>
+                  A finance close that explains itself: budget to actual, the variance bridge,
+                  a drillable P&amp;L and the client portfolio behind the revenue.
                 </p>
-                <div class="card-tags">
-                  <span class="tag">Synthetic data · fictional client</span>
-                </div>
-                <span class="card-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
+                <dl class="mini-meta">
+                  <div>
+                    <dt>Client</dt>
+                    <dd>Ashcombe Partners (fictional)</dd>
+                  </div>
+                  <div>
+                    <dt>Report</dt>
+                    <dd>Five pages</dd>
+                  </div>
+                  <div>
+                    <dt>Data</dt>
+                    <dd>Synthetic, deterministic</dd>
+                  </div>
+                </dl>
+                <span class="link-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
               </div>
             </article>
 
-            <article class="card case-card card--link">
-              <div class="case-thumb">
+            <article class="case-row">
+              <div class="case-shot">
                 <img
                   src="/media/case-studies/data-reconciliation-monitor/morning-check-thumb.png"
                   alt="Morning check page of the Data Reconciliation Monitor report"
@@ -158,31 +162,45 @@
                   loading="lazy"
                 />
               </div>
-              <div class="case-body">
-                <h2 class="card-title"><a class="stretched" href="/case-studies/data-reconciliation-monitor/">Data Reconciliation Monitor</a></h2>
-                <p class="card-desc">
-                  The data team's morning check: did last night's loads land, and does the
-                  warehouse match the source? Built for engineering teams.
+              <div class="case-copy">
+                <p class="kicker">Data and engineering teams</p>
+                <h2><a class="stretched" href="/case-studies/data-reconciliation-monitor/">Data Reconciliation Monitor</a></h2>
+                <p>
+                  The data team's morning check: did last night's loads land, does the warehouse
+                  match the source, and which breaks are still open?
                 </p>
-                <div class="card-tags">
-                  <span class="tag">Synthetic data · fictional client</span>
-                </div>
-                <span class="card-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
+                <dl class="mini-meta">
+                  <div>
+                    <dt>Client</dt>
+                    <dd>Thornfield Retail Group (fictional)</dd>
+                  </div>
+                  <div>
+                    <dt>Report</dt>
+                    <dd>Five pages</dd>
+                  </div>
+                  <div>
+                    <dt>Data</dt>
+                    <dd>Synthetic, deterministic</dd>
+                  </div>
+                </dl>
+                <span class="link-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
               </div>
             </article>
           </div>
+
           <p class="case-more">Anonymised case studies from real client engagements will follow.</p>
 
           <!-- CLIENT-WORK-HIDDEN: anonymised real-work case study, restore when its copy is written.
-          <article class="card case-card card--link case-single">
-            <div class="case-thumb" aria-hidden="true"><span>Dashboard preview</span></div>
-            <div class="case-body">
-              <h2 class="card-title"><a class="stretched" href="/case-studies/regulated-utilities-reporting/">Regulated utilities operational reporting</a></h2>
-              <p class="card-desc">
+          <article class="case-row">
+            <div class="case-shot"><img src="" alt="" width="800" height="466" loading="lazy" /></div>
+            <div class="case-copy">
+              <p class="kicker">Operations leadership</p>
+              <h2><a class="stretched" href="/case-studies/regulated-utilities-reporting/">Regulated utilities operational reporting</a></h2>
+              <p>
                 Rebuilding a fragmented operational reporting cycle on a dependable data
                 layer, from raw capture through to board-ready dashboards.
               </p>
-              <span class="card-more" aria-hidden="true">Read case study <span class="arrow">→</span></span>
+              <span class="link-more" aria-hidden="true">Read case study <span class="arrow">&rarr;</span></span>
             </div>
           </article>
           -->
@@ -209,7 +227,7 @@
       <div class="container footer-inner">
         <div class="footer-brand">
           <span class="footer-name">Lorenzo Reale</span>
-          <span>Power BI consultant · EU and UK</span>
+          <span>Power BI developer · EU and UK</span>
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a href="https://www.linkedin.com/in/lorenzoreale" target="_blank" rel="noopener">LinkedIn</a>
@@ -222,6 +240,30 @@
       </div>
     </footer>
   </div>
+
+  <!-- MOBILE TAB BAR: replaces the navigation row below 780px -->
+  <nav class="tabbar" aria-label="Primary">
+    <a href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>
+      Home
+    </a>
+    <a href="/services/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+      Services
+    </a>
+    <a href="/case-studies/" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 5V3h8v2"/></svg>
+      Work
+    </a>
+    <a href="/#certifications">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1 7 4.5-2.5 4.5 2.5-1-7"/></svg>
+      Certs
+    </a>
+    <a href="/contact/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+      Contact
+    </a>
+  </nav>
 
   <script src="/script.js"></script>
 </body>
