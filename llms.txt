@@ -1,0 +1,37 @@
+# Lorenzo Reale
+
+> Independent Power BI developer and consultant for operational and enterprise data. Dashboards and reports, semantic models, DAX and the SQL layer beneath them, built so the figures reconcile and leadership can act on them. Works with clients across the UK and EU, mostly remotely, with occasional on-site visits.
+
+## About
+
+- Trained as an aerospace engineer, then spent six years in London building enterprise reporting for operational teams and leadership in large, highly regulated organisations.
+- Earlier ran a retail store end to end, from campaigns and sales performance to the layout of the shop floor.
+- British and Italian citizen, able to work in the UK and the EU without visas or sponsorship.
+- Contact: lorenzo@lorenzoreale.com or https://lorenzoreale.com/contact/
+
+## Services
+
+- [Power BI, end to end](https://lorenzoreale.com/services/#power-bi): semantic modelling and star-schema design, DAX, Power Query / M, report and dashboard design, deployment, workspace and semantic model governance, row-level security.
+- [The SQL data layer](https://lorenzoreale.com/services/#data-layer): T-SQL development, query performance tuning, data warehouse and reporting-layer modelling, repeatable load patterns, data quality and reconciliation checks, SQL Server and Azure SQL.
+- [Power Platform automation](https://lorenzoreale.com/services/#automation): Power Automate flows, SharePoint lists and libraries, Office Scripts, approval and notification workflows.
+
+## Case studies
+
+Demonstration projects on synthetic data for fictional clients, each a complete working Power BI report. The full source is public at https://github.com/lorenzoreale/powerbi-portfolio
+
+- [Site Inspection Performance](https://lorenzoreale.com/case-studies/site-inspection-performance/): a five-page report on a 42-site inspection programme covering coverage, compliance, findings and corrective actions.
+- [Month-End Management Pack](https://lorenzoreale.com/case-studies/month-end-management-pack/): a five-page finance pack with budget versus actual, a profit bridge and a drillable P&L.
+- [Data Reconciliation Monitor](https://lorenzoreale.com/case-studies/data-reconciliation-monitor/): a five-page monitor for a nightly data platform with source-versus-warehouse reconciliation, a 48-rule quality rulebook and a break register.
+
+## Certifications
+
+- BCS Data Analytics Accelerator (BCS, The Chartered Institute for IT)
+- Google Advanced Data Analytics Professional Certificate (Google)
+- Google Data Analytics Professional Certificate (Google)
+- Managing Management Systems (CQI, The Chartered Quality Institute)
+
+## Links
+
+- Website: https://lorenzoreale.com/
+- LinkedIn: https://www.linkedin.com/in/lorenzoreale
+- GitHub: https://github.com/lorenzoreale
