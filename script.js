@@ -32,25 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
      marked by aria-current, so there is no menu to open, close or trap focus
      in, and navigation keeps working with JavaScript disabled. */
 
-  /* 4. Portfolio source links (case-study pages).
-     The github.com/lorenzoreale/powerbi-portfolio repo is public, so every
-     [data-repo-link] resolves to a direct GitHub link (data-repo-link holds
-     the optional path within the repo, data-repo-label the public link text).
-     Set this back to false to revert to "available on request" mailto links. */
-  const PORTFOLIO_REPO_PUBLIC = true;
-  const PORTFOLIO_REPO_URL = "https://github.com/lorenzoreale/powerbi-portfolio";
-
-  if (PORTFOLIO_REPO_PUBLIC) {
-    document.querySelectorAll("[data-repo-link]").forEach((el) => {
-      const path = el.getAttribute("data-repo-link");
-      el.href = path ? PORTFOLIO_REPO_URL + "/tree/main/" + path : PORTFOLIO_REPO_URL;
-      el.textContent = el.getAttribute("data-repo-label") || "View the full project on GitHub";
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
-    });
-  }
-
-  /* 5. CONTACT FORM (contact page only) - live.
+  /* 4. CONTACT FORM (contact page only) - live.
      Posts JSON to Web3Forms, which emails the message on. The access key is
      public by design: it identifies the destination inbox, not the account.
      The <form action> in contact/index.html is the no-JS fallback and must
