@@ -5,7 +5,7 @@
 ## About
 
 - Trained as an aerospace engineer, then spent six years in London building enterprise reporting for operational teams and leadership in large, highly regulated organisations.
-- Earlier ran a retail store end to end, from campaigns and sales performance to the layout of the shop floor.
+- Covers the whole reporting chain, from the SQL underneath to the model and the dashboard on top, so every figure can be traced back to source.
 - British and Italian citizen, able to work in the UK and the EU without visas or sponsorship.
 - Contact: lorenzo@lorenzoreale.com or https://lorenzoreale.com/contact/
 
