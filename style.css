@@ -265,19 +265,24 @@ main { flex: 1; }
   color: inherit;
 }
 
+/* Brand mark: a bar chart that reads as an L. The span is the navy
+   badge, the inline SVG draws the gold bars on the badge's 64-unit grid,
+   the same geometry as the favicon. */
 .lh-mono {
-  display: grid;
-  place-items: center;
+  display: block;
+  flex: none;   /* the SVG has no intrinsic width, so never let flex shrink it */
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--radius-md);
+  border-radius: 21.875%;   /* 14 of 64 grid units */
   background: var(--navy);
   color: var(--gold);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  line-height: 1;
+}
+
+.lh-mono svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
 
 .lh-name {
