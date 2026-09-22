@@ -10,9 +10,21 @@
 
 ## Services
 
-- [Power BI, end to end](https://lorenzoreale.com/services/#power-bi): semantic modelling and star-schema design, DAX, Power Query / M, report and dashboard design, deployment, workspace and semantic model governance, row-level security.
-- [The SQL data layer](https://lorenzoreale.com/services/#data-layer): T-SQL development, query performance tuning, data warehouse and reporting-layer modelling, repeatable load patterns, data quality and reconciliation checks, SQL Server and Azure SQL.
-- [Power Platform automation](https://lorenzoreale.com/services/#automation): Power Automate flows, SharePoint lists and libraries, Office Scripts, approval and notification workflows.
+Three ways to work together:
+
+- [Review](https://lorenzoreale.com/services/#review): an independent look at existing Power BI reporting (semantic model and DAX, SQL and loads, manual steps), with a written account of what is sound, what is fragile and what to fix first.
+- [Build and rebuild](https://lorenzoreale.com/services/#build): new Power BI reporting, or existing reporting rebuilt, from the SQL layer through the semantic model and DAX to the report, deployment, refresh and row-level security.
+- [Join your team](https://lorenzoreale.com/services/#team): a contract Power BI developer inside an existing team, working to its conventions and backlog, remotely with occasional on-site days.
+
+What each can cover:
+
+- [Power BI](https://lorenzoreale.com/services/#power-bi): semantic modelling and star-schema design, DAX, Power Query / M, report and dashboard design, deployment, workspace governance, row-level security.
+- [The SQL data layer](https://lorenzoreale.com/services/#data-layer): T-SQL development, query tuning, data warehouse and reporting-layer modelling, repeatable loads, data quality and reconciliation checks, SQL Server and Azure SQL.
+- [Power Platform automation](https://lorenzoreale.com/services/#automation): Power Automate flows, SharePoint lists and libraries, Office Scripts.
+
+## How I work
+
+Understand what the report is for, check the data before building on it, build and show it early, then reconcile every figure against source and hand over. The steps stay the same; how deep each one goes depends on the job. When joining an existing team, its way of working comes first.
 
 ## Work
 

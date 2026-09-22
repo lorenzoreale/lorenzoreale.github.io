@@ -557,6 +557,48 @@ main { flex: 1; }
 }
 
 /* -------------------------------------------------------------
+   11b. PROCESS STEPS (homepage and services)
+   ------------------------------------------------------------- */
+/* A hairline with a short gold marker per step: lighter than the navy
+   service rules, so the sequence reads as a way of working rather than
+   as another offer. */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+.step {
+  position: relative;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-strong);
+}
+.step::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.step-num {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  color: var(--gold-text);
+}
+.step h3 { margin-bottom: var(--space-2); }
+.step p {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------
    12. CASE STUDY ROWS (homepage)
    ------------------------------------------------------------- */
 .case-rows {
@@ -1336,6 +1378,7 @@ a.cert-logo:hover {
 /* ---- Tablet ---- */
 @media (max-width: 900px) {
   .svc-cols { grid-template-columns: 1fr; gap: var(--space-6); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-8); }
 
   /* Stacked, so the spec panel stops following and simply heads its block */
   .service-grid { grid-template-columns: 1fr; gap: var(--space-6); }
@@ -1369,6 +1412,8 @@ a.cert-logo:hover {
 
 /* ---- Small tablet and phone ---- */
 @media (max-width: 640px) {
+  .steps { grid-template-columns: 1fr; row-gap: var(--space-6); }
+
   .next-case {
     grid-template-columns: 1fr;
     gap: var(--space-3);
