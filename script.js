@@ -99,4 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* 5. VISIT COUNTING - GoatCounter.
+     Cookieless and stores no personal data, so no consent banner is needed.
+     Loaded from here so every page that includes script.js is counted without
+     touching the HTML. count.js ignores localhost by itself, and opening any
+     page with #toggle-goatcounter stops counting visits from that browser. */
+  const counter = document.createElement("script");
+  counter.async = true;
+  counter.src = "https://gc.zgo.at/count.js";
+  counter.dataset.goatcounter = "https://lorenzoreale.goatcounter.com/count";
+  document.body.appendChild(counter);
 });
