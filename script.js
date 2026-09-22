@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name: contactForm.elements.name.value.trim(),
         email: contactForm.elements.email.value.trim(),
         company: contactForm.elements.company.value.trim(),
+        looking_for: contactForm.elements.looking_for.value,
         message: contactForm.elements.message.value.trim(),
       };
 

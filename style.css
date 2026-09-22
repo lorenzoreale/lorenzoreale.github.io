@@ -1268,6 +1268,7 @@ a.cert-logo:hover {
 }
 
 .contact-form input:not([type="checkbox"]),
+.contact-form select,
 .contact-form textarea {
   width: 100%;
   padding: var(--space-3) var(--space-4);
@@ -1281,9 +1282,32 @@ a.cert-logo:hover {
 }
 .contact-form textarea { resize: vertical; }
 .contact-form input:hover:not([type="checkbox"]),
+.contact-form select:hover,
 .contact-form textarea:hover { border-color: var(--navy); }
 
+/* Native select arrows differ by browser, so the wrapper draws one chevron for all */
+.select-wrap { position: relative; }
+.contact-form select {
+  appearance: none;
+  padding-right: var(--space-10);
+  line-height: normal;
+  cursor: pointer;
+}
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: var(--space-4);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
 .contact-form input:focus-visible,
+.contact-form select:focus-visible,
 .contact-form textarea:focus-visible {
   border-color: var(--navy);
   outline: 2px solid var(--navy);

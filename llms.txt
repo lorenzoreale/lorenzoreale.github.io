@@ -1,12 +1,11 @@
 # Lorenzo Reale
 
-> Independent Power BI developer and consultant for operational and enterprise data. Dashboards and reports, semantic models, DAX and the SQL layer beneath them, built so the figures reconcile and leadership can act on them. Works with clients across the UK and EU, mostly remotely, with occasional on-site visits.
+> Independent Power BI developer and consultant for operational and enterprise data. Dashboards and reports, semantic models, DAX and the SQL layer beneath them, built so the figures reconcile and leadership can act on them. Takes on projects and contract roles across the UK and EU, mostly remotely, with occasional on-site visits.
 
 ## About
 
-- Trained as an aerospace engineer, then spent six years in London building enterprise reporting for operational teams and leadership in large, highly regulated organisations.
-- Covers the whole reporting chain, from the SQL underneath to the model and the dashboard on top, so every figure can be traced back to source.
-- British and Italian citizen, able to work in the UK and the EU without visas or sponsorship.
+- Studied aerospace engineering. Reconciles every figure against its source before a report goes live.
+- Covers the whole reporting chain, from the SQL underneath to the model and the dashboard on top, plus the Power Automate and SharePoint steps that feed it, so every figure can be traced back to source.
 - Contact: lorenzo@lorenzoreale.com or https://lorenzoreale.com/contact/
 
 ## Services
@@ -15,7 +14,7 @@
 - [The SQL data layer](https://lorenzoreale.com/services/#data-layer): T-SQL development, query performance tuning, data warehouse and reporting-layer modelling, repeatable load patterns, data quality and reconciliation checks, SQL Server and Azure SQL.
 - [Power Platform automation](https://lorenzoreale.com/services/#automation): Power Automate flows, SharePoint lists and libraries, Office Scripts, approval and notification workflows.
 
-## Case studies
+## Work
 
 Demonstration projects on synthetic data for fictional clients, each a complete working Power BI report. The full source is public at https://github.com/lorenzoreale/powerbi-portfolio
 

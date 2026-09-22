@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Month-End Management Pack - Power BI case study</title>
+  <title>Month-End Management Pack - Power BI project</title>
   <meta name="description" content="A five-page Power BI finance pack: budget versus actual, a profit bridge and a drillable P&amp;L, month and year to date. Synthetic data, fictional client." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/month-end-management-pack/" />
   <meta name="theme-color" content="#14294B" />
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="Lorenzo Reale" />
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/month-end-management-pack/" />
-  <meta property="og:title" content="Month-End Management Pack - Power BI case study" />
+  <meta property="og:title" content="Month-End Management Pack - Power BI project" />
   <meta property="og:description" content="A five-page Power BI finance pack: budget versus actual, a profit bridge, and a drillable P&L with month and year-to-date views. Synthetic data, fictional client." />
   <meta property="og:image" content="https://lorenzoreale.com/og/month-end-management-pack.png" />
   <meta property="og:image:width" content="1200" />
@@ -24,7 +24,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://lorenzoreale.com/og/month-end-management-pack.png" />
-  <meta name="twitter:title" content="Month-End Management Pack - Power BI case study" />
+  <meta name="twitter:title" content="Month-End Management Pack - Power BI project" />
   <meta name="twitter:description" content="A five-page Power BI finance pack: budget versus actual, a profit bridge, and a drillable P&L. Synthetic data, fictional client, full model on GitHub." />
 
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
@@ -44,7 +44,7 @@
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": "Month-End Management Pack",
-    "headline": "Month-End Management Pack - Power BI case study",
+    "headline": "Month-End Management Pack - Power BI project",
     "description": "A five-page Power BI finance pack: budget versus actual, a profit bridge and a drillable P&L, month and year to date. Synthetic data, fictional client.",
     "url": "https://lorenzoreale.com/case-studies/month-end-management-pack/",
     "image": "https://lorenzoreale.com/media/case-studies/month-end-management-pack/scorecard@2x.png",
@@ -79,7 +79,7 @@
       <div class="container lh-nav-in">
         <a href="/">Home</a>
         <a href="/services/">Services</a>
-        <a href="/case-studies/" aria-current="page">Case studies</a>
+        <a href="/case-studies/" aria-current="page">Work</a>
         <a href="/#certifications">Certifications</a>
         <a href="/contact/">Contact</a>
       </div>
@@ -90,7 +90,7 @@
         <article class="cs-body">
           <!-- PAGE HERO -->
           <header class="page-hero">
-            <a class="back-link" href="/case-studies/"><span aria-hidden="true">←</span> Case studies</a>
+            <a class="back-link" href="/case-studies/"><span aria-hidden="true">←</span> Work</a>
             <p class="kicker">Demonstration project</p>
             <h1>Month-End Management Pack</h1>
             <p class="page-lede">
@@ -136,8 +136,8 @@
                 Every month, Ashcombe Partners closes its management accounts and the board asks
                 the same four questions: did we hit the number, what drove the variance, what does
                 the full P&amp;L look like, and which clients is the revenue really coming from?
-                A month-end pack has to answer all four without a finance analyst standing next
-                to it, and it must never confuse a positive number with good news.
+                A month-end pack has to answer all four on its own, and it must never confuse a
+                positive number with good news.
               </p>
             </div>
           </section>
@@ -167,7 +167,7 @@
               />
               <figcaption class="media-caption">
               The profit bridge from budgeted operating profit (720) to actual (612), one step per
-              driver: the shape tells the story before any number is read.
+              driver: you can see which drivers hurt before reading a single number.
             </figcaption>
           </figure>
 
@@ -181,8 +181,8 @@
               />
               <figcaption class="media-caption">
               The management P&amp;L laid out as a proper statement: green shading only for
-              favourable variance, red only for unfavourable, and an unbudgeted line honestly
-              showing no budget rather than a divide-by-zero.
+              favourable variance, red only for unfavourable, and an unbudgeted line
+              showing no budget rather than a divide-by-zero error.
             </figcaption>
           </figure>
           </section>
@@ -194,19 +194,19 @@
             <div class="prose">
               <p>
                 Every amount in the model is stored as a signed profit contribution: revenue
-                positive, costs negative. Two things follow for free. A plain SUM is the profit
+                positive, costs negative. Two things follow from that. A plain SUM is the profit
                 at any level of the P&amp;L, and variance carries the favourable-or-unfavourable
                 sign automatically for every line: a cost under budget is positive and green, a
                 revenue miss is negative and red, with one formatting rule and no special cases.
                 The statement layout itself is driven by a small disconnected "P&amp;L Line"
-                table and a single measure, the finance-grade way to put subtotals exactly where
-                an accountant expects them.
+                table and a single measure, a common finance pattern that puts subtotals exactly
+                where an accountant expects them.
               </p>
               <p>
-                The raw ledger carries six deliberate, documented defects the model handles in
-                the open: an unbudgeted account, a duplicated late-journal batch, dirty client
+                The raw ledger carries six deliberate, documented defects for the model to deal
+                with: an unbudgeted account, a duplicated late-journal batch, dirty client
                 names, overhead rows with no client, one cost posted with the wrong sign, and
-                sub-pound rounding rows that vanish honestly once figures are shown in thousands.
+                sub-pound rounding rows that round away once figures are shown in thousands.
               </p>
             </div>
           </section>
@@ -227,14 +227,14 @@
           <!-- DISCLAIMER -->
           <section class="cs-block cs-block--note" aria-label="Disclaimer">
             <p class="cs-disclosure">
-              All data in this case study is synthetic, generated by a committed, deterministic
+              All data in this project is synthetic, generated by a committed, deterministic
               script. Ashcombe Partners is a fictional client created to demonstrate the work.
               No real client data appears anywhere in this project.
             </p>
             <a class="next-case" href="/case-studies/data-reconciliation-monitor/">
               <img src="/media/case-studies/data-reconciliation-monitor/morning-check-thumb.png" alt="" width="800" height="466" loading="lazy" />
               <span>
-                <span class="next-case-label">Next case study</span>
+                <span class="next-case-label">Next project</span>
                 <span class="next-case-title">Data Reconciliation Monitor</span>
               </span>
               <span class="next-case-arrow" aria-hidden="true">&rarr;</span>
@@ -249,7 +249,7 @@
             <h2>A close your board could read unaided?</h2>
             <p class="cta-text">
               If your month-end pack takes days of manual work and still invites questions,
-              this is exactly the kind of report I build.
+              I'd like to hear about it.
             </p>
             <a class="btn btn-primary" href="/contact/">Discuss a project</a>
           </div>
