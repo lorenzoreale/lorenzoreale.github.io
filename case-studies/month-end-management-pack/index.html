@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Month-End Management Pack - Power BI project</title>
-  <meta name="description" content="A five-page Power BI finance pack: budget versus actual, a profit bridge and a drillable P&amp;L, month and year to date. Synthetic data, fictional client." />
+  <meta name="description" content="Power BI month-end pack: why profit missed budget, split into billable hours, billing rates and costs, with the points for the close meeting. Synthetic data." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/month-end-management-pack/" />
   <meta name="theme-color" content="#14294B" />
 
@@ -15,17 +15,17 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/month-end-management-pack/" />
   <meta property="og:title" content="Month-End Management Pack - Power BI project" />
-  <meta property="og:description" content="A five-page Power BI finance pack: budget versus actual, a profit bridge, and a drillable P&L with month and year-to-date views. Synthetic data, fictional client." />
-  <meta property="og:image" content="https://lorenzoreale.com/og/month-end-management-pack.png" />
+  <meta property="og:description" content="A Power BI month-end pack for a professional-services firm: why profit missed budget, and what the close meeting should discuss. Synthetic data, fictional client." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/month-end-management-pack.png?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Month-end scorecard page of the Month-End Management Pack Power BI report" />
+  <meta property="og:image:alt" content="Variance page of the Month-End Management Pack Power BI report" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://lorenzoreale.com/og/month-end-management-pack.png" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/month-end-management-pack.png?v=2" />
   <meta name="twitter:title" content="Month-End Management Pack - Power BI project" />
-  <meta name="twitter:description" content="A five-page Power BI finance pack: budget versus actual, a profit bridge, and a drillable P&L. Synthetic data, fictional client, full model on GitHub." />
+  <meta name="twitter:description" content="A Power BI month-end pack that explains why profit missed budget. Synthetic data, fictional client, full model on GitHub." />
 
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="icon" type="image/png" href="/media/favicon.png" sizes="32x32" />
@@ -45,9 +45,9 @@
     "@type": "CreativeWork",
     "name": "Month-End Management Pack",
     "headline": "Month-End Management Pack - Power BI project",
-    "description": "A five-page Power BI finance pack: budget versus actual, a profit bridge and a drillable P&L, month and year to date. Synthetic data, fictional client.",
+    "description": "Power BI month-end pack: why profit missed budget, split into billable hours, billing rates and costs, with the points for the close meeting. Synthetic data.",
     "url": "https://lorenzoreale.com/case-studies/month-end-management-pack/",
-    "image": "https://lorenzoreale.com/media/case-studies/month-end-management-pack/scorecard@2x.webp",
+    "image": "https://lorenzoreale.com/media/case-studies/month-end-management-pack/variance@2x.webp",
     "inLanguage": "en-GB",
     "about": ["Power BI", "DAX", "Semantic modelling", "Financial reporting"],
     "author": {
@@ -94,32 +94,30 @@
             <p class="kicker">Demonstration project</p>
             <h1>Month-End Management Pack</h1>
             <p class="page-lede">
-              A five-page management pack for Ashcombe Partners, a fictional professional-services
-              firm with four client-facing service lines. Budget to actual, the variance bridge,
-              a drillable P&amp;L and the client portfolio: a close that explains itself, without
-              a finance analyst standing next to it.
+              A month-end pack for Ashcombe Partners, a fictional professional-services firm with four
+              service lines. It is built for the close meeting, where the first question is always why
+              profit is different from budget.
             </p>
             <ul class="cs-meta">
               <li><span class="cs-meta-label">Client</span> Ashcombe Partners (fictional)</li>
-              <li><span class="cs-meta-label">Audience</span> Finance and leadership</li>
-              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · a deterministic data generator</li>
+              <li><span class="cs-meta-label">Audience</span> Finance director, partners and service-line heads</li>
+              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · Power Query</li>
             </ul>
           </header>
 
           <!-- HERO SHOT -->
           <figure class="media-shot" style="margin-top: 0;">
             <img
-              src="/media/case-studies/month-end-management-pack/scorecard@2x.webp"
-              alt="Month-end scorecard: KPI band against budget, operating profit bridge, P&L summary and revenue by service line"
+              src="/media/case-studies/month-end-management-pack/variance@2x.webp"
+              alt="Variance page: headline, revenue, operating profit, utilisation and year-to-date figures, the profit bridge, hours and rate effects by service line, and the points for the close meeting"
               width="1600"
-              height="932"
+              height="901"
               loading="eager"
               fetchpriority="high"
             />
             <figcaption class="media-caption">
-              The June 2026 close on one page: revenue 4,281 against a 4,500 budget, margin and
-              utilisation against target, and one red card naming the driver to chase. Figures in
-              GBP thousands.
+              June 2026: operating profit £108k below budget, the movements that explain it, and the
+              points the close meeting should discuss. Figures in £000.
             </figcaption>
           </figure>
           <p class="cs-disclosure">
@@ -127,86 +125,83 @@
             <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/month-end-management-pack" target="_blank" rel="noopener">on GitHub</a>.
           </p>
 
-          <!-- THE PROBLEM -->
-          <section class="cs-block" aria-labelledby="problem">
+          <!-- THE BRIEF -->
+          <section class="cs-block" aria-labelledby="brief">
             <span class="cs-num">01</span>
-            <h2 id="problem">The problem</h2>
+            <h2 id="brief">The brief</h2>
             <div class="prose">
               <p>
-                Every month, Ashcombe Partners closes its management accounts and the board asks
-                the same four questions: did we hit the number, what drove the variance, what does
-                the full P&amp;L look like, and which clients is the revenue really coming from?
-                A month-end pack has to answer all four on its own, and it must never confuse a
-                positive number with good news.
+                Each month the finance director and the partners spent the first part of the close working
+                out why profit had moved. They wanted that answered before the meeting started: how much
+                of the gap was volume and how much was price, which costs moved, and which service lines
+                and clients needed a conversation. The full P&amp;L had to be there too, for anyone who
+                wanted to check the figures.
               </p>
             </div>
           </section>
 
-          <!-- WHAT THE REPORT DOES -->
-          <section class="cs-block" aria-labelledby="what">
+          <!-- WHAT IT SHOWED -->
+          <section class="cs-block" aria-labelledby="showed">
             <span class="cs-num">02</span>
-            <h2 id="what">What the report does</h2>
+            <h2 id="showed">What it showed</h2>
             <div class="prose">
-              <p>Five pages, each answering one of the board's questions:</p>
+              <p>In June, operating profit was £612k against a £720k budget.</p>
             </div>
             <ul class="spec-list">
-              <li><strong>Month-End Scorecard</strong>The close on one page: revenue, margin, operating profit and utilisation against budget, the profit bridge in miniature, and the largest adverse variances. One red alarm card names the driver that needs attention.</li>
-              <li><strong>Profit Bridge</strong>The "why" page: a waterfall from budgeted operating profit to actual, one step per driver. Favourable steps green, unfavourable red, with the budget and actual totals as neutral anchors.</li>
-              <li><strong>P&amp;L Matrix</strong>The full management P&amp;L as a statement: subtotals in the right places, a this-month column group and a year-to-date group side by side, variance percentage as the only shaded column.</li>
-              <li><strong>Client Portfolio</strong>Where the revenue comes from and at what margin: top clients against budget, and a margin-versus-revenue scatter that makes the high-revenue low-margin account impossible to miss.</li>
-              <li><strong>Service Line Detail</strong>One service line end to end, reached by right-click drillthrough: its own P&amp;L and its clients, in the same colour language as the group pages.</li>
+              <li><strong>The shortfall is billable hours</strong>Revenue was £219k short, and £206k of that came from fewer hours billed. Managed Services alone lost 420 hours, with utilisation down from 80.6% in January to 75.0%. That is a resourcing question for the service line.</li>
+              <li><strong>Projects is losing margin to subcontractors</strong>Gross margin was 31.7% against 36.1% budgeted, with subcontractors £56k over.</li>
+              <li><strong>Advisory is discounting</strong>It billed £472 an hour against a £486 rate card, which cost £35k of revenue in the month.</li>
+              <li><strong>Two clients are below the margin floor</strong>Nyle Distribution at 28.0% and Oakline Foods at 28.4%, against the 30% the partners accept. Both are candidates for a pricing review.</li>
+              <li><strong>Overheads cushioned the month</strong>They came in £57k under budget, though admin staff costs have risen every month this year.</li>
             </ul>
 
             <figure class="media-shot">
               <img
-                src="/media/case-studies/month-end-management-pack/profit-bridge@2x.webp"
-                alt="Operating profit bridge from budget 720 to actual 612, one step per driver, favourable steps green and unfavourable red"
+                src="/media/case-studies/month-end-management-pack/service-lines@2x.webp"
+                alt="Service lines page: utilisation and gross margin by service line over 18 months, and a table of each line against budget"
                 width="1600"
-                height="932"
+                height="901"
                 loading="lazy"
               />
               <figcaption class="media-caption">
-              The profit bridge from budgeted operating profit (720) to actual (612), one step per
-              driver: you can see which drivers hurt before reading a single number.
+              Utilisation by service line against the 82% budget. Managed Services has slipped every month
+              this year, which no single month's figures would show.
             </figcaption>
           </figure>
 
             <figure class="media-shot">
               <img
-                src="/media/case-studies/month-end-management-pack/pl-matrix@2x.webp"
-                alt="Management P&L matrix with this-month and year-to-date column groups and a shaded variance percentage column"
+                src="/media/case-studies/month-end-management-pack/clients@2x.webp"
+                alt="Clients page: gross margin by client against the 30% floor, and the client register"
                 width="1600"
-                height="932"
+                height="901"
                 loading="lazy"
               />
               <figcaption class="media-caption">
-              The management P&amp;L laid out as a proper statement: green shading only for
-              favourable variance, red only for unfavourable, and an unbudgeted line
-              showing no budget rather than a divide-by-zero error.
+              Gross margin by client against the 30% floor, lowest first, with revenue and margin against
+              budget in the register.
             </figcaption>
           </figure>
           </section>
 
-          <!-- UNDER THE HOOD -->
-          <section class="cs-block" aria-labelledby="hood">
+          <!-- HOW IT'S BUILT -->
+          <section class="cs-block" aria-labelledby="built">
             <span class="cs-num">03</span>
-            <h2 id="hood">Under the hood</h2>
+            <h2 id="built">How it's built</h2>
             <div class="prose">
               <p>
-                Every amount in the model is stored as a signed profit contribution: revenue
-                positive, costs negative. Two things follow from that. A plain SUM is the profit
-                at any level of the P&amp;L, and variance carries the favourable-or-unfavourable
-                sign automatically for every line: a cost under budget is positive and green, a
-                revenue miss is negative and red, with one formatting rule and no special cases.
-                The statement layout itself is driven by a small disconnected "P&amp;L Line"
-                table and a single measure, a common finance pattern that puts subtotals exactly
-                where an accountant expects them.
+                The budget is flexed: budgeted utilisation and the rate card are applied to the hours each team
+                actually had, so leave and vacancies do not show up as missed budget. What remains of the
+                revenue variance splits into hours and rates, worked out service line by service line and
+                month by month, so a shift towards cheaper work is not mistaken for discounting.
               </p>
               <p>
-                The raw ledger carries six deliberate, documented defects for the model to deal
-                with: an unbudgeted account, a duplicated late-journal batch, dirty client
-                names, overhead rows with no client, one cost posted with the wrong sign, and
-                sub-pound rounding rows that round away once figures are shown in thousands.
+                Amounts are stored as profit contributions, revenue positive and costs negative, so a positive
+                variance is good news on every line. The points for the meeting are written by the model
+                from the month's figures and change with the month selected. The ledger came with the usual
+                faults: a journal batch exported twice, client names typed by hand, a cost posted with the
+                wrong sign and depreciation with no budget line of its own. Each is handled before it
+                reaches the report.
               </p>
             </div>
           </section>
@@ -217,9 +212,8 @@
             <h2 id="source">The source</h2>
             <div class="prose">
               <p>
-                The whole project is readable as text: the semantic model in TMDL, the report in
-                PBIR, the DAX measure by measure, and the data generator that produced every
-                figure on this page. The full source is <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/month-end-management-pack" target="_blank" rel="noopener">on GitHub</a>.
+                The semantic model, the DAX, the report and the script that generated the data are
+                <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/month-end-management-pack" target="_blank" rel="noopener">on GitHub</a>, all readable as plain text.
               </p>
             </div>
           </section>
@@ -227,12 +221,11 @@
           <!-- DISCLAIMER -->
           <section class="cs-block cs-block--note" aria-label="Disclaimer">
             <p class="cs-disclosure">
-              All data in this project is synthetic, generated by a committed, deterministic
-              script. Ashcombe Partners is a fictional client created to demonstrate the work.
-              No real client data appears anywhere in this project.
+              All data in this project is synthetic. Ashcombe Partners is a fictional client created to
+              demonstrate the work, and no real client data appears anywhere in it.
             </p>
             <a class="next-case" href="/case-studies/data-reconciliation-monitor/">
-              <img src="/media/case-studies/data-reconciliation-monitor/morning-check-thumb.webp" alt="" width="800" height="466" loading="lazy" />
+              <img src="/media/case-studies/data-reconciliation-monitor/status-thumb.webp" alt="" width="800" height="451" loading="lazy" />
               <span>
                 <span class="next-case-label">Next project</span>
                 <span class="next-case-title">Data Reconciliation Monitor</span>

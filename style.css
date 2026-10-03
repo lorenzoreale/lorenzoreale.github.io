@@ -1066,7 +1066,7 @@ a.cert-logo:hover {
   padding-top: var(--space-5);
 }
 
-/* The five report pages, as a ruled specification list */
+/* Findings or report pages, as a ruled list */
 .spec-list {
   margin-top: var(--space-6);
   border-top: 1px solid var(--border);
@@ -1108,9 +1108,8 @@ a.cert-logo:hover {
 .placeholder p { font-size: var(--fs-small); }
 .placeholder p + p { margin-top: var(--space-3); }
 
-/* Report screenshot frame. Keeps the image's natural aspect ratio, since
-   report canvases are not exactly 16:9. The dark-themed report reads as a
-   deliberate object on the light page because the frame is consistent. */
+/* Report screenshot frame. Keeps the image's natural aspect ratio, so a
+   report canvas of any shape sits in the same consistent frame. */
 .media-shot {
   margin-top: var(--space-6);
   background: var(--surface);

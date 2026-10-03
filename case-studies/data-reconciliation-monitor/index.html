@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Data Reconciliation Monitor - Power BI project</title>
-  <meta name="description" content="A five-page Power BI monitor for a nightly data platform: reconciliation, a 48-rule quality rulebook and an owned break register. Synthetic data." />
+  <meta name="description" content="Power BI morning check for a retailer's data platform: which data the business can use today, what to hold back and why. Synthetic data, fictional client." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/data-reconciliation-monitor/" />
   <meta name="theme-color" content="#14294B" />
 
@@ -15,17 +15,17 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/data-reconciliation-monitor/" />
   <meta property="og:title" content="Data Reconciliation Monitor - Power BI project" />
-  <meta property="og:description" content="A five-page Power BI monitor for a nightly data platform: source-versus-warehouse reconciliation, a 48-rule quality rulebook and an owned break register. Synthetic data, fictional client." />
-  <meta property="og:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png" />
+  <meta property="og:description" content="A Power BI morning check that tells the business which data it can use today and what to hold back, with the reconciliation behind it. Synthetic data, fictional client." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Morning check page of the Data Reconciliation Monitor Power BI report" />
+  <meta property="og:image:alt" content="Status page of the Data Reconciliation Monitor Power BI report" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png?v=2" />
   <meta name="twitter:title" content="Data Reconciliation Monitor - Power BI project" />
-  <meta name="twitter:description" content="A five-page Power BI monitor for a nightly data platform: reconciliation, quality rules and a break register. Synthetic data, fictional client, full model on GitHub." />
+  <meta name="twitter:description" content="A Power BI morning check: can the business use today's numbers? Synthetic data, fictional client, full model on GitHub." />
 
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="icon" type="image/png" href="/media/favicon.png" sizes="32x32" />
@@ -45,11 +45,11 @@
     "@type": "CreativeWork",
     "name": "Data Reconciliation Monitor",
     "headline": "Data Reconciliation Monitor - Power BI project",
-    "description": "A five-page Power BI monitor for a nightly data platform: reconciliation, a 48-rule quality rulebook and an owned break register. Synthetic data, fictional client.",
+    "description": "Power BI morning check for a retailer's data platform: which data the business can use today, what to hold back and why. Synthetic data, fictional client.",
     "url": "https://lorenzoreale.com/case-studies/data-reconciliation-monitor/",
-    "image": "https://lorenzoreale.com/media/case-studies/data-reconciliation-monitor/morning-check@2x.webp",
+    "image": "https://lorenzoreale.com/media/case-studies/data-reconciliation-monitor/status@2x.webp",
     "inLanguage": "en-GB",
-    "about": ["Power BI", "DAX", "Data quality", "Data reconciliation"],
+    "about": ["Power BI", "DAX", "Semantic modelling", "Data quality"],
     "author": {
       "@type": "Person",
       "@id": "https://lorenzoreale.com/#person",
@@ -94,31 +94,30 @@
             <p class="kicker">Demonstration project</p>
             <h1>Data Reconciliation Monitor</h1>
             <p class="page-lede">
-              A five-page monitor for Thornfield Retail Group, a fictional multi-channel retailer
-              whose nightly batch loads eight feeds from six source systems into an analytics
-              warehouse. This is the report a data team runs before the business runs theirs.
+              A morning check for Thornfield Retail Group, a fictional retailer whose warehouse is loaded
+              every night from six source systems. It tells the business in plain words whether today's
+              numbers can be used, and gives the data team the evidence behind the answer.
             </p>
             <ul class="cs-meta">
               <li><span class="cs-meta-label">Client</span> Thornfield Retail Group (fictional)</li>
-              <li><span class="cs-meta-label">Audience</span> Data platform and engineering teams</li>
-              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · a deterministic data generator</li>
+              <li><span class="cs-meta-label">Audience</span> The business each morning, and the data team</li>
+              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · Power Query</li>
             </ul>
           </header>
 
           <!-- HERO SHOT -->
           <figure class="media-shot" style="margin-top: 0;">
             <img
-              src="/media/case-studies/data-reconciliation-monitor/morning-check@2x.webp"
-              alt="Dark-theme morning check dashboard: rows reconciled, match rate against threshold, a pass-warn-fail feed status board and last night's failures"
+              src="/media/case-studies/data-reconciliation-monitor/status@2x.webp"
+              alt="Status page: a headline on which data areas can be used, every data area with its status and what happened last night, the last 14 nights, and open issues"
               width="1600"
-              height="932"
+              height="901"
               loading="eager"
               fetchpriority="high"
             />
             <figcaption class="media-caption">
-              The morning check for Monday 29 June 2026: 4.65m rows compared, a 99.97% match rate
-              against a stated 99.90% threshold, six of eight feeds passing, and what failed last
-              night, worst first.
+              The load of 29 June: seven of eight data areas usable, supplier invoices incomplete,
+              and a plain-English line for each area.
             </figcaption>
           </figure>
           <p class="cs-disclosure">
@@ -126,89 +125,80 @@
             <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/data-reconciliation-monitor" target="_blank" rel="noopener">on GitHub</a>.
           </p>
 
-          <!-- THE PROBLEM -->
-          <section class="cs-block" aria-labelledby="problem">
+          <!-- THE BRIEF -->
+          <section class="cs-block" aria-labelledby="brief">
             <span class="cs-num">01</span>
-            <h2 id="problem">The problem</h2>
+            <h2 id="brief">The brief</h2>
             <div class="prose">
               <p>
-                Thornfield Retail Group's business reports are only as good as last night's batch.
-                Every morning, before anyone opens a dashboard, the data platform team needs three
-                answers: did the loads land, does the warehouse actually match the source systems,
-                and which discrepancies are still open and whose job are they? The board is mostly
-                green on purpose: a monitor that is always red teaches people to ignore it.
+                Finance, trading and supply chain open their dashboards first thing in the morning. When a
+                nightly load fails, nobody knows until a figure looks wrong in a meeting. Thornfield
+                needed one page that says which data can be used today and which reports to hold back,
+                and behind it the detail the data team needs to find and fix the cause.
               </p>
             </div>
           </section>
 
-          <!-- WHAT THE REPORT DOES -->
-          <section class="cs-block" aria-labelledby="what">
+          <!-- WHAT IT SHOWED -->
+          <section class="cs-block" aria-labelledby="showed">
             <span class="cs-num">02</span>
-            <h2 id="what">What the report does</h2>
+            <h2 id="showed">What it showed</h2>
             <div class="prose">
-              <p>Five pages, from the morning summary down to a single feed:</p>
+              <p>On the morning of 29 June:</p>
             </div>
             <ul class="spec-list">
-              <li><strong>Morning Check</strong>The first page anyone opens: 4.65m source rows compared, the match rate against a stated 99.90% threshold, a status board with one tile per feed, the 30-night trend, and what failed last night, worst first.</li>
-              <li><strong>Reconciliation</strong>The pairwise proof: source rows next to warehouse rows, source amounts next to warehouse amounts, feed by feed, with tolerances stated on the page. Below it, the check grid: one square per feed per night, a fortnight deep.</li>
-              <li><strong>Quality Rules</strong>Once data is in, is it fit to use? A 48-rule rulebook across the five classic quality dimensions, each rule with its stated tolerance, worst first.</li>
-              <li><strong>Break Register</strong>Every unresolved discrepancy, owned and aged: median age, mean time to resolve against a target, and a register with an owner and a status in plain words.</li>
-              <li><strong>Feed Detail</strong>One feed end to end, reached by right-click drillthrough: paired source-versus-warehouse bars a fortnight deep, the feed's checks, and its open breaks.</li>
+              <li><strong>Supplier invoices were not ready</strong>One of three files never arrived, leaving 1,204 invoices worth £214,608 missing. The page tells finance to hold accounts payable and supplier spend reporting until the file is resent.</li>
+              <li><strong>Online orders could be used with care</strong>Three orders worth £412 were missing for the third night running, inside tolerance and traced to refunds posted after the extract closes. Fine for trends, worth checking before quoting exact totals.</li>
+              <li><strong>Supplier invoices are the recurring problem</strong>They had a problem on 5 of the last 14 nights and account for 5 of the 14 open issues, mostly late or incomplete files. The fix sits with the supplier's upload window rather than inside the warehouse.</li>
+              <li><strong>The team is keeping up, for now</strong>Issues take 2.7 days to resolve against a 3-day target, but 14 are open, up from 2 a month earlier.</li>
             </ul>
 
             <figure class="media-shot">
               <img
                 src="/media/case-studies/data-reconciliation-monitor/reconciliation@2x.webp"
-                alt="Pairwise source-versus-warehouse reconciliation table and a feed-by-night check grid showing pass, warn, fail and no-run states across a fortnight"
+                alt="Reconciliation page: rows and value at the source and in the warehouse for every data area, rows matched over 30 nights and arrival times against the deadline"
                 width="1600"
-                height="932"
+                height="901"
                 loading="lazy"
               />
               <figcaption class="media-caption">
-              The pairwise proof and the check grid: green means a check passed, amber a warning
-              inside tolerance and red a failure. Nights with no run are labelled "no run" rather
-              than counted as failures, and recurring problems show up as a pattern across the grid.
+              Source against warehouse for every data area, rows matched over 30 nights, and how far each
+              load landed from the 05:00 deadline.
             </figcaption>
           </figure>
 
             <figure class="media-shot">
               <img
-                src="/media/case-studies/data-reconciliation-monitor/break-register@2x.webp"
-                alt="Break register: open breaks with owners, severity, age and resolution-time KPIs against a stated target"
+                src="/media/case-studies/data-reconciliation-monitor/issue-log@2x.webp"
+                alt="Issue log page: open issues, the oldest issue, days to resolve, the open issue register, open issues by night, and open issues by owner and age"
                 width="1600"
-                height="932"
+                height="901"
                 loading="lazy"
               />
               <figcaption class="media-caption">
-              The break register: 14 open discrepancies owned and aged, median age three days,
-              mean time to resolve 2.7 days against a 3.0-day target. Statuses are written in
-              plain words so the queue can be managed day to day.
+              The issue log as it stood that morning: who owns each open issue, how long it has been open,
+              and the queue over the last 30 nights.
             </figcaption>
           </figure>
           </section>
 
-          <!-- UNDER THE HOOD -->
-          <section class="cs-block" aria-labelledby="hood">
+          <!-- HOW IT'S BUILT -->
+          <section class="cs-block" aria-labelledby="built">
             <span class="cs-num">03</span>
-            <h2 id="hood">Under the hood</h2>
+            <h2 id="built">How it's built</h2>
             <div class="prose">
               <p>
-                Two decisions carry the model. First, the facts are measurements about data, not
-                the data itself: the warehouse does not re-store 2.4 million till-roll rows, it
-                stores that last night's extract had 2,412,384 rows at source and 2,412,384
-                landed. About 4,700 fact rows describe millions of moving rows a night, which is
-                how a real reconciliation monitor works. Second, verdicts are computed, never
-                stored: the pipeline records only raw observations (counts, amounts, minutes
-                late), and pass, warn or fail is derived in the model from thresholds held on the
-                rule table. Change a tolerance and every verdict, colour and KPI on every page
-                re-derives.
+                The model stores measurements about the data rather than the data itself: rows and value at the
+                source and in the warehouse, the files received and when, and the records failing each
+                quality rule. No status is stored anywhere. Every status is worked out from the thresholds
+                in one rulebook table, so changing a tolerance changes the whole report consistently.
               </p>
               <p>
-                This time the six deliberate defects sit in the monitoring data itself,
-                including no-run nights that must read "no run",
-                a duplicated rerun result set, a rule added mid-window, and one break recorded
-                as resolved before it opened, flagged by a measure and excluded from the metrics
-                but left visible.
+                Only the checks on the load itself decide whether an area can be used. A quality rule that warns
+                afterwards, such as invalid emails in the loyalty data, shows as a note without holding a
+                report back. Any night can be selected, and the issue log then shows what was open that
+                morning. The monitoring data had faults of its own, from a rerun written twice to arrival
+                times recorded three ways. Each is handled in the model.
               </p>
             </div>
           </section>
@@ -219,9 +209,8 @@
             <h2 id="source">The source</h2>
             <div class="prose">
               <p>
-                The whole project is readable as text: the semantic model in TMDL, the report in
-                PBIR, the DAX measure by measure, and the data generator that produced every
-                figure on this page. The full source is <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/data-reconciliation-monitor" target="_blank" rel="noopener">on GitHub</a>.
+                The semantic model, the DAX, the report and the script that generated the data are
+                <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/data-reconciliation-monitor" target="_blank" rel="noopener">on GitHub</a>, all readable as plain text.
               </p>
             </div>
           </section>
@@ -229,12 +218,11 @@
           <!-- DISCLAIMER -->
           <section class="cs-block cs-block--note" aria-label="Disclaimer">
             <p class="cs-disclosure">
-              All data in this project is synthetic, generated by a committed, deterministic
-              script. Thornfield Retail Group is a fictional client created to demonstrate the
-              work. No real client data appears anywhere in this project.
+              All data in this project is synthetic. Thornfield Retail Group is a fictional client created to
+              demonstrate the work, and no real client data appears anywhere in it.
             </p>
             <a class="next-case" href="/case-studies/site-inspection-performance/">
-              <img src="/media/case-studies/site-inspection-performance/exec-overview-thumb.webp" alt="" width="800" height="466" loading="lazy" />
+              <img src="/media/case-studies/site-inspection-performance/briefing-thumb.webp" alt="" width="800" height="451" loading="lazy" />
               <span>
                 <span class="next-case-label">Next project</span>
                 <span class="next-case-title">Site Inspection Performance</span>
@@ -248,10 +236,10 @@
         <section class="section">
           <div class="cta-band reveal">
             <p class="kicker">Get in touch</p>
-            <h2>Do your warehouse and your sources agree?</h2>
+            <h2>Can your business trust this morning's numbers?</h2>
             <p class="cta-text">
-              If nobody can say for certain whether last night's loads landed clean, a monitor
-              like this is how you find out first.
+              If people find out about a failed load from a wrong figure in a meeting, I'd like
+              to hear about it.
             </p>
             <a class="btn btn-primary" href="/contact/">Discuss a project</a>
           </div>

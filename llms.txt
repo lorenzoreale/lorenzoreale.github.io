@@ -30,9 +30,9 @@ Understand what the report is for, check the data before building on it, build a
 
 Demonstration projects on synthetic data for fictional clients, each a complete working Power BI report. The full source is public at https://github.com/lorenzoreale/powerbi-portfolio
 
-- [Site Inspection Performance](https://lorenzoreale.com/case-studies/site-inspection-performance/): a five-page report on a 42-site inspection programme covering coverage, compliance, findings and corrective actions.
-- [Month-End Management Pack](https://lorenzoreale.com/case-studies/month-end-management-pack/): a five-page finance pack with budget versus actual, a profit bridge and a drillable P&L.
-- [Data Reconciliation Monitor](https://lorenzoreale.com/case-studies/data-reconciliation-monitor/): a five-page monitor for a nightly data platform with source-versus-warehouse reconciliation, a 48-rule quality rulebook and a break register.
+- [Site Inspection Performance](https://lorenzoreale.com/case-studies/site-inspection-performance/): a monthly briefing for a 42-site inspection programme, covering compliance against target, corrective actions, sites past the visit rule and a what-if on visit frequency.
+- [Month-End Management Pack](https://lorenzoreale.com/case-studies/month-end-management-pack/): a month-end pack for a professional-services firm that explains why profit missed budget, split into billable hours, billing rates and costs.
+- [Data Reconciliation Monitor](https://lorenzoreale.com/case-studies/data-reconciliation-monitor/): a morning check that tells the business which data it can use today, with source-versus-warehouse reconciliation, quality rules and an issue log behind it.
 
 ## Certifications
 

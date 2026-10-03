@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Site Inspection Performance - Power BI project</title>
-  <meta name="description" content="A five-page Power BI report on a 42-site inspection programme: coverage, compliance, findings and corrective actions. Synthetic data, fictional client." />
+  <meta name="description" content="Power BI briefing for a 42-site inspection programme: compliance, overdue actions, sites past the visit rule and a what-if on visit frequency. Synthetic data." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/site-inspection-performance/" />
   <meta name="theme-color" content="#14294B" />
 
@@ -15,17 +15,17 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/site-inspection-performance/" />
   <meta property="og:title" content="Site Inspection Performance - Power BI project" />
-  <meta property="og:description" content="A five-page Power BI report tracking a 42-site safety-and-compliance inspection programme: coverage, findings, corrective actions. Synthetic data, fictional client." />
-  <meta property="og:image" content="https://lorenzoreale.com/og/site-inspection-performance.png" />
+  <meta property="og:description" content="A monthly Power BI briefing for a 42-site inspection programme: compliance against target, actions closed on time, and which sites need a visit. Synthetic data, fictional client." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/site-inspection-performance.png?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Executive overview page of the Site Inspection Performance Power BI report" />
+  <meta property="og:image:alt" content="Briefing page of the Site Inspection Performance Power BI report" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://lorenzoreale.com/og/site-inspection-performance.png" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/site-inspection-performance.png?v=2" />
   <meta name="twitter:title" content="Site Inspection Performance - Power BI project" />
-  <meta name="twitter:description" content="A five-page Power BI report tracking a 42-site safety-and-compliance inspection programme. Synthetic data, fictional client, full model on GitHub." />
+  <meta name="twitter:description" content="A monthly Power BI briefing for a 42-site inspection programme. Synthetic data, fictional client, full model on GitHub." />
 
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="icon" type="image/png" href="/media/favicon.png" sizes="32x32" />
@@ -45,9 +45,9 @@
     "@type": "CreativeWork",
     "name": "Site Inspection Performance",
     "headline": "Site Inspection Performance - Power BI project",
-    "description": "A five-page Power BI report on a 42-site inspection programme: coverage, compliance, findings and corrective actions. Synthetic data, fictional client.",
+    "description": "Power BI briefing for a 42-site inspection programme: compliance, overdue actions, sites past the visit rule and a what-if on visit frequency. Synthetic data.",
     "url": "https://lorenzoreale.com/case-studies/site-inspection-performance/",
-    "image": "https://lorenzoreale.com/media/case-studies/site-inspection-performance/exec-overview@2x.webp",
+    "image": "https://lorenzoreale.com/media/case-studies/site-inspection-performance/briefing@2x.webp",
     "inLanguage": "en-GB",
     "about": ["Power BI", "DAX", "Semantic modelling", "Operational reporting"],
     "author": {
@@ -94,31 +94,30 @@
             <p class="kicker">Demonstration project</p>
             <h1>Site Inspection Performance</h1>
             <p class="page-lede">
-              A five-page Power BI report for Meridian Facilities Group, a fictional national
-              facilities operator with 42 sites across six UK regions. It answers the three
-              questions operations leadership asks every month: are we inspecting enough,
-              is compliance where it should be, and are corrective actions getting closed?
+              A monthly briefing for the operations review at Meridian Facilities Group, a fictional
+              facilities operator inspecting 42 sites across six UK regions. The first page answers
+              the review's four questions, and the pages behind it hold the detail.
             </p>
             <ul class="cs-meta">
               <li><span class="cs-meta-label">Client</span> Meridian Facilities Group (fictional)</li>
-              <li><span class="cs-meta-label">Audience</span> Operations leadership</li>
-              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · a deterministic data generator</li>
+              <li><span class="cs-meta-label">Audience</span> Head of operations and regional managers</li>
+              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · Power Query</li>
             </ul>
           </header>
 
           <!-- HERO SHOT -->
           <figure class="media-shot" style="margin-top: 0;">
             <img
-              src="/media/case-studies/site-inspection-performance/exec-overview@2x.webp"
-              alt="Executive overview of a site inspection report: KPI band, inspections versus plan, compliance trend against a 90% target, and an overdue actions list"
+              src="/media/case-studies/site-inspection-performance/briefing@2x.webp"
+              alt="Briefing page: two headline sentences, compliance, inspections, on-time closure and sites not visited, compliance by month and by region, overdue actions and sites past the visit rule"
               width="1600"
-              height="932"
+              height="901"
               loading="eager"
               fetchpriority="high"
             />
             <figcaption class="media-caption">
-              The executive overview: inspections against plan, compliance against the 90% target,
-              and the overdue-action chase list. Data to 26 June 2026.
+              The briefing for 2026 to 26 June: compliance above target, follow-up slipping, the
+              oldest overdue actions and the three sites past the 60-day visit rule.
             </figcaption>
           </figure>
           <p class="cs-disclosure">
@@ -126,87 +125,80 @@
             <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/site-inspection-performance" target="_blank" rel="noopener">on GitHub</a>.
           </p>
 
-          <!-- THE PROBLEM -->
-          <section class="cs-block" aria-labelledby="problem">
+          <!-- THE BRIEF -->
+          <section class="cs-block" aria-labelledby="brief">
             <span class="cs-num">01</span>
-            <h2 id="problem">The problem</h2>
+            <h2 id="brief">The brief</h2>
             <div class="prose">
               <p>
-                Meridian Facilities Group runs scheduled health, safety and compliance inspections
-                across a 42-site estate. Leadership needs three answers every month: are we
-                inspecting enough, is compliance where it should be, and are the corrective
-                actions we raise actually getting closed? The data exists, hundreds of inspections
-                a year against a 24-question checklist, but without a disciplined report it
-                stays anecdote.
+                The head of operations and six regional managers review the inspection programme once
+                a month. The data was there, hundreds of inspections a year against a 24-question
+                checklist, but the meeting kept running out of time before it reached a decision. It
+                needed four answers early: is compliance on target, are we inspecting as planned, are
+                corrective actions closed on time, and which sites need a visit?
               </p>
             </div>
           </section>
 
-          <!-- WHAT THE REPORT DOES -->
-          <section class="cs-block" aria-labelledby="what">
+          <!-- WHAT IT SHOWED -->
+          <section class="cs-block" aria-labelledby="showed">
             <span class="cs-num">02</span>
-            <h2 id="what">What the report does</h2>
+            <h2 id="showed">What it showed</h2>
             <div class="prose">
-              <p>Five pages, each answering one operational question:</p>
+              <p>The briefing gives the four answers in two sentences and four figures.</p>
             </div>
             <ul class="spec-list">
-              <li><strong>Executive Overview</strong>The summary page: inspection volume against plan, compliance against the 90% target, findings, and the overdue-action chase list. Red appears on exactly one thing at a time.</li>
-              <li><strong>Compliance Deep-Dive</strong>What we are finding and where it repeats: a section-by-month compliance heatmap where uninspected cells stay blank rather than showing 0%, the worst-scoring questions and repeat-offender sites.</li>
-              <li><strong>Action Tracker</strong>The corrective-action lifecycle: closure rate against target, ageing, and an owned register of open and overdue actions. In practice, it's the operations team's to-do list.</li>
-              <li><strong>Coverage</strong>Are we inspecting the right places often enough? Days since last visit per site, measured against a stated staleness threshold.</li>
-              <li><strong>Inspection Detail</strong>One inspection end to end, reached by right-click drillthrough. The header score and the question detail can never disagree, because they are the same measure.</li>
+              <li><strong>Compliance is on target</strong>90.4% so far this year, up from 86.6%. Three regions are still below 90%, with South West the lowest at 85.7%.</li>
+              <li><strong>Follow-up is where it slips</strong>65% of corrective actions were closed by their due date, against 77% a year earlier, and on-time closure has missed the 90% target in 17 of the last 18 months. Twelve actions are overdue and two have no owner, which is the first thing the review can fix.</li>
+              <li><strong>Three sites are past the 60-day visit rule</strong>Neath Yard has gone 94 days without a visit, Ely Sidings 72 and Perth North 63.</li>
+              <li><strong>The gaps come from scheduling</strong>The Planning page tests the visit rule. Covering all 42 sites every 60 days takes 22 visits a month and 52 are being made, yet Kingsway Depot had 12 visits this year while Ely Sidings and Taunton Priory Depot had two each. A fairer schedule closes the gaps without adding inspectors.</li>
             </ul>
 
             <figure class="media-shot">
               <img
-                src="/media/case-studies/site-inspection-performance/compliance-deep-dive@2x.webp"
-                alt="Compliance heatmap by checklist section and month, with worst questions and repeat-offender sites"
+                src="/media/case-studies/site-inspection-performance/planning@2x.webp"
+                alt="Planning page: the visit rule set to 60 days, sites past the rule, visits needed against visits made, and the least visited sites"
                 width="1600"
-                height="932"
+                height="901"
                 loading="lazy"
               />
               <figcaption class="media-caption">
-              The deep-dive: compliance by checklist section and month, darker blue meaning higher
-              compliance and white text marking cells at or above the 90% target. Blank cells mean
-              the site wasn't inspected that month, so no score is shown.
+              The visit rule can be tested from 15 to 90 days. At the agreed 60 days, three sites are
+              outside it while visits run at more than twice the rate needed.
             </figcaption>
           </figure>
 
             <figure class="media-shot">
               <img
-                src="/media/case-studies/site-inspection-performance/action-tracker@2x.webp"
-                alt="Corrective action tracker: closure KPIs and an owned register of open and overdue actions"
+                src="/media/case-studies/site-inspection-performance/actions@2x.webp"
+                alt="Actions page: actions due, closed on time, overdue and unowned, on-time closure by month, open actions by region and status, and the open action register"
                 width="1600"
-                height="932"
+                height="901"
                 loading="lazy"
               />
               <figcaption class="media-caption">
-              The action tracker: raised, open and overdue counts, closure rate against the 90%
-              target, and a register where every open action has an owner and a due date. Red is
-              reserved for genuinely overdue.
+              Corrective actions: on-time closure by month against the 90% target, open actions by
+              region, and the register, earliest due first.
             </figcaption>
           </figure>
           </section>
 
-          <!-- UNDER THE HOOD -->
-          <section class="cs-block" aria-labelledby="hood">
+          <!-- HOW IT'S BUILT -->
+          <section class="cs-block" aria-labelledby="built">
             <span class="cs-num">03</span>
-            <h2 id="hood">Under the hood</h2>
+            <h2 id="built">How it's built</h2>
             <div class="prose">
               <p>
-                No inspection score is stored anywhere. The compliance percentage is a single
-                measure evaluated at whatever grain the visual asks for: trend, region, heatmap
-                cell, or one inspection's header. Every level of the report reconciles by
-                construction. All time logic is anchored to a fixed as-at date (26 June 2026,
-                the latest inspection in the data), rather than the system clock, so the published
-                figures are stable and reproducible.
+                Compliance is one measure, questions passed over questions applicable, used everywhere from
+                the estate trend to a single inspection, so the pages always agree. Every date is
+                measured from the last inspection, 26 June 2026, rather than the system clock, so the
+                report gives the same answers whenever it is opened. Actions are judged against the
+                month they fell due, which is what makes the on-time figure fair.
               </p>
               <p>
-                The raw data is generated by a committed, deterministic script and contains six
-                deliberate, documented defects, each one handled visibly in the model: uninspected
-                site-months, duplicate export rows, N/A answers, an orphan action, unassigned
-                owners and dirty site names. Real operational data is rarely clean, so the
-                portfolio shows how that is dealt with.
+                The source export had the faults real exports have: duplicated inspections, site names
+                typed differently, actions with no owner and one action pointing at an inspection that
+                does not exist. Each is handled in the model and shown where it matters.
               </p>
             </div>
           </section>
@@ -217,9 +209,8 @@
             <h2 id="source">The source</h2>
             <div class="prose">
               <p>
-                The whole project is readable as text: the semantic model in TMDL, the report in
-                PBIR, the DAX measure by measure, and the data generator that produced every
-                figure on this page. The full source is <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/site-inspection-performance" target="_blank" rel="noopener">on GitHub</a>.
+                The semantic model, the DAX, the report and the script that generated the data are
+                <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/site-inspection-performance" target="_blank" rel="noopener">on GitHub</a>, all readable as plain text.
               </p>
             </div>
           </section>
@@ -227,12 +218,11 @@
           <!-- DISCLAIMER -->
           <section class="cs-block cs-block--note" aria-label="Disclaimer">
             <p class="cs-disclosure">
-              All data in this project is synthetic, generated by a committed, deterministic
-              script. Meridian Facilities Group is a fictional client created to demonstrate the
-              work. No real client data appears anywhere in this project.
+              All data in this project is synthetic. Meridian Facilities Group is a fictional client created to
+              demonstrate the work, and no real client data appears anywhere in it.
             </p>
             <a class="next-case" href="/case-studies/month-end-management-pack/">
-              <img src="/media/case-studies/month-end-management-pack/scorecard-thumb.webp" alt="" width="800" height="466" loading="lazy" />
+              <img src="/media/case-studies/month-end-management-pack/variance-thumb.webp" alt="" width="800" height="451" loading="lazy" />
               <span>
                 <span class="next-case-label">Next project</span>
                 <span class="next-case-title">Month-End Management Pack</span>
