@@ -1,3 +1,4 @@
 *.md
 preview.js
 preview.cmd
+node_modules/
