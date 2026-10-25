@@ -689,6 +689,71 @@ main { flex: 1; }
 }
 .case-row:hover .link-more .arrow { transform: translateX(4px); }
 
+/* Findings strip under each project summary: the headline the report
+   leads with, and two KPIs against target drawn as bullet graphs. The
+   bar runs from zero, the gold tick is the target, red means below it. */
+.finding {
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.case-row .finding-hl {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.finding-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;   /* a label that wraps must not push its bar out of line */
+  gap: var(--space-5);
+}
+.bul-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+.bul-l { font-size: var(--fs-tiny); color: var(--text-muted); line-height: 1.3; }
+.bul-v { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+.bul-track {
+  position: relative;
+  display: block;
+  height: 6px;
+  margin: 0.35rem 0 0.3rem;
+  background: var(--navy-soft);
+  border-radius: 3px;
+}
+.bul-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--v);
+  background: var(--navy);
+  border-radius: 0 3px 3px 0;
+  transform-origin: left;
+}
+.bul-mark {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: var(--t);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--gold-text);
+  border-radius: 1px;
+}
+.bul-n { display: block; font-size: var(--fs-tiny); color: var(--text-faint); }
+.bul--bad .bul-v,
+.bul--bad .bul-n { color: var(--error); }
+.bul--bad .bul-bar { background: var(--error); }
+@media (scripting: enabled) {
+  .reveal .bul-bar { transform: scaleX(0); transition: transform 0.9s var(--ease) 0.25s; }
+  .reveal.active .bul-bar { transform: none; }
+}
+
 /* -------------------------------------------------------------
    13. TAGS (stack chips) and list footnote
    ------------------------------------------------------------- */
@@ -1131,6 +1196,197 @@ a.cert-logo:hover {
   color: var(--text-faint);
   line-height: 1.6;
 }
+
+/* Focus mode, as on a Power BI visual: a button in the corner of each
+   report screenshot (or a click on the image) opens it full size.
+   script.js adds the buttons and the dialog. */
+.media-shot { position: relative; }
+.media-shot img { cursor: zoom-in; }
+.focus-btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  font: 600 var(--fs-tiny) var(--font-body);
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.focus-btn svg { width: 0.95rem; height: 0.95rem; }
+.media-shot:hover .focus-btn,
+.focus-btn:focus-visible { opacity: 1; transform: none; }
+/* No hover on touch screens, so the button stays visible */
+@media (hover: none) { .focus-btn { opacity: 1; transform: none; } }
+
+.focus-view {
+  width: min(96vw, 1400px);
+  max-width: none;
+  max-height: 94vh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-lg);
+}
+.focus-view::backdrop { background: rgba(11, 31, 58, 0.6); }
+.focus-view-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink);
+}
+.focus-view-bar .btn { min-height: 2.25rem; padding: 0.4rem 1rem; }
+.focus-view img { display: block; width: 100%; height: auto; }
+
+/* -------------------------------------------------------------
+   20b. TRACED FIGURE (case study, "How it's built")
+   ------------------------------------------------------------- */
+/* One headline figure followed from the report page back to the files
+   it came from, on a gold rail: report, DAX, model, clean-up, source.
+   The code is quoted from the published model. */
+.trace {
+  margin-top: var(--space-8);
+  padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.trace-head { margin-bottom: var(--space-6); }
+.trace-head .kicker { margin-bottom: var(--space-2); }
+.trace-head p:last-child { color: var(--text-muted); font-size: var(--fs-small); max-width: 58ch; }
+
+.trace-list { display: grid; gap: var(--space-6); }
+.trace-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: var(--space-4);
+}
+.trace-step::before {
+  content: "";
+  position: absolute;
+  left: calc(1.125rem - 1px);
+  top: 2.5rem;
+  bottom: calc(-1 * var(--space-6) + 0.25rem);
+  width: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+.trace-step:last-child::before { display: none; }
+.trace-ic {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+}
+.trace-ic svg { width: 1.05rem; height: 1.05rem; }
+.trace-label {
+  display: block;
+  margin: 0.55rem 0 var(--space-2);
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-faint);
+}
+.trace-body > p { font-size: var(--fs-small); color: var(--text-muted); line-height: 1.6; }
+.trace-body > * + * { margin-top: var(--space-3); }
+.trace-figure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.trace-figure b { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.trace-figure span { font-size: var(--fs-small); color: var(--text-muted); }
+.trace-figure .is-bad { color: var(--error); }
+
+pre.code {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: 0.78rem/1.65 ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+  color: var(--ink);
+  white-space: pre;
+  overflow-x: auto;
+}
+@media (max-width: 640px) { pre.code { font-size: 0.72rem; } }
+.code .c { color: var(--text-faint); font-style: italic; }
+.code .s { color: #8F3A2E; }
+.code .f { color: var(--gold-text); font-weight: 600; }
+.code .t { color: #1F5B3D; }
+
+/* On a phone the diagram scrolls sideways rather than shrinking past legibility */
+.mdl { max-width: 33rem; overflow-x: auto; }
+.mdl svg { width: 100%; min-width: 26rem; height: auto; }
+.mdl line { stroke: var(--border-strong); stroke-width: 1.5; }
+.mdl rect { stroke-width: 1; }
+.mdl .fact rect { fill: var(--navy); stroke: var(--navy); }
+.mdl .dim rect { fill: var(--bg); stroke: var(--border-strong); }
+.mdl text { font: 600 12px var(--font-body); text-anchor: middle; dominant-baseline: central; }
+.mdl .fact text { fill: #fff; }
+.mdl .dim text { fill: var(--ink); }
+
+.trace .ticks li { font-size: var(--fs-small); line-height: 1.55; }
+.files { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.files li {
+  padding: 0.15rem 0.5rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  font: 0.75rem/1.6 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color: var(--text-muted);
+}
+.trace-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink);
+}
+.trace-check::before {
+  content: "✓";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  background: #1B6B3A;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+.trace-foot { margin-top: var(--space-6); }
+.trace-foot a { font-weight: 600; font-size: var(--fs-small); }
 
 .cs-disclosure {
   margin-top: var(--space-4);

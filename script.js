@@ -101,7 +101,45 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* 5. VISIT COUNTING - GoatCounter.
+  /* 5. FOCUS MODE on report screenshots (case-study pages).
+     Mirrors the focus-mode icon on a Power BI visual: a button in the
+     corner, or a click on the image, opens it full size in a dialog.
+     Esc, the backdrop and the button close it. */
+  const shots = document.querySelectorAll(".media-shot img");
+  if (shots.length && typeof HTMLDialogElement === "function") {
+    const view = document.createElement("dialog");
+    view.className = "focus-view";
+    view.setAttribute("aria-label", "Report page, full size");
+    view.innerHTML = '<div class="focus-view-bar"><span></span><button class="btn btn-ghost" type="button">Back to page</button></div>';
+    document.body.appendChild(view);
+    const title = view.querySelector("span");
+    const big = document.createElement("img");   // added on first open, so no empty image sits in the page
+    const pageName = (img) => img.alt.split(":")[0];
+
+    const open = (img) => {
+      if (!big.isConnected) view.appendChild(big);
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      title.textContent = pageName(img);
+      view.showModal();
+    };
+    view.querySelector("button").addEventListener("click", () => view.close());
+    view.addEventListener("click", (e) => { if (e.target === view) view.close(); });
+
+    const icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+    shots.forEach((img) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "focus-btn";
+      btn.innerHTML = icon + "Focus mode";
+      btn.setAttribute("aria-label", "Focus mode: open " + pageName(img) + " full size");
+      img.after(btn);
+      btn.addEventListener("click", () => open(img));
+      img.addEventListener("click", () => open(img));
+    });
+  }
+
+  /* 6. VISIT COUNTING - GoatCounter.
      Cookieless and stores no personal data, so no consent banner is needed.
      Loaded from here so every page that includes script.js is counted without
      touching the HTML. count.js ignores localhost by itself, and opening any

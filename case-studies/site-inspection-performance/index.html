@@ -201,6 +201,69 @@
                 does not exist. Each is handled in the model and shown where it matters.
               </p>
             </div>
+
+            <div class="trace">
+              <div class="trace-head">
+                <p class="kicker">One figure, from source to report</p>
+                <p>How the compliance figure on the Briefing page is built, from the files it starts in to the report. The DAX and Power Query are quoted from the published model.</p>
+              </div>
+              <ol class="trace-list">
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The source · 7 CSV files</span>
+                    <ul class="files"><li>inspections.csv</li><li>responses.csv</li><li>actions.csv</li><li>sites.csv</li><li>questions.csv</li><li>people.csv</li><li>monthly_targets.csv</li></ul>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The clean-up · Power Query</span>
+                    <pre class="code"><code><span class="t">#"Removed Duplicate Exports"</span> = <span class="f">Table.Distinct</span>(<span class="t">#"Promoted Headers"</span>, {<span class="s">"inspection_id"</span>})
+
+<span class="t">#"Cleaned Site Names"</span> = <span class="f">Table.TransformColumns</span>(<span class="t">#"Promoted Headers"</span>,
+    {{<span class="s">"site_name"</span>, each <span class="f">Text.Proper</span>(<span class="f">Text.Replace</span>(<span class="f">Text.Trim</span>(_), <span class="s">"  "</span>, <span class="s">" "</span>)), type text}})</code></pre>
+                    <ul class="ticks"><li><strong>Five inspections exported twice</strong> are removed, so no answer counts twice.</li><li><strong>Site names typed differently</strong> on actions are cleaned and matched to the site list.</li><li><strong>Two actions with no owner</strong> are shown as Unassigned, not dropped.</li><li><strong>One action pointing at an inspection that does not exist</strong> is counted and flagged.</li></ul>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M12 9V4M12 15v5M9 12H4M15 12h5"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The model · star schema</span>
+                    <div class="mdl"><svg viewBox="0 0 520 150" role="img" aria-label="Model diagram: Response related to Question and Inspection; Inspection related to Site, Date and Inspector."><line x1="66" y1="75" x2="196" y2="75"/><line x1="196" y1="75" x2="326" y2="75"/><line x1="326" y1="75" x2="456" y2="27"/><line x1="326" y1="75" x2="456" y2="75"/><line x1="326" y1="75" x2="456" y2="123"/><g class="dim"><rect x="14.0" y="60.0" width="104" height="30" rx="6"/><text x="66" y="75">Question</text></g><g class="fact"><rect x="144.0" y="60.0" width="104" height="30" rx="6"/><text x="196" y="75">Response</text></g><g class="fact"><rect x="274.0" y="60.0" width="104" height="30" rx="6"/><text x="326" y="75">Inspection</text></g><g class="dim"><rect x="404.0" y="12.0" width="104" height="30" rx="6"/><text x="456" y="27">Site</text></g><g class="dim"><rect x="404.0" y="60.0" width="104" height="30" rx="6"/><text x="456" y="75">Date</text></g><g class="dim"><rect x="404.0" y="108.0" width="104" height="30" rx="6"/><text x="456" y="123">Inspector</text></g></svg></div>
+                    <p>One row per answer to the 24-question checklist, joined to its inspection, and through it to the site, the date and the inspector.</p>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5H7l6 7-6 7h11"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The measure · DAX</span>
+                    <pre class="code"><code><span class="c">// Answers that count towards compliance. N/A answers are left out of the denominator.</span>
+Questions Applicable =
+<span class="f">CALCULATE</span> ( <span class="f">COUNTROWS</span> ( <span class="t">'Response'</span> ), <span class="t">'Response'</span>[Result] IN { <span class="s">"Pass"</span>, <span class="s">"Fail"</span> } )
+
+<span class="c">// Answers marked Pass.</span>
+Questions Passed =
+<span class="f">CALCULATE</span> ( <span class="f">COUNTROWS</span> ( <span class="t">'Response'</span> ), <span class="t">'Response'</span>[Result] = <span class="s">"Pass"</span> )
+
+<span class="c">// Questions passed as a share of questions applicable. Blank when nothing was</span>
+<span class="c">// inspected, so empty cells stay empty instead of showing 0%.</span>
+Compliance % =
+<span class="f">DIVIDE</span> ( [Questions Passed], [Questions Applicable] )</code></pre>
+                    <p>One measure gives every compliance figure in the report, from the estate trend to a single inspection, so the pages always agree.</p>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">On the report · Briefing</span>
+                    <p class="trace-figure"><b>90.4%</b><span>compliance this year, against a 90% target</span></p>
+                    <p class="trace-check">Every figure was recalculated from the source files outside Power BI, and matches the report.</p>
+                  </div>
+                </li>
+              </ol>
+              <p class="trace-foot"><a href="https://github.com/lorenzoreale/powerbi-portfolio/blob/main/site-inspection-performance/Site%20Inspection%20Performance.SemanticModel/definition/tables/Response.tmdl" target="_blank" rel="noopener">Read this measure in the model on GitHub <span aria-hidden="true">→</span></a></p>
+            </div>
           </section>
 
           <!-- SOURCE -->
