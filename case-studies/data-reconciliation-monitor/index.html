@@ -201,6 +201,72 @@
                 times recorded three ways. Each is handled in the model.
               </p>
             </div>
+
+            <div class="trace">
+              <div class="trace-head">
+                <p class="kicker">One figure, from source to report</p>
+                <p>How the supplier-invoice gap on the Status page is built, from the files it starts in to the report. The DAX and Power Query are quoted from the published model.</p>
+              </div>
+              <ol class="trace-list">
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The source · 6 CSV files</span>
+                    <ul class="files"><li>feed_run.csv</li><li>check_result.csv</li><li>issue_log.csv</li><li>feed.csv</li><li>rule.csv</li><li>date.csv</li></ul>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The clean-up · Power Query</span>
+                    <pre class="code"><code><span class="t">#"Latest Run First"</span> = <span class="f">Table.Buffer</span>(<span class="f">Table.Sort</span>(<span class="t">#"Changed Types"</span>, {{<span class="s">"run_seq"</span>, Order.Descending}}))
+<span class="t">#"Kept Latest Run"</span> = <span class="f">Table.Distinct</span>(<span class="t">#"Latest Run First"</span>, {<span class="s">"date"</span>, <span class="s">"rule_id"</span>})
+
+<span class="t">#"Arrival Time to HH:MM"</span> = <span class="f">Table.TransformColumns</span>(<span class="t">#"Promoted Headers"</span>,
+    {{<span class="s">"arrival_time"</span>, each <span class="f">Text.PadStart</span>(<span class="f">Text.Start</span>(_, <span class="f">Text.PositionOf</span>(_, <span class="s">":"</span>) + 3), 5, <span class="s">"0"</span>), type text}})</code></pre>
+                    <ul class="ticks"><li><strong>A rerun written twice</strong> for 14 June: only the latest result set is kept.</li><li><strong>Arrival times recorded three ways</strong> are cleaned to one format.</li><li><strong>One issue closed before it was opened</strong> is counted and left out of the averages.</li></ul>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M12 9V4M12 15v5M9 12H4M15 12h5"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The model · star schema</span>
+                    <div class="mdl"><svg viewBox="0 0 520 150" role="img" aria-label="Model diagram: Feed Run related to Date and Feed; Check Result related to Date, Feed and Rule; Issue related to Feed."><line x1="66" y1="40" x2="216" y2="27"/><line x1="66" y1="40" x2="216" y2="92"/><line x1="66" y1="115" x2="216" y2="92"/><line x1="366" y1="60" x2="216" y2="27"/><line x1="366" y1="60" x2="216" y2="92"/><line x1="366" y1="60" x2="460" y2="123"/><g class="fact"><rect x="14.0" y="25.0" width="104" height="30" rx="6"/><text x="66" y="40">Feed Run</text></g><g class="fact"><rect x="14.0" y="100.0" width="104" height="30" rx="6"/><text x="66" y="115">Issue</text></g><g class="dim"><rect x="164.0" y="12.0" width="104" height="30" rx="6"/><text x="216" y="27">Date</text></g><g class="dim"><rect x="164.0" y="77.0" width="104" height="30" rx="6"/><text x="216" y="92">Feed</text></g><g class="fact"><rect x="314.0" y="45.0" width="104" height="30" rx="6"/><text x="366" y="60">Check Result</text></g><g class="dim"><rect x="408.0" y="108.0" width="104" height="30" rx="6"/><text x="460" y="123">Rule</text></g></svg></div>
+                    <p>The model stores measurements about the data, not the data itself: rows, value and files for each load, and the result of every rule.</p>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5H7l6 7-6 7h11"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The measure · DAX</span>
+                    <pre class="code"><code><span class="c">// Source minus warehouse: the rows that did not land.</span>
+Rows Missing = [Rows at Source] - [Rows in Warehouse]
+
+<span class="c">// The status of a data area as a number: 2 not ready, 1 use with care, 0 ready,</span>
+<span class="c">// -1 no load scheduled that night. Judged on the load checks only (rows and value</span>
+<span class="c">// against the source, file arrival), so a quality-rule warning on its own never</span>
+<span class="c">// holds a report back.</span>
+Status Rank =
+<span class="f">COALESCE</span> ( <span class="f">CALCULATE</span> ( [Check Rank], <span class="t">Rule</span>[Is Load Check] = <span class="f">TRUE</span> () ), -1 )
+
+<span class="c">// The status in words: Not ready, Use with care, Ready, or No load when none is</span>
+<span class="c">// scheduled that night.</span>
+Status =
+<span class="f">SWITCH</span> ( [Status Rank], 2, <span class="s">"Not ready"</span>, 1, <span class="s">"Use with care"</span>, 0, <span class="s">"Ready"</span>, <span class="s">"No load"</span> )</code></pre>
+                    <p>No status is stored anywhere. Each one is worked out from the thresholds in the rule table, so changing a tolerance changes the whole report consistently.</p>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">On the report · Status</span>
+                    <p class="trace-figure"><b>1,204</b><span>supplier invoices missing on 29 June,</span><span class="is-bad">not ready</span></p>
+                    <p class="trace-check">Every figure was recalculated from the source files outside Power BI, and matches the report.</p>
+                  </div>
+                </li>
+              </ol>
+              <p class="trace-foot"><a href="https://github.com/lorenzoreale/powerbi-portfolio/blob/main/data-reconciliation-monitor/Data%20Reconciliation%20Monitor.SemanticModel/definition/tables/Feed.tmdl" target="_blank" rel="noopener">Read this measure in the model on GitHub <span aria-hidden="true">→</span></a></p>
+            </div>
           </section>
 
           <!-- SOURCE -->

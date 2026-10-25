@@ -204,6 +204,71 @@
                 reaches the report.
               </p>
             </div>
+
+            <div class="trace">
+              <div class="trace-head">
+                <p class="kicker">One figure, from source to report</p>
+                <p>How the operating profit on the Variance page is built, from the files it starts in to the report. The DAX and Power Query are quoted from the published model.</p>
+              </div>
+              <ol class="trace-list">
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The source · 7 CSV files</span>
+                    <ul class="files"><li>ledger.csv</li><li>capacity.csv</li><li>account.csv</li><li>client.csv</li><li>service_line.csv</li><li>entity.csv</li><li>calendar.csv</li></ul>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The clean-up · Power Query</span>
+                    <pre class="code"><code><span class="t">#"Removed Duplicate Rows"</span> = <span class="f">Table.Distinct</span>(<span class="t">#"Promoted Headers"</span>)
+
+<span class="t">#"Cleaned Client Names"</span> = <span class="f">Table.TransformColumns</span>(<span class="t">#"Changed Types"</span>,
+    {{<span class="s">"client"</span>, each if _ = <span class="s">""</span> then <span class="s">"Unallocated"</span>
+        else <span class="f">Text.Proper</span>(<span class="f">Text.Replace</span>(<span class="f">Text.Trim</span>(_), <span class="s">"  "</span>, <span class="s">" "</span>)), type text}})
+
+<span class="t">#"Costs Negative"</span> = <span class="f">Table.ReplaceValue</span>(<span class="t">#"Cleaned Client Names"</span>, each [amount],
+    each if <span class="f">Text.StartsWith</span>([account_code], <span class="s">"REV"</span>) then [amount]
+         else - <span class="f">Number.Abs</span>([amount]), Replacer.ReplaceValue, {<span class="s">"amount"</span>})</code></pre>
+                    <ul class="ticks"><li><strong>A journal batch exported twice</strong> is removed.</li><li><strong>Client names typed by hand</strong> are cleaned, and blanks become Unallocated.</li><li><strong>A cost posted with the wrong sign</strong> is corrected by making every cost negative.</li><li><strong>Depreciation with no budget line</strong> is shown as such in the P&amp;L, not as a variance.</li></ul>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M12 9V4M12 15v5M9 12H4M15 12h5"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The model · star schema</span>
+                    <div class="mdl"><svg viewBox="0 0 520 150" role="img" aria-label="Model diagram: Ledger related to Account, Client, Entity, Calendar and Service line; Capacity related to Calendar and Service line."><line x1="196" y1="75" x2="66" y2="27"/><line x1="196" y1="75" x2="66" y2="75"/><line x1="196" y1="75" x2="66" y2="123"/><line x1="196" y1="75" x2="326" y2="45"/><line x1="196" y1="75" x2="326" y2="105"/><line x1="456" y1="75" x2="326" y2="45"/><line x1="456" y1="75" x2="326" y2="105"/><g class="dim"><rect x="14.0" y="12.0" width="104" height="30" rx="6"/><text x="66" y="27">Account</text></g><g class="dim"><rect x="14.0" y="60.0" width="104" height="30" rx="6"/><text x="66" y="75">Client</text></g><g class="dim"><rect x="14.0" y="108.0" width="104" height="30" rx="6"/><text x="66" y="123">Entity</text></g><g class="fact"><rect x="144.0" y="60.0" width="104" height="30" rx="6"/><text x="196" y="75">Ledger</text></g><g class="dim"><rect x="274.0" y="30.0" width="104" height="30" rx="6"/><text x="326" y="45">Calendar</text></g><g class="dim"><rect x="274.0" y="90.0" width="104" height="30" rx="6"/><text x="326" y="105">Service line</text></g><g class="fact"><rect x="404.0" y="60.0" width="104" height="30" rx="6"/><text x="456" y="75">Capacity</text></g></svg></div>
+                    <p>Actuals and budget share the ledger. Capacity holds the hours, so utilisation and the hours and rate effects use the same calendar and service lines as the money.</p>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5H7l6 7-6 7h11"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">The measure · DAX</span>
+                    <pre class="code"><code><span class="c">// Actual amounts, before any category filter. The base of every actual figure.</span>
+Actual =
+<span class="f">CALCULATE</span> ( <span class="f">SUM</span> ( <span class="t">Ledger</span>[Amount] ), <span class="t">Ledger</span>[Scenario] = <span class="s">"Actual"</span> )
+
+<span class="c">// All accounts together: revenue less direct costs less overheads.</span>
+Operating Profit = [Actual]
+
+<span class="c">// Actual minus budgeted operating profit. Positive is favourable.</span>
+Operating Profit Variance = [Operating Profit] - [Operating Profit Budget]</code></pre>
+                    <p>Costs are stored as negative amounts, so a single sum gives profit at any level, and a positive variance is good news on every line.</p>
+                  </div>
+                </li>
+                <li class="trace-step">
+                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/></svg></span>
+                  <div class="trace-body">
+                    <span class="trace-label">On the report · Variance</span>
+                    <p class="trace-figure"><b>£612k</b><span>operating profit in June,</span><span class="is-bad">£108k below budget</span></p>
+                    <p class="trace-check">Every figure was recalculated from the source files outside Power BI, and matches the report.</p>
+                  </div>
+                </li>
+              </ol>
+              <p class="trace-foot"><a href="https://github.com/lorenzoreale/powerbi-portfolio/blob/main/month-end-management-pack/Month-End%20Management%20Pack.SemanticModel/definition/tables/Ledger.tmdl" target="_blank" rel="noopener">Read this measure in the model on GitHub <span aria-hidden="true">→</span></a></p>
+            </div>
           </section>
 
           <!-- SOURCE -->
