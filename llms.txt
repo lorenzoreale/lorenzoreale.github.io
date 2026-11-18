@@ -24,7 +24,7 @@ What each can cover:
 
 ## How I work
 
-Understand what the report is for, check the data before building on it, build and show it early, then reconcile every figure against source and hand over. The steps stay the same; how deep each one goes depends on the job. When joining an existing team, its way of working comes first.
+Understand what the report is for, check the data before building on it, build and show it early, then reconcile every figure against source and hand over. The steps stay the same. How deep each one goes depends on the job. When joining an existing team, its way of working comes first.
 
 ## Work
 

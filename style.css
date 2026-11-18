@@ -22,7 +22,7 @@
   --on-navy:        #FFFFFF;
   --on-navy-muted:  #C5D0E2;
 
-  /* Gold is a fill colour, not a text colour. On a light page it
+  /* Gold is a fill colour. On a light page it
      only ever paints rules, bars, buttons and tints. Text that needs
      to read as ochre uses --gold-text, which is AA on white. */
   --gold:           #E8B547;
@@ -33,7 +33,7 @@
   --ink:            #0B1F3A;   /* headings            14.9:1 on bg   */
   --text:           #1F2C42;   /* body                14.0:1 on bg   */
   --text-muted:     #4E5B72;   /* secondary            6.9:1 on bg   */
-  --text-faint:     #636F86;   /* captions - AA on white, tint and chips */
+  --text-faint:     #636F86;   /* captions, AA on white, tint and chips */
   --error:          #B3261E;   /* form errors          6.5:1 on bg   */
 
   /* ---- Typography: families ---- */
@@ -479,7 +479,7 @@ main { flex: 1; }
 }
 
 /* ---- Hero portrait ---- */
-/* A tall rounded rectangle rather than a circle: it holds the frame of a
+/* A tall rounded rectangle: it holds the frame of a
    letterhead better and crops less of the shoulders. The source PNG is
    transparent, so the frame carries its own ground colour. */
 .hero-portrait {
@@ -525,7 +525,7 @@ main { flex: 1; }
 /* -------------------------------------------------------------
    11. SERVICE COLUMNS (homepage)
    ------------------------------------------------------------- */
-/* Ruled columns instead of cards: a navy rule over each column keeps the
+/* Ruled columns: a navy rule over each column keeps the
    page quiet and reads as a printed document rather than a product site. */
 .svc-cols {
   display: grid;
@@ -1056,7 +1056,7 @@ a.cert-logo:hover {
   margin-bottom: var(--space-4);
 }
 
-/* Tick list ("what's included") - CSS-drawn check, no asset */
+/* Tick list ("what's included"): CSS-drawn check, no asset */
 .ticks { display: grid; gap: var(--space-3); }
 .ticks li {
   position: relative;
@@ -1081,7 +1081,7 @@ a.cert-logo:hover {
    ------------------------------------------------------------- */
 .cs-body { max-width: 50rem; margin-inline: auto; }
 
-/* Ruled fact table rather than a loose row: this is the first thing a
+/* Ruled fact table: this is the first thing a
    client scans, so it reads as a specification. */
 .cs-meta {
   display: grid;
@@ -1153,7 +1153,7 @@ a.cert-logo:hover {
   color: var(--ink);
 }
 
-/* Explicit "to be added" placeholder - gold left rule signals a note */
+/* Explicit "to be added" placeholder: a gold left rule signals a note */
 .placeholder {
   padding: var(--space-5) var(--space-6);
   background: var(--surface);
@@ -1344,7 +1344,7 @@ pre.code {
 .code .f { color: var(--gold-text); font-weight: 600; }
 .code .t { color: #1F5B3D; }
 
-/* On a phone the diagram scrolls sideways rather than shrinking past legibility */
+/* On a phone the diagram scrolls sideways so its labels stay legible */
 .mdl { max-width: 33rem; overflow-x: auto; }
 .cs-flow { max-width: 36rem; margin-top: var(--space-6); }
 .mdl svg { width: 100%; min-width: 26rem; height: auto; }
@@ -1397,7 +1397,7 @@ pre.code {
 }
 .cs-disclosure a { font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
-/* "Next case study" as a card with its own thumbnail, not a bare link */
+/* The "Next project" link is a card with its own thumbnail */
 .next-case {
   position: relative;
   display: grid;
@@ -1619,7 +1619,7 @@ pre.code {
   font-size: var(--fs-small);
 }
 
-/* Populated by JS; role="status" announces changes politely */
+/* Populated by JS, and role="status" announces changes politely */
 .form-status {
   margin-top: var(--space-4);
   font-size: var(--fs-small);

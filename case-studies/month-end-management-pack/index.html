@@ -66,7 +66,7 @@
     <!-- LETTERHEAD -->
     <header class="letterhead">
       <div class="container lh-top">
-        <a class="lh-brand" href="/" aria-label="Lorenzo Reale - home">
+        <a class="lh-brand" href="/" aria-label="Lorenzo Reale, home">
           <span class="lh-mono" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><rect x="17.5" y="12" width="8" height="40" rx="1"/><rect x="28.5" y="40" width="4" height="12" rx="1"/><rect x="35.5" y="43" width="4" height="9" rx="1"/><rect x="42.5" y="39" width="4" height="13" rx="1"/></svg></span>
           <span class="lh-name">Lorenzo Reale</span>
         </a>
@@ -124,7 +124,7 @@
             <span class="cs-num">01</span>
             <h2 id="problem">The problem</h2>
             <div class="prose">
-              <p>Ashcombe Partners runs four service lines across three companies. The monthly pack was assembled in Excel from ledger exports, so the close meeting spent its time agreeing the numbers rather than explaining them. The partners wanted one answer at the start of every close: why is profit different from budget, and what do we do about it?</p>
+              <p>Ashcombe Partners runs four service lines across three companies. The monthly pack was assembled in Excel from ledger exports, so the close meeting spent most of its time agreeing the numbers before anyone could explain them. The partners wanted one answer at the start of every close: why is profit different from budget, and what do we do about it?</p>
             </div>
           </section>
 
@@ -136,7 +136,7 @@
               <p>For October 2026, the Summary page answers that question in one bridge, and the pages behind it explain each step.</p>
             </div>
             <ul class="spec-list">
-              <li><strong>The shortfall is billable time, not capacity</strong>Operating profit was £206k against a budget of £267k. Available hours were on plan, but Managed Services lost £39k of billable time: its utilisation has fallen every month since January, to 75.8% against an 82% target. The answer is resourcing in that line, not hiring.</li>
+              <li><strong>The shortfall is billable time, not capacity</strong>Operating profit was £206k against a budget of £267k. Available hours were on plan, but Managed Services lost £39k of billable time: its utilisation has fallen every month since January, to 75.8% against an 82% target. The fix is resourcing in that line.</li>
               <li><strong>Price and subcontractors take the rest</strong>Advisory is still billing at 2025 rates, £20k below its rate card this month and £158k over the year. Projects lost gross margin to subcontractors, 22.7% against 28.6%, and Corven Group, at 10.8%, sits with Nyle Logistics below the 30% margin floor. Both clients need a pricing review.</li>
               <li><strong>The pack proves itself before it goes out</strong>The ledger agrees with the trial balance to the penny once seven lines loaded twice by the extract are removed. Two items are left for finance to confirm: £8.4k of revenue posted with no client, and a laptop lease posted as a credit that flatters overheads.</li>
             </ul>
@@ -170,7 +170,7 @@
             <h2 id="built">How it's built</h2>
             <div class="mdl cs-flow"><svg viewBox="0 0 580 110" role="img" aria-label="SQL Server views and Excel workbooks go through Power Query into the semantic model, which feeds the report."><line x1="158" y1="32" x2="196" y2="55"/><line x1="158" y1="78" x2="196" y2="55"/><line x1="308" y1="55" x2="346" y2="55"/><line x1="470" y1="55" x2="508" y2="55"/><g class="dim"><rect x="8" y="17" width="150" height="30" rx="6"/><text x="83" y="32">SQL Server views</text></g><g class="dim"><rect x="8" y="63" width="150" height="30" rx="6"/><text x="83" y="78">Excel workbooks</text></g><g class="dim"><rect x="196" y="40" width="112" height="30" rx="6"/><text x="252" y="55">Power Query</text></g><g class="fact"><rect x="346" y="40" width="124" height="30" rx="6"/><text x="408" y="55">Semantic model</text></g><g class="dim"><rect x="508" y="40" width="64" height="30" rx="6"/><text x="540" y="55">Report</text></g></svg></div>
             <ul class="spec-list">
-              <li><strong>The views do the cleaning</strong>SQL views hand the model one row per journal line, amounts with their effect on profit and a client for every line. Power Query stays thin and folds back to the server; only the finance workbooks are shaped in Power Query.</li>
+              <li><strong>The views do the cleaning</strong>SQL views hand the model one row per journal line, amounts with their effect on profit and a client for every line. Power Query stays thin and folds back to the server, and only the finance workbooks are shaped in Power Query.</li>
               <li><strong>The revenue variance splits three ways, exactly</strong>Capacity, billable hours and billing rates are valued so that they add up to the revenue variance to the pound, so leave and vacancies never show as lost sales.</li>
               <li><strong>The period is set in one place</strong>A calculation group gives every measure its month, year to date and last-year versions, and the statement is read from a layout table, so its logic is written once.</li>
               <li><strong>Real problems, handled in the open</strong>The files carry the problems real extracts do: a batch of purchase invoices loaded twice, manual journals with no client, a cost posted as a credit, depreciation with no budget line, and an account code typed with a trailing space. The Checks page counts each one.</li>

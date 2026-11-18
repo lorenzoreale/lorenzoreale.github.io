@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     yearEl.textContent = new Date().getFullYear().toString();
   }
 
-  /* 2. Scroll reveal - skipped entirely if the user prefers reduced motion */
+  /* 2. Scroll reveal: skipped entirely if the user prefers reduced motion */
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealEls = document.querySelectorAll(".reveal");
 
@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => observer.observe(el));
   }
 
-  /* 3. NAVIGATION - no script required.
+  /* 3. NAVIGATION: no script required.
      The letterhead nav row carries the links on desktop and the bottom tab
      bar takes over below 780px. Both are plain markup with the current page
      marked by aria-current, so there is no menu to open, close or trap focus
      in, and navigation keeps working with JavaScript disabled. */
 
-  /* 4. CONTACT FORM (contact page only) - live.
+  /* 4. CONTACT FORM (contact page only): live.
      Posts JSON to Web3Forms, which emails the message on. The access key is
      public by design: it identifies the destination inbox, not the account.
      The <form action> in contact/index.html is the no-JS fallback and must
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* 6. VISIT COUNTING - GoatCounter.
+  /* 6. VISIT COUNTING: GoatCounter.
      Cookieless and stores no personal data, so no consent banner is needed.
      Loaded from here so every page that includes script.js is counted without
      touching the HTML. count.js ignores localhost by itself, and opening any
