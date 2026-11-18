@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Data Reconciliation Monitor - Power BI project</title>
-  <meta name="description" content="Power BI morning check for a retailer's data platform: which data the business can use today, what to hold back and why. Synthetic data, fictional client." />
+  <meta name="description" content="Power BI morning check for a retail data warehouse: which data the business can use today, what to hold back and why, with the reconciliation behind it. Synthetic data." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/data-reconciliation-monitor/" />
   <meta name="theme-color" content="#14294B" />
 
@@ -15,15 +15,15 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/data-reconciliation-monitor/" />
   <meta property="og:title" content="Data Reconciliation Monitor - Power BI project" />
-  <meta property="og:description" content="A Power BI morning check that tells the business which data it can use today and what to hold back, with the reconciliation behind it. Synthetic data, fictional client." />
-  <meta property="og:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png?v=2" />
+  <meta property="og:description" content="A Power BI morning check that tells the business which data it can use today, and gives the data team the evidence behind every answer. Synthetic data, fictional client." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png?v=3" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Status page of the Data Reconciliation Monitor Power BI report" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png?v=2" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/data-reconciliation-monitor.png?v=3" />
   <meta name="twitter:title" content="Data Reconciliation Monitor - Power BI project" />
   <meta name="twitter:description" content="A Power BI morning check: can the business use today's numbers? Synthetic data, fictional client, full model on GitHub." />
 
@@ -45,11 +45,11 @@
     "@type": "CreativeWork",
     "name": "Data Reconciliation Monitor",
     "headline": "Data Reconciliation Monitor - Power BI project",
-    "description": "Power BI morning check for a retailer's data platform: which data the business can use today, what to hold back and why. Synthetic data, fictional client.",
+    "description": "Power BI morning check for a retail data warehouse: which data the business can use today, what to hold back and why, with the reconciliation behind it. Synthetic data.",
     "url": "https://lorenzoreale.com/case-studies/data-reconciliation-monitor/",
     "image": "https://lorenzoreale.com/media/case-studies/data-reconciliation-monitor/status@2x.webp",
     "inLanguage": "en-GB",
-    "about": ["Power BI", "DAX", "Semantic modelling", "Data quality"],
+    "about": ["Power BI", "SQL Server", "Data quality", "Data reconciliation"],
     "author": {
       "@type": "Person",
       "@id": "https://lorenzoreale.com/#person",
@@ -93,15 +93,12 @@
             <a class="back-link" href="/case-studies/"><span aria-hidden="true">←</span> Work</a>
             <p class="kicker">Demonstration project</p>
             <h1>Data Reconciliation Monitor</h1>
-            <p class="page-lede">
-              A morning check for Thornfield Retail Group, a fictional retailer whose warehouse is loaded
-              every night from six source systems. It tells the business in plain words whether today's
-              numbers can be used, and gives the data team the evidence behind the answer.
-            </p>
+            <p class="page-lede">A morning check that tells the business which data it can use today, and gives the data team the evidence behind every answer.</p>
             <ul class="cs-meta">
               <li><span class="cs-meta-label">Client</span> Thornfield Retail Group (fictional)</li>
-              <li><span class="cs-meta-label">Audience</span> The business each morning, and the data team</li>
-              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · Power Query</li>
+              <li><span class="cs-meta-label">Audience</span> The business each morning, the data team and its lead</li>
+              <li><span class="cs-meta-label">Sources</span> Warehouse monitoring tables in SQL Server, the issue log from the ticketing tool</li>
+              <li><span class="cs-meta-label">Built with</span> Power BI · SQL · Power Query · DAX</li>
             </ul>
           </header>
 
@@ -109,33 +106,25 @@
           <figure class="media-shot" style="margin-top: 0;">
             <img
               src="/media/case-studies/data-reconciliation-monitor/status@2x.webp"
-              alt="Status page: a headline on which data areas can be used, every data area with its status and what happened last night, the last 14 nights, and open issues"
+              alt="Status page: areas usable, areas not ready, open issues and the last file in, the status of each data area with the night in figures, and a grid of the last 14 nights"
               width="1600"
-              height="901"
+              height="900"
               loading="eager"
               fetchpriority="high"
             />
-            <figcaption class="media-caption">
-              The load of 29 June: seven of eight data areas usable, supplier invoices incomplete,
-              and a plain-English line for each area.
-            </figcaption>
+            <figcaption class="media-caption">The morning of 30 October 2026: seven of eight areas usable, supplier invoices held back, and the last 14 nights for every area.</figcaption>
           </figure>
           <p class="cs-disclosure">
-            Synthetic data · fictional client · full model, DAX and data generator
+            Synthetic data · fictional client · model, DAX and data generator
             <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/data-reconciliation-monitor" target="_blank" rel="noopener">on GitHub</a>.
           </p>
 
-          <!-- THE BRIEF -->
-          <section class="cs-block" aria-labelledby="brief">
+          <!-- THE PROBLEM -->
+          <section class="cs-block" aria-labelledby="problem">
             <span class="cs-num">01</span>
-            <h2 id="brief">The brief</h2>
+            <h2 id="problem">The problem</h2>
             <div class="prose">
-              <p>
-                Finance, trading and supply chain open their dashboards first thing in the morning. When a
-                nightly load fails, nobody knows until a figure looks wrong in a meeting. Thornfield
-                needed one page that says which data can be used today and which reports to hold back,
-                and behind it the detail the data team needs to find and fix the cause.
-              </p>
+              <p>Thornfield's warehouse is loaded every night from six source systems into eight data areas that finance, trading and supply chain report from. When a load failed, the business found out from a wrong figure in a meeting. The data team needed one page to say, before the reports were opened, which areas could be used and which reports to hold back.</p>
             </div>
           </section>
 
@@ -144,41 +133,34 @@
             <span class="cs-num">02</span>
             <h2 id="showed">What it showed</h2>
             <div class="prose">
-              <p>On the morning of 29 June:</p>
+              <p>For the load of Friday 30 October 2026, the Status page gives the answer in one board, and any of the last 90 nights can be selected to see that morning as it was.</p>
             </div>
             <ul class="spec-list">
-              <li><strong>Supplier invoices were not ready</strong>One of three files never arrived, leaving 1,204 invoices worth £214,608 missing. The page tells finance to hold accounts payable and supplier spend reporting until the file is resent.</li>
-              <li><strong>Online orders could be used with care</strong>Three orders worth £412 were missing for the third night running, inside tolerance and traced to refunds posted after the extract closes. Fine for trends, worth checking before quoting exact totals.</li>
-              <li><strong>Supplier invoices are the recurring problem</strong>They had a problem on 5 of the last 14 nights and account for 5 of the 14 open issues, mostly late or incomplete files. The fix sits with the supplier's upload window rather than inside the warehouse.</li>
-              <li><strong>The team is keeping up, for now</strong>Issues take 2.7 days to resolve against a 3-day target, but 14 are open, up from 2 a month earlier.</li>
+              <li><strong>Seven of eight areas can be used</strong>Supplier invoices are not ready: one of three files did not arrive, so 1,204 invoices worth £214,608 are missing and the last file landed at 05:41, 41 minutes late. Accounts payable and supplier spend reporting waits for the resend.</li>
+              <li><strong>Supplier invoices are the recurring problem</strong>They had trouble on 5 of the last 14 nights and hold 5 of the 14 open issues, mostly late or incomplete files from the supplier. Online orders are 3 orders (£412) short for the third night running, inside tolerance and traced to refunds posted after the extract closes, so they are fine for trends.</li>
+              <li><strong>Issues are resolved on time, but the queue is growing</strong>Issues closed in the last four weeks took 2.8 days on average against a 3-day target, yet 14 are open against 2 four weeks earlier. The backlog, not the speed, is the conversation for the data team lead.</li>
             </ul>
 
-            <figure class="media-shot">
-              <img
-                src="/media/case-studies/data-reconciliation-monitor/reconciliation@2x.webp"
-                alt="Reconciliation page: rows and value at the source and in the warehouse for every data area, rows matched over 30 nights and arrival times against the deadline"
-                width="1600"
-                height="901"
-                loading="lazy"
-              />
-              <figcaption class="media-caption">
-              Source against warehouse for every data area, rows matched over 30 nights, and how far each
-              load landed from the 05:00 deadline.
-            </figcaption>
+          <figure class="media-shot">
+            <img
+              src="/media/case-studies/data-reconciliation-monitor/reconciliation@2x.webp"
+              alt="Reconciliation page: rows and value at the source and in the warehouse for each area, rows matched by night against the limit, arrival against 05:00, and the data notes"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <figcaption class="media-caption">Source against warehouse for every area, the worst area night by night against the 99.5% limit, arrival against 05:00, and what was corrected in the data.</figcaption>
           </figure>
 
-            <figure class="media-shot">
-              <img
-                src="/media/case-studies/data-reconciliation-monitor/issue-log@2x.webp"
-                alt="Issue log page: open issues, the oldest issue, days to resolve, the open issue register, open issues by night, and open issues by owner and age"
-                width="1600"
-                height="901"
-                loading="lazy"
-              />
-              <figcaption class="media-caption">
-              The issue log as it stood that morning: who owns each open issue, how long it has been open,
-              and the queue over the last 30 nights.
-            </figcaption>
+          <figure class="media-shot">
+            <img
+              src="/media/case-studies/data-reconciliation-monitor/issues@2x.webp"
+              alt="Issues page: open and critical issues, the oldest open issue and days to resolve, the open issue register, the queue by night, and open issues by owner and age"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <figcaption class="media-caption">The queue as it stood that morning: open issues by severity, the open queue rising through the month, and open issues by owner and age.</figcaption>
           </figure>
           </section>
 
@@ -186,87 +168,14 @@
           <section class="cs-block" aria-labelledby="built">
             <span class="cs-num">03</span>
             <h2 id="built">How it's built</h2>
-            <div class="prose">
-              <p>
-                The model stores measurements about the data rather than the data itself: rows and value at the
-                source and in the warehouse, the files received and when, and the records failing each
-                quality rule. No status is stored anywhere. Every status is worked out from the thresholds
-                in one rulebook table, so changing a tolerance changes the whole report consistently.
-              </p>
-              <p>
-                Only the checks on the load itself decide whether an area can be used. A quality rule that warns
-                afterwards, such as invalid emails in the loyalty data, shows as a note without holding a
-                report back. Any night can be selected, and the issue log then shows what was open that
-                morning. The monitoring data had faults of its own, from a rerun written twice to arrival
-                times recorded three ways. Each is handled in the model.
-              </p>
-            </div>
-
-            <div class="trace">
-              <div class="trace-head">
-                <p class="kicker">One figure, from source to report</p>
-                <p>How the supplier-invoice gap on the Status page is built, from the files it starts in to the report. The DAX and Power Query are quoted from the published model.</p>
-              </div>
-              <ol class="trace-list">
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The source · 6 CSV files</span>
-                    <ul class="files"><li>feed_run.csv</li><li>check_result.csv</li><li>issue_log.csv</li><li>feed.csv</li><li>rule.csv</li><li>date.csv</li></ul>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The clean-up · Power Query</span>
-                    <pre class="code"><code><span class="t">#"Latest Run First"</span> = <span class="f">Table.Buffer</span>(<span class="f">Table.Sort</span>(<span class="t">#"Changed Types"</span>, {{<span class="s">"run_seq"</span>, Order.Descending}}))
-<span class="t">#"Kept Latest Run"</span> = <span class="f">Table.Distinct</span>(<span class="t">#"Latest Run First"</span>, {<span class="s">"date"</span>, <span class="s">"rule_id"</span>})
-
-<span class="t">#"Arrival Time to HH:MM"</span> = <span class="f">Table.TransformColumns</span>(<span class="t">#"Promoted Headers"</span>,
-    {{<span class="s">"arrival_time"</span>, each <span class="f">Text.PadStart</span>(<span class="f">Text.Start</span>(_, <span class="f">Text.PositionOf</span>(_, <span class="s">":"</span>) + 3), 5, <span class="s">"0"</span>), type text}})</code></pre>
-                    <ul class="ticks"><li><strong>A rerun written twice</strong> for 14 June: only the latest result set is kept.</li><li><strong>Arrival times recorded three ways</strong> are cleaned to one format.</li><li><strong>One issue closed before it was opened</strong> is counted and left out of the averages.</li></ul>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M12 9V4M12 15v5M9 12H4M15 12h5"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The model · star schema</span>
-                    <div class="mdl"><svg viewBox="0 0 520 150" role="img" aria-label="Model diagram: Feed Run related to Date and Feed; Check Result related to Date, Feed and Rule; Issue related to Feed."><line x1="66" y1="40" x2="216" y2="27"/><line x1="66" y1="40" x2="216" y2="92"/><line x1="66" y1="115" x2="216" y2="92"/><line x1="366" y1="60" x2="216" y2="27"/><line x1="366" y1="60" x2="216" y2="92"/><line x1="366" y1="60" x2="460" y2="123"/><g class="fact"><rect x="14.0" y="25.0" width="104" height="30" rx="6"/><text x="66" y="40">Feed Run</text></g><g class="fact"><rect x="14.0" y="100.0" width="104" height="30" rx="6"/><text x="66" y="115">Issue</text></g><g class="dim"><rect x="164.0" y="12.0" width="104" height="30" rx="6"/><text x="216" y="27">Date</text></g><g class="dim"><rect x="164.0" y="77.0" width="104" height="30" rx="6"/><text x="216" y="92">Feed</text></g><g class="fact"><rect x="314.0" y="45.0" width="104" height="30" rx="6"/><text x="366" y="60">Check Result</text></g><g class="dim"><rect x="408.0" y="108.0" width="104" height="30" rx="6"/><text x="460" y="123">Rule</text></g></svg></div>
-                    <p>The model stores measurements about the data, not the data itself: rows, value and files for each load, and the result of every rule.</p>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5H7l6 7-6 7h11"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The measure · DAX</span>
-                    <pre class="code"><code><span class="c">// Source minus warehouse: the rows that did not land.</span>
-Rows Missing = [Rows at Source] - [Rows in Warehouse]
-
-<span class="c">// The status of a data area as a number: 2 not ready, 1 use with care, 0 ready,</span>
-<span class="c">// -1 no load scheduled that night. Judged on the load checks only (rows and value</span>
-<span class="c">// against the source, file arrival), so a quality-rule warning on its own never</span>
-<span class="c">// holds a report back.</span>
-Status Rank =
-<span class="f">COALESCE</span> ( <span class="f">CALCULATE</span> ( [Check Rank], <span class="t">Rule</span>[Is Load Check] = <span class="f">TRUE</span> () ), -1 )
-
-<span class="c">// The status in words: Not ready, Use with care, Ready, or No load when none is</span>
-<span class="c">// scheduled that night.</span>
-Status =
-<span class="f">SWITCH</span> ( [Status Rank], 2, <span class="s">"Not ready"</span>, 1, <span class="s">"Use with care"</span>, 0, <span class="s">"Ready"</span>, <span class="s">"No load"</span> )</code></pre>
-                    <p>No status is stored anywhere. Each one is worked out from the thresholds in the rule table, so changing a tolerance changes the whole report consistently.</p>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">On the report · Status</span>
-                    <p class="trace-figure"><b>1,204</b><span>supplier invoices missing on 29 June,</span><span class="is-bad">not ready</span></p>
-                    <p class="trace-check">Every figure was recalculated from the source files outside Power BI, and matches the report.</p>
-                  </div>
-                </li>
-              </ol>
-              <p class="trace-foot"><a href="https://github.com/lorenzoreale/powerbi-portfolio/blob/main/data-reconciliation-monitor/Data%20Reconciliation%20Monitor.SemanticModel/definition/tables/Feed.tmdl" target="_blank" rel="noopener">Read this measure in the model on GitHub <span aria-hidden="true">→</span></a></p>
-            </div>
+            <div class="mdl cs-flow"><svg viewBox="0 0 580 110" role="img" aria-label="SQL Server views and the issue log export go through Power Query into the semantic model, which feeds the report."><line x1="158" y1="32" x2="196" y2="55"/><line x1="158" y1="78" x2="196" y2="55"/><line x1="308" y1="55" x2="346" y2="55"/><line x1="470" y1="55" x2="508" y2="55"/><g class="dim"><rect x="8" y="17" width="150" height="30" rx="6"/><text x="83" y="32">SQL Server views</text></g><g class="dim"><rect x="8" y="63" width="150" height="30" rx="6"/><text x="83" y="78">Issue log export</text></g><g class="dim"><rect x="196" y="40" width="112" height="30" rx="6"/><text x="252" y="55">Power Query</text></g><g class="fact"><rect x="346" y="40" width="124" height="30" rx="6"/><text x="408" y="55">Semantic model</text></g><g class="dim"><rect x="508" y="40" width="64" height="30" rx="6"/><text x="540" y="55">Report</text></g></svg></div>
+            <ul class="spec-list">
+              <li><strong>No status is stored</strong>The load records what it moved: rows and value at the source and in the warehouse, files received and when, and records failing each of 48 rules. One measure compares those figures with the limits in the rulebook, so a tolerance changes in one place and every status follows.</li>
+              <li><strong>Only the load checks decide whether an area can be used</strong>Rows and value against the source and files in by 05:00 set the status. The other quality rules add notes for the data team and never hold a report back.</li>
+              <li><strong>Any past morning reads as it was</strong>Trend charts use their own night axis, so they always end on the night selected, and the issue measures compare the dates opened and resolved with that night, so the queue shows what was open at the time.</li>
+              <li><strong>Real problems, handled in the open</strong>The data carries the problems real monitoring tables do: one night's store sales checks written twice by a rerun, arrival times recorded in three formats, nights with no load scheduled, areas with no money to reconcile, a rule added part-way through the window and an issue closed before it was opened. The Reconciliation page counts each one.</li>
+            </ul>
+            <p class="trace-check">Every figure on this page was recalculated from the source files outside Power BI, and matches the report.</p>
           </section>
 
           <!-- SOURCE -->
@@ -275,8 +184,10 @@ Status =
             <h2 id="source">The source</h2>
             <div class="prose">
               <p>
-                The semantic model, the DAX, the report and the script that generated the data are
-                <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/data-reconciliation-monitor" target="_blank" rel="noopener">on GitHub</a>, all readable as plain text.
+                The semantic model, the DAX and Power Query, the report pages and the script that writes
+                the data are <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/data-reconciliation-monitor" target="_blank" rel="noopener">on GitHub</a>,
+                all readable as plain text. The report itself, with its data, is a .pbix file in the
+                <a href="https://github.com/lorenzoreale/powerbi-portfolio/releases/tag/v2.0-data-reconciliation" target="_blank" rel="noopener">project's release</a>, with a PDF of every page.
               </p>
             </div>
           </section>
@@ -288,7 +199,7 @@ Status =
               demonstrate the work, and no real client data appears anywhere in it.
             </p>
             <a class="next-case" href="/case-studies/site-inspection-performance/">
-              <img src="/media/case-studies/site-inspection-performance/briefing-thumb.webp" alt="" width="800" height="451" loading="lazy" />
+              <img src="/media/case-studies/site-inspection-performance/overview-thumb.webp" alt="" width="800" height="450" loading="lazy" />
               <span>
                 <span class="next-case-label">Next project</span>
                 <span class="next-case-title">Site Inspection Performance</span>

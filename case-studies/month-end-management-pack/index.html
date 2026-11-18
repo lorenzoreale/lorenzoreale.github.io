@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Month-End Management Pack - Power BI project</title>
-  <meta name="description" content="Power BI month-end pack: why profit missed budget, split into billable hours, billing rates and costs, with the points for the close meeting. Synthetic data." />
+  <meta name="description" content="Power BI month-end pack: why profit differs from budget, split into capacity, billable hours and billing rates, checked against the ledger. Synthetic data." />
   <link rel="canonical" href="https://lorenzoreale.com/case-studies/month-end-management-pack/" />
   <meta name="theme-color" content="#14294B" />
 
@@ -15,17 +15,17 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:url" content="https://lorenzoreale.com/case-studies/month-end-management-pack/" />
   <meta property="og:title" content="Month-End Management Pack - Power BI project" />
-  <meta property="og:description" content="A Power BI month-end pack for a professional-services firm: why profit missed budget, and what the close meeting should discuss. Synthetic data, fictional client." />
-  <meta property="og:image" content="https://lorenzoreale.com/og/month-end-management-pack.png?v=2" />
+  <meta property="og:description" content="A Power BI management pack that tells the partners why profit differs from budget, and checks itself against the ledger before it goes out. Synthetic data, fictional client." />
+  <meta property="og:image" content="https://lorenzoreale.com/og/month-end-management-pack.png?v=3" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Variance page of the Month-End Management Pack Power BI report" />
+  <meta property="og:image:alt" content="Summary page of the Month-End Management Pack Power BI report" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://lorenzoreale.com/og/month-end-management-pack.png?v=2" />
+  <meta name="twitter:image" content="https://lorenzoreale.com/og/month-end-management-pack.png?v=3" />
   <meta name="twitter:title" content="Month-End Management Pack - Power BI project" />
-  <meta name="twitter:description" content="A Power BI month-end pack that explains why profit missed budget. Synthetic data, fictional client, full model on GitHub." />
+  <meta name="twitter:description" content="A Power BI month-end pack that explains why profit differs from budget. Synthetic data, fictional client, full model on GitHub." />
 
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="icon" type="image/png" href="/media/favicon.png" sizes="32x32" />
@@ -45,11 +45,11 @@
     "@type": "CreativeWork",
     "name": "Month-End Management Pack",
     "headline": "Month-End Management Pack - Power BI project",
-    "description": "Power BI month-end pack: why profit missed budget, split into billable hours, billing rates and costs, with the points for the close meeting. Synthetic data.",
+    "description": "Power BI month-end pack: why profit differs from budget, split into capacity, billable hours and billing rates, checked against the ledger. Synthetic data.",
     "url": "https://lorenzoreale.com/case-studies/month-end-management-pack/",
-    "image": "https://lorenzoreale.com/media/case-studies/month-end-management-pack/variance@2x.webp",
+    "image": "https://lorenzoreale.com/media/case-studies/month-end-management-pack/summary@2x.webp",
     "inLanguage": "en-GB",
-    "about": ["Power BI", "DAX", "Semantic modelling", "Financial reporting"],
+    "about": ["Power BI", "SQL Server", "Calculation groups", "Management reporting"],
     "author": {
       "@type": "Person",
       "@id": "https://lorenzoreale.com/#person",
@@ -93,50 +93,38 @@
             <a class="back-link" href="/case-studies/"><span aria-hidden="true">←</span> Work</a>
             <p class="kicker">Demonstration project</p>
             <h1>Month-End Management Pack</h1>
-            <p class="page-lede">
-              A month-end pack for Ashcombe Partners, a fictional professional-services firm with four
-              service lines. It is built for the close meeting, where the first question is always why
-              profit is different from budget.
-            </p>
+            <p class="page-lede">A monthly management pack that tells the partners why profit differs from budget, and checks itself against the ledger before it goes out.</p>
             <ul class="cs-meta">
               <li><span class="cs-meta-label">Client</span> Ashcombe Partners (fictional)</li>
               <li><span class="cs-meta-label">Audience</span> Finance director, partners and service-line heads</li>
-              <li><span class="cs-meta-label">Built with</span> Power BI · DAX · Power Query</li>
+              <li><span class="cs-meta-label">Sources</span> Ledger and timesheets in SQL Server, budget and commentary workbooks in Excel</li>
+              <li><span class="cs-meta-label">Built with</span> Power BI · SQL · Power Query · DAX · calculation group</li>
             </ul>
           </header>
 
           <!-- HERO SHOT -->
           <figure class="media-shot" style="margin-top: 0;">
             <img
-              src="/media/case-studies/month-end-management-pack/variance@2x.webp"
-              alt="Variance page: headline, revenue, operating profit, utilisation and year-to-date figures, the profit bridge, hours and rate effects by service line, and the points for the close meeting"
+              src="/media/case-studies/month-end-management-pack/summary@2x.webp"
+              alt="Summary page: revenue, operating profit, utilisation and year-to-date profit, the bridge from budget to actual operating profit, the revenue variance by service line and the commentary"
               width="1600"
-              height="901"
+              height="900"
               loading="eager"
               fetchpriority="high"
             />
-            <figcaption class="media-caption">
-              June 2026: operating profit £108k below budget, the movements that explain it, and the
-              points the close meeting should discuss. Figures in £000.
-            </figcaption>
+            <figcaption class="media-caption">The bridge from budget to actual operating profit for October 2026, the revenue variance by service line and the finance director's commentary.</figcaption>
           </figure>
           <p class="cs-disclosure">
-            Synthetic data · fictional client · full model, DAX and data generator
+            Synthetic data · fictional client · model, DAX and data generator
             <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/month-end-management-pack" target="_blank" rel="noopener">on GitHub</a>.
           </p>
 
-          <!-- THE BRIEF -->
-          <section class="cs-block" aria-labelledby="brief">
+          <!-- THE PROBLEM -->
+          <section class="cs-block" aria-labelledby="problem">
             <span class="cs-num">01</span>
-            <h2 id="brief">The brief</h2>
+            <h2 id="problem">The problem</h2>
             <div class="prose">
-              <p>
-                Each month the finance director and the partners spent the first part of the close working
-                out why profit had moved. They wanted that answered before the meeting started: how much
-                of the gap was volume and how much was price, which costs moved, and which service lines
-                and clients needed a conversation. The full P&amp;L had to be there too, for anyone who
-                wanted to check the figures.
-              </p>
+              <p>Ashcombe Partners runs four service lines across three companies. The monthly pack was assembled in Excel from ledger exports, so the close meeting spent its time agreeing the numbers rather than explaining them. The partners wanted one answer at the start of every close: why is profit different from budget, and what do we do about it?</p>
             </div>
           </section>
 
@@ -145,42 +133,34 @@
             <span class="cs-num">02</span>
             <h2 id="showed">What it showed</h2>
             <div class="prose">
-              <p>In June, operating profit was £612k against a £720k budget.</p>
+              <p>For October 2026, the Summary page answers that question in one bridge, and the pages behind it explain each step.</p>
             </div>
             <ul class="spec-list">
-              <li><strong>The shortfall is billable hours</strong>Revenue was £219k short, and £206k of that came from fewer hours billed. Managed Services alone lost 420 hours, with utilisation down from 80.6% in January to 75.0%. That is a resourcing question for the service line.</li>
-              <li><strong>Projects is losing margin to subcontractors</strong>Gross margin was 31.7% against 36.1% budgeted, with subcontractors £56k over.</li>
-              <li><strong>Advisory is discounting</strong>It billed £472 an hour against a £486 rate card, which cost £35k of revenue in the month.</li>
-              <li><strong>Two clients are below the margin floor</strong>Nyle Distribution at 28.0% and Oakline Foods at 28.4%, against the 30% the partners accept. Both are candidates for a pricing review.</li>
-              <li><strong>Overheads cushioned the month</strong>They came in £57k under budget, though admin staff costs have risen every month this year.</li>
+              <li><strong>The shortfall is billable time, not capacity</strong>Operating profit was £206k against a budget of £267k. Available hours were on plan, but Managed Services lost £39k of billable time: its utilisation has fallen every month since January, to 75.8% against an 82% target. The answer is resourcing in that line, not hiring.</li>
+              <li><strong>Price and subcontractors take the rest</strong>Advisory is still billing at 2025 rates, £20k below its rate card this month and £158k over the year. Projects lost gross margin to subcontractors, 22.7% against 28.6%, and Corven Group, at 10.8%, sits with Nyle Logistics below the 30% margin floor. Both clients need a pricing review.</li>
+              <li><strong>The pack proves itself before it goes out</strong>The ledger agrees with the trial balance to the penny once seven lines loaded twice by the extract are removed. Two items are left for finance to confirm: £8.4k of revenue posted with no client, and a laptop lease posted as a credit that flatters overheads.</li>
             </ul>
 
-            <figure class="media-shot">
-              <img
-                src="/media/case-studies/month-end-management-pack/service-lines@2x.webp"
-                alt="Service lines page: utilisation and gross margin by service line over 18 months, and a table of each line against budget"
-                width="1600"
-                height="901"
-                loading="lazy"
-              />
-              <figcaption class="media-caption">
-              Utilisation by service line against the 82% budget. Managed Services has slipped every month
-              this year, which no single month's figures would show.
-            </figcaption>
+          <figure class="media-shot">
+            <img
+              src="/media/case-studies/month-end-management-pack/clients@2x.webp"
+              alt="Clients page: gross margin by client against the 30% floor, revenue by client, and the client register"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <figcaption class="media-caption">Gross margin by client against the 30% floor, where the revenue comes from, and the register for a pricing review.</figcaption>
           </figure>
 
-            <figure class="media-shot">
-              <img
-                src="/media/case-studies/month-end-management-pack/clients@2x.webp"
-                alt="Clients page: gross margin by client against the 30% floor, and the client register"
-                width="1600"
-                height="901"
-                loading="lazy"
-              />
-              <figcaption class="media-caption">
-              Gross margin by client against the 30% floor, lowest first, with revenue and margin against
-              budget in the register.
-            </figcaption>
+          <figure class="media-shot">
+            <img
+              src="/media/case-studies/month-end-management-pack/checks@2x.webp"
+              alt="Checks page: the pack checks with their results, and the ledger against the trial balance by account"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <figcaption class="media-caption">The pack against the ledger: the trial balance control, the lines loaded twice and the lines finance must confirm.</figcaption>
           </figure>
           </section>
 
@@ -188,87 +168,14 @@
           <section class="cs-block" aria-labelledby="built">
             <span class="cs-num">03</span>
             <h2 id="built">How it's built</h2>
-            <div class="prose">
-              <p>
-                The budget is flexed: budgeted utilisation and the rate card are applied to the hours each team
-                actually had, so leave and vacancies do not show up as missed budget. What remains of the
-                revenue variance splits into hours and rates, worked out service line by service line and
-                month by month, so a shift towards cheaper work is not mistaken for discounting.
-              </p>
-              <p>
-                Amounts are stored as profit contributions, revenue positive and costs negative, so a positive
-                variance is good news on every line. The points for the meeting are written by the model
-                from the month's figures and change with the month selected. The ledger came with the usual
-                faults: a journal batch exported twice, client names typed by hand, a cost posted with the
-                wrong sign and depreciation with no budget line of its own. Each is handled before it
-                reaches the report.
-              </p>
-            </div>
-
-            <div class="trace">
-              <div class="trace-head">
-                <p class="kicker">One figure, from source to report</p>
-                <p>How the operating profit on the Variance page is built, from the files it starts in to the report. The DAX and Power Query are quoted from the published model.</p>
-              </div>
-              <ol class="trace-list">
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The source · 7 CSV files</span>
-                    <ul class="files"><li>ledger.csv</li><li>capacity.csv</li><li>account.csv</li><li>client.csv</li><li>service_line.csv</li><li>entity.csv</li><li>calendar.csv</li></ul>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The clean-up · Power Query</span>
-                    <pre class="code"><code><span class="t">#"Removed Duplicate Rows"</span> = <span class="f">Table.Distinct</span>(<span class="t">#"Promoted Headers"</span>)
-
-<span class="t">#"Cleaned Client Names"</span> = <span class="f">Table.TransformColumns</span>(<span class="t">#"Changed Types"</span>,
-    {{<span class="s">"client"</span>, each if _ = <span class="s">""</span> then <span class="s">"Unallocated"</span>
-        else <span class="f">Text.Proper</span>(<span class="f">Text.Replace</span>(<span class="f">Text.Trim</span>(_), <span class="s">"  "</span>, <span class="s">" "</span>)), type text}})
-
-<span class="t">#"Costs Negative"</span> = <span class="f">Table.ReplaceValue</span>(<span class="t">#"Cleaned Client Names"</span>, each [amount],
-    each if <span class="f">Text.StartsWith</span>([account_code], <span class="s">"REV"</span>) then [amount]
-         else - <span class="f">Number.Abs</span>([amount]), Replacer.ReplaceValue, {<span class="s">"amount"</span>})</code></pre>
-                    <ul class="ticks"><li><strong>A journal batch exported twice</strong> is removed.</li><li><strong>Client names typed by hand</strong> are cleaned, and blanks become Unallocated.</li><li><strong>A cost posted with the wrong sign</strong> is corrected by making every cost negative.</li><li><strong>Depreciation with no budget line</strong> is shown as such in the P&amp;L, not as a variance.</li></ul>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M12 9V4M12 15v5M9 12H4M15 12h5"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The model · star schema</span>
-                    <div class="mdl"><svg viewBox="0 0 520 150" role="img" aria-label="Model diagram: Ledger related to Account, Client, Entity, Calendar and Service line; Capacity related to Calendar and Service line."><line x1="196" y1="75" x2="66" y2="27"/><line x1="196" y1="75" x2="66" y2="75"/><line x1="196" y1="75" x2="66" y2="123"/><line x1="196" y1="75" x2="326" y2="45"/><line x1="196" y1="75" x2="326" y2="105"/><line x1="456" y1="75" x2="326" y2="45"/><line x1="456" y1="75" x2="326" y2="105"/><g class="dim"><rect x="14.0" y="12.0" width="104" height="30" rx="6"/><text x="66" y="27">Account</text></g><g class="dim"><rect x="14.0" y="60.0" width="104" height="30" rx="6"/><text x="66" y="75">Client</text></g><g class="dim"><rect x="14.0" y="108.0" width="104" height="30" rx="6"/><text x="66" y="123">Entity</text></g><g class="fact"><rect x="144.0" y="60.0" width="104" height="30" rx="6"/><text x="196" y="75">Ledger</text></g><g class="dim"><rect x="274.0" y="30.0" width="104" height="30" rx="6"/><text x="326" y="45">Calendar</text></g><g class="dim"><rect x="274.0" y="90.0" width="104" height="30" rx="6"/><text x="326" y="105">Service line</text></g><g class="fact"><rect x="404.0" y="60.0" width="104" height="30" rx="6"/><text x="456" y="75">Capacity</text></g></svg></div>
-                    <p>Actuals and budget share the ledger. Capacity holds the hours, so utilisation and the hours and rate effects use the same calendar and service lines as the money.</p>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5H7l6 7-6 7h11"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">The measure · DAX</span>
-                    <pre class="code"><code><span class="c">// Actual amounts, before any category filter. The base of every actual figure.</span>
-Actual =
-<span class="f">CALCULATE</span> ( <span class="f">SUM</span> ( <span class="t">Ledger</span>[Amount] ), <span class="t">Ledger</span>[Scenario] = <span class="s">"Actual"</span> )
-
-<span class="c">// All accounts together: revenue less direct costs less overheads.</span>
-Operating Profit = [Actual]
-
-<span class="c">// Actual minus budgeted operating profit. Positive is favourable.</span>
-Operating Profit Variance = [Operating Profit] - [Operating Profit Budget]</code></pre>
-                    <p>Costs are stored as negative amounts, so a single sum gives profit at any level, and a positive variance is good news on every line.</p>
-                  </div>
-                </li>
-                <li class="trace-step">
-                  <span class="trace-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/></svg></span>
-                  <div class="trace-body">
-                    <span class="trace-label">On the report · Variance</span>
-                    <p class="trace-figure"><b>£612k</b><span>operating profit in June,</span><span class="is-bad">£108k below budget</span></p>
-                    <p class="trace-check">Every figure was recalculated from the source files outside Power BI, and matches the report.</p>
-                  </div>
-                </li>
-              </ol>
-              <p class="trace-foot"><a href="https://github.com/lorenzoreale/powerbi-portfolio/blob/main/month-end-management-pack/Month-End%20Management%20Pack.SemanticModel/definition/tables/Ledger.tmdl" target="_blank" rel="noopener">Read this measure in the model on GitHub <span aria-hidden="true">→</span></a></p>
-            </div>
+            <div class="mdl cs-flow"><svg viewBox="0 0 580 110" role="img" aria-label="SQL Server views and Excel workbooks go through Power Query into the semantic model, which feeds the report."><line x1="158" y1="32" x2="196" y2="55"/><line x1="158" y1="78" x2="196" y2="55"/><line x1="308" y1="55" x2="346" y2="55"/><line x1="470" y1="55" x2="508" y2="55"/><g class="dim"><rect x="8" y="17" width="150" height="30" rx="6"/><text x="83" y="32">SQL Server views</text></g><g class="dim"><rect x="8" y="63" width="150" height="30" rx="6"/><text x="83" y="78">Excel workbooks</text></g><g class="dim"><rect x="196" y="40" width="112" height="30" rx="6"/><text x="252" y="55">Power Query</text></g><g class="fact"><rect x="346" y="40" width="124" height="30" rx="6"/><text x="408" y="55">Semantic model</text></g><g class="dim"><rect x="508" y="40" width="64" height="30" rx="6"/><text x="540" y="55">Report</text></g></svg></div>
+            <ul class="spec-list">
+              <li><strong>The views do the cleaning</strong>SQL views hand the model one row per journal line, amounts with their effect on profit and a client for every line. Power Query stays thin and folds back to the server; only the finance workbooks are shaped in Power Query.</li>
+              <li><strong>The revenue variance splits three ways, exactly</strong>Capacity, billable hours and billing rates are valued so that they add up to the revenue variance to the pound, so leave and vacancies never show as lost sales.</li>
+              <li><strong>The period is set in one place</strong>A calculation group gives every measure its month, year to date and last-year versions, and the statement is read from a layout table, so its logic is written once.</li>
+              <li><strong>Real problems, handled in the open</strong>The files carry the problems real extracts do: a batch of purchase invoices loaded twice, manual journals with no client, a cost posted as a credit, depreciation with no budget line, and an account code typed with a trailing space. The Checks page counts each one.</li>
+            </ul>
+            <p class="trace-check">Every figure on this page was recalculated from the source files outside Power BI, and matches the report.</p>
           </section>
 
           <!-- SOURCE -->
@@ -277,8 +184,10 @@ Operating Profit Variance = [Operating Profit] - [Operating Profit Budget]</code
             <h2 id="source">The source</h2>
             <div class="prose">
               <p>
-                The semantic model, the DAX, the report and the script that generated the data are
-                <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/month-end-management-pack" target="_blank" rel="noopener">on GitHub</a>, all readable as plain text.
+                The semantic model, the DAX and Power Query, the report pages and the script that writes
+                the data are <a href="https://github.com/lorenzoreale/powerbi-portfolio/tree/main/month-end-management-pack" target="_blank" rel="noopener">on GitHub</a>,
+                all readable as plain text. The report itself, with its data, is a .pbix file in the
+                <a href="https://github.com/lorenzoreale/powerbi-portfolio/releases/tag/v2.0-month-end" target="_blank" rel="noopener">project's release</a>, with a PDF of every page.
               </p>
             </div>
           </section>
@@ -290,7 +199,7 @@ Operating Profit Variance = [Operating Profit] - [Operating Profit Budget]</code
               demonstrate the work, and no real client data appears anywhere in it.
             </p>
             <a class="next-case" href="/case-studies/data-reconciliation-monitor/">
-              <img src="/media/case-studies/data-reconciliation-monitor/status-thumb.webp" alt="" width="800" height="451" loading="lazy" />
+              <img src="/media/case-studies/data-reconciliation-monitor/status-thumb.webp" alt="" width="800" height="450" loading="lazy" />
               <span>
                 <span class="next-case-label">Next project</span>
                 <span class="next-case-title">Data Reconciliation Monitor</span>

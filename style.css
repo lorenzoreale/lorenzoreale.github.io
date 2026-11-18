@@ -1085,7 +1085,7 @@ a.cert-logo:hover {
    client scans, so it reads as a specification. */
 .cs-meta {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: var(--space-8);
   border-block: 1px solid var(--border);
 }
@@ -1097,10 +1097,11 @@ a.cert-logo:hover {
   font-size: var(--fs-small);
   color: var(--text);
 }
-.cs-meta li + li {
+.cs-meta li:nth-child(even) {
   border-left: 1px solid var(--border);
   padding-left: var(--space-4);
 }
+.cs-meta li:nth-child(n + 3) { border-top: 1px solid var(--border); }
 .cs-meta-label {
   font-size: var(--fs-tiny);
   font-weight: 600;
@@ -1345,6 +1346,7 @@ pre.code {
 
 /* On a phone the diagram scrolls sideways rather than shrinking past legibility */
 .mdl { max-width: 33rem; overflow-x: auto; }
+.cs-flow { max-width: 36rem; margin-top: var(--space-6); }
 .mdl svg { width: 100%; min-width: 26rem; height: auto; }
 .mdl line { stroke: var(--border-strong); stroke-width: 1.5; }
 .mdl rect { stroke-width: 1; }
@@ -1658,7 +1660,8 @@ pre.code {
 
   .cs-meta { grid-template-columns: 1fr; }
   .cs-meta li { padding-right: 0; }
-  .cs-meta li + li {
+  .cs-meta li + li,
+  .cs-meta li:nth-child(even) {
     border-left: 0;
     border-top: 1px solid var(--border);
     padding-left: 0;
